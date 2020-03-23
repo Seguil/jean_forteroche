@@ -1,0 +1,5 @@
+RewriteEngine On
+# Exception: si le fichier existe, ne pas gérer la réécriture d'Url
+RewriteCond %{REQUEST_FILENAME} !-f
+# Tout ce qu'on va recevoir dans l'Url va renvoyer vers index.php avec tout ce qui va derrière
+RewriteRule ^(.+)$ index.php?r=$1 [QSA,L]
