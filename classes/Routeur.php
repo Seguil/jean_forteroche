@@ -2,12 +2,12 @@
 class Routeur {
     private $request;
     private $routes = [
-        'user_home_page.html'                     => ['controller' => 'Home',         'method' => 'showHomePage'],
+        'user_home_page.html'                     => ['controller' => 'UserHome',         'method' => 'showHomePage'],
         'admin_home_page.html'                => ['controller' => 'AdminHome',    'method' => 'showAdminHomePage'],
-        'inscription_user.html'             => ['controller' => 'Home',         'method' => 'createUser'], //pas de view pour inscriptionUser car redirect sur userHomePage
-        'user_billet_page.html'           => ['controller' => 'Home',         'method' => 'readBilletComments'],
+        'inscription_user.html'             => ['controller' => 'UserHome',         'method' => 'createUser'], //pas de view pour inscriptionUser car redirect sur userHomePage
+        'user_billet_page.html'           => ['controller' => 'UserHome',         'method' => 'readBilletComments'],
         'admin_billet_page.html'      => ['controller' => 'AdminHome',    'method' => 'adminReadBilletComments'],
-        'create_comment.html'                => ['controller' => 'Home',         'method' => 'createComment'],
+        'create_comment.html'                => ['controller' => 'UserHome',         'method' => 'createComment'],
         'create_billet.html'                 => ['controller' => 'AdminHome',    'method' => 'createBillet'],
         'report_comment.html'                => ['controller' => 'AdminHome',    'method' => 'reportComment'],
         'connection_admin.html'             => ['controller' => 'AdminHome',    'method' => 'readUser'],
