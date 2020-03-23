@@ -7,7 +7,7 @@ MyAutoload::start();
 $request = $_GET['r'];//index.php?r=
 (isset($_GET['r']))
     ? $request = $_GET['r']
-    : $request = 'user_home_page'; //ou homepage.html?
+    : $request = 'user-home-page.html'; //ou homepage.html?
 
 $routeur = new Routeur($request);
 $routeur->renderController();

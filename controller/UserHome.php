@@ -1,6 +1,6 @@
 <?php
 
-class Home {
+class UserHome {
     //pour montrer la page homepage, je suis la méthode showhomepage
     public function showHomePage($params) {
         //extract($params);
@@ -22,7 +22,7 @@ class Home {
         //
         $billets = $billetManager->readAll($depart, $billetsParPage);
 
-        $currentView = new View('user_home_page');
+        $currentView = new View('user-home-page');
         $currentView->render(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante, 'billets' => $billets));
     }
 
