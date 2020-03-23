@@ -75,7 +75,7 @@ class AdminHome {
         $billetManager->create($myBillet);
 
         $currentView = new View();
-        $currentView->redirect('admin_home_page.html');
+        $currentView->redirect('admin-home-page.html');
     }
 
     public function reportComment($params) {
@@ -92,7 +92,7 @@ class AdminHome {
         $commentManager->flag($myComment);
 
         $currentView = new View();
-        $currentView->redirect('admin_billet_page.html/id/' . $_POST['idBillet']);
+        $currentView->redirect('admin-billet-page.html/id/' . $_POST['idBillet']);
     }
 
     public function readUser($params) {
@@ -107,13 +107,13 @@ class AdminHome {
         
         if($result===false) {
             $currentView = new View();
-            $currentView->redirect('user_home_page.html');
+            $currentView->redirect('user-home-page.html');
         } else {
             $_SESSION['u_id'] = $myUser->getIdUser();
             $_SESSION['username'] = $myUser->getUsername();
 
             $currentView = new View();
-            $currentView->redirect('admin_home_page.html');
+            $currentView->redirect('admin-home-page.html');
         }
     }
 
@@ -125,6 +125,6 @@ class AdminHome {
         session_destroy();
 
         $currentView = new View();
-        $currentView->redirect('user_home_page.html');
+        $currentView->redirect('user-home-page.html');
 }
 }
