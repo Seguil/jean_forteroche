@@ -49,16 +49,32 @@
             </form>
         </div>
 
+        <!-- Récupère les commentaires signalés-->
         <div id="report_comments">
-            <!-- Récupère les commentaires signalés-->
-            <?php if(isset($comment)) {
-                foreach($comment as $com):?>
-                    <div class="comment">
-                        <?php echo $com->getComment(); ?><br/>
-                        <?php echo $com->getCommentDate()->format('d/m/Y'); ?><br/>
-                    </div>
-                <?php endforeach; 
-            }?>
+            <div class="comment">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Chapitre n°</td>
+                            <td>Commentaire signalé</td>
+                            <!-- <td>Pseudo</td> -->
+                            <td>Date</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if(isset($comment)) {
+                            foreach($comment as $com):?>
+                                <tr>
+                                    <td><?php echo $com->getIdBillet(); ?></td>
+                                    <td><?php echo $com->getComment(); ?></td>
+                                    <td><?php echo $com->getCommentDate()->format('d/m/Y'); ?></td>
+                                    <td><a href="<?php echo HOST;?>delete-report-comment.html"><i class="fas fa-trash-alt"></i></a></td>
+                                </tr>
+                            <?php endforeach ;
+                        };?>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div id="admin_buttons">
