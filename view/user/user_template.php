@@ -38,7 +38,7 @@
         <div id="forms">
             <!-- Connexion form -->
             
-                <!-- <a href="<?php echo HOST;?>adminhomepage.html">Espace administrateur</a> -->
+                <!-- <a href="<?php echo HOST;?>admin_home_page.html">Espace administrateur</a> -->
                 <div id="form_connection">
                     <form action="<?php echo HOST ;?>connection_admin.html" method="post">
                         <label for="username_connect">Pseudo</label>
@@ -70,10 +70,6 @@
     </footer>
 
 <!-- Fichiers js -->
-    <!-- <script src="<?php echo JS;?>ajax.js"></script>
-    <script src="<?php echo JS;?>nav_chapters.js"></script>
-    <script src="<?php echo JS;?>main.js"></script> -->
-    <script src="<?php echo JS;?>app.js"></script>
 
 </body>
 </html>

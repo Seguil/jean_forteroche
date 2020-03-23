@@ -13,10 +13,10 @@ class View {
         $page = $this->page;
         
         ob_start();
-        include(VIEW.$page.'.php');
+        include(USER.$page.'.php');
         $main = ob_get_clean();
 
-        include_once(VIEW.'template.php');
+        include_once(USER.'user_template.php');
     }
 
     public function renderAdmin($params = array()) {
@@ -28,7 +28,7 @@ class View {
         include(ADMIN.$page.'.php');
         $main = ob_get_clean();
 
-        include_once(ADMIN.'template_admin.php');
+        include_once(ADMIN.'admin_template.php');
     }
 
     public function redirect($route) {

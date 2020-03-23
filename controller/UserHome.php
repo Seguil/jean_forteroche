@@ -22,7 +22,7 @@ class Home {
         //
         $billets = $billetManager->readAll($depart, $billetsParPage);
 
-        $currentView = new View('homepage');
+        $currentView = new View('user_home_page');
         $currentView->render(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante, 'billets' => $billets));
     }
 
@@ -38,29 +38,29 @@ class Home {
         $userManager->create($myUser);
 
         $currentView = new View();
-        $currentView->redirect('admin/adminhomepage.html');
+        $currentView->redirect('admin/admin_home_page.html');
     }
 
     public function readBilletComments($params) {
         extract($params);
 
         $billetManager = new BilletManager();
-        // $billetsTotal = $billetManager->pagination();
+        $billetsTotal = $billetManager->pagination();
         // $billetsTotal = json_encode($billetsTotal);
 
-        // //Eléments pour la pagination
-        // $billetsParPage = 3;
-        // $pagesTotales = ceil($billetsTotal/$billetsParPage);
-        // if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page']>0 AND $_GET['page']<=$pagesTotales) {
-        //     $_GET['page'] = intval($_GET['page']);
-        //     $pageCourante = $_GET['page'];
-        // } else {
-        //     $pageCourante = 1;
-        // }
-        // $depart = ($pageCourante-1)*$billetsParPage;
+        //Eléments pour la pagination
+        $billetsParPage = 3;
+        $pagesTotales = ceil($billetsTotal/$billetsParPage);
+        if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page']>0 AND $_GET['page']<=$pagesTotales) {
+            $_GET['page'] = intval($_GET['page']);
+            $pageCourante = $_GET['page'];
+        } else {
+            $pageCourante = 1;
+        }
+        $depart = ($pageCourante-1)*$billetsParPage;
 
-        // //
-        // $billets = $billetManager->readAll($depart, $billetsParPage);
+        //
+        $billets = $billetManager->readAll($depart, $billetsParPage);
         $billet = $billetManager->read($id);
 
         $commentManager = new CommentManager();
@@ -69,9 +69,9 @@ class Home {
         // $commentManager = new CommentManager();
         // $comment = $commentManager->read($id);
 
-        $currentView = new View('billetCommentsPage');
-        // $currentView->render(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante,'billets' =>$billets, 'billet' => $billet, 'comments' => $comments));
-        $currentView->render(array('billet' => $billet, 'comments' => $comments));
+        $currentView = new View('user_billet_page');
+        $currentView->render(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante,'billets' =>$billets, 'billet' => $billet, 'comments' => $comments));
+        // $currentView->render(array('billet' => $billet, 'comments' => $comments));
 
         // $currentView->render(array('billets' => $billets, 'billet' => $billet, 'comments' => $comments));
 
@@ -90,7 +90,7 @@ class Home {
         $commentManager->create($myComment);
 
         $currentView = new View();
-        $currentView->redirect('billetCommentsPage.html/id/' . $_POST['billet']);
+        $currentView->redirect('user_billet_page.html/id/' . $_POST['billet']);
     }
 
     // public function getJsonServices($params) {

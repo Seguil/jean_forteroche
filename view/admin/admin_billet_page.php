@@ -1,5 +1,5 @@
 <aside>
-    <a href="<?php echo HOST;?>adminhomepage.html">Page d'accueil</a>
+    <a href="<?php echo HOST;?>admin_home_page.html">Page d'accueil</a>
 
     <div class="pagination">
         <?php
@@ -12,7 +12,7 @@
         <ul>
             <?php foreach($billets as $bil):?>
                 <div class="billet">
-                    <a href="<?php echo HOST;?>adminBilletCommentsPage.html/id/<?php echo $bil->getId(); ?>">
+                    <a href="<?php echo HOST;?>admin_billet_page.html/id/<?php echo $bil->getId(); ?>">
                         <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
                         <h3><?php echo $bil->getTitle();?></h3>
                     </a>
@@ -42,7 +42,7 @@
     <div id="comments">
         <h4>Commentaires</h4>
         <button>Ajouter un commentaire</button>
-        <form action="<?php echo HOST;?>createComment.html" method="post">
+        <form action="<?php echo HOST;?>create_comment.html" method="post">
             <label for="message">Message :</label>
             <input type="text" name="message" id="message" />
             <input name="billet" type="hidden" value="<?php echo $billet->getId();?>" /><br />

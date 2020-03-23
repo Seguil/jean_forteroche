@@ -24,7 +24,7 @@ class AdminHome {
         $commentManager = new CommentManager();
         $comment = $commentManager->readAllReport();
 
-        $currentView = new View('adminhomepage');
+        $currentView = new View('admin_home_page');
         $currentView->renderAdmin(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante, 'billets' => $billets, 'comment' => $comment));
         // $currentView->render(array('billets' => $billets, 'billet' => $billet));
     }
@@ -57,7 +57,7 @@ class AdminHome {
         // $commentManager = new CommentManager();
         // $comment = $commentManager->read($id);
 
-        $currentView = new View('adminBilletCommentsPage');
+        $currentView = new View('admin_billet_page');
         $currentView->renderAdmin(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante, 'billets' =>$billets, 'billet' => $billet, 'comments' => $comments));
 
         // $currentView->render(array('billets' => $billets, 'billet' => $billet, 'comments' => $comments));
@@ -75,7 +75,7 @@ class AdminHome {
         $billetManager->create($myBillet);
 
         $currentView = new View();
-        $currentView->redirect('adminhomepage.html');
+        $currentView->redirect('admin_home_page.html');
     }
 
     public function reportComment($params) {
@@ -92,7 +92,7 @@ class AdminHome {
         $commentManager->flag($myComment);
 
         $currentView = new View();
-        $currentView->redirect('billetCommentsPage.html/id/' . $_POST['idBillet']);
+        $currentView->redirect('admin_billet_page.html/id/' . $_POST['idBillet']);
     }
 
     public function readUser($params) {
@@ -107,13 +107,13 @@ class AdminHome {
         
         if($result===false) {
             $currentView = new View();
-            $currentView->redirect('homepage.html');
+            $currentView->redirect('user_home_page.html');
         } else {
             $_SESSION['u_id'] = $myUser->getIdUser();
             $_SESSION['username'] = $myUser->getUsername();
 
             $currentView = new View();
-            $currentView->redirect('adminhomepage.html');
+            $currentView->redirect('admin_home_page.html');
         }
     }
 
@@ -125,6 +125,6 @@ class AdminHome {
         session_destroy();
 
         $currentView = new View();
-        $currentView->redirect('homepage.html');
+        $currentView->redirect('user_home_page.html');
 }
 }

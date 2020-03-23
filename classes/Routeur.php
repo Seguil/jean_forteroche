@@ -2,17 +2,17 @@
 class Routeur {
     private $request;
     private $routes = [
-        'homepage.html'                     => ['controller' => 'Home',         'method' => 'showHomePage'],
-        'adminhomepage.html'                => ['controller' => 'AdminHome',    'method' => 'showAdminHomePage'],
+        'user_home_page.html'                     => ['controller' => 'Home',         'method' => 'showHomePage'],
+        'admin_home_page.html'                => ['controller' => 'AdminHome',    'method' => 'showAdminHomePage'],
         'inscription_user.html'             => ['controller' => 'Home',         'method' => 'createUser'], //pas de view pour inscriptionUser car redirect sur userHomePage
-        'billetCommentsPage.html'           => ['controller' => 'Home',         'method' => 'readBilletComments'],
-        'adminBilletCommentsPage.html'      => ['controller' => 'AdminHome',    'method' => 'adminReadBilletComments'],
-        'createComment.html'                => ['controller' => 'Home',         'method' => 'createComment'],
-        'createBillet.html'                 => ['controller' => 'AdminHome',    'method' => 'createBillet'],
-        'reportComment.html'                => ['controller' => 'AdminHome',    'method' => 'reportComment'],
+        'user_billet_page.html'           => ['controller' => 'Home',         'method' => 'readBilletComments'],
+        'admin_billet_page.html'      => ['controller' => 'AdminHome',    'method' => 'adminReadBilletComments'],
+        'create_comment.html'                => ['controller' => 'Home',         'method' => 'createComment'],
+        'create_billet.html'                 => ['controller' => 'AdminHome',    'method' => 'createBillet'],
+        'report_comment.html'                => ['controller' => 'AdminHome',    'method' => 'reportComment'],
         'connection_admin.html'             => ['controller' => 'AdminHome',    'method' => 'readUser'],
-        'deconnexion.html'                  => ['controller' => 'AdminHome',    'method' => 'deconnexionUser'],
-        'billetCommentsPage.html'           => ['controller' => 'AjaxHome',     'method' => 'getBillets']
+        'deconnexion.html'                  => ['controller' => 'AdminHome',    'method' => 'deconnexionUser']
+        // 'user_billet_page.html'           => ['controller' => 'AjaxHome',     'method' => 'getBillets']
         // 'updateBillet.html'     => ['controller' => 'Home', 'method' => 'updateBillet'],
         // 'deleteBillet.html'     => ['controller' => 'Home', 'method' => 'deleteBillet'],
         // 'readBillet.html'       => ['controller' => 'Home', 'method' => 'readBillet'],
