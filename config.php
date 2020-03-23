@@ -18,8 +18,8 @@ class MyAutoload {
         $host = $_SERVER['HTTP_HOST'];
         $root = $_SERVER['DOCUMENT_ROOT'];
 
-        define('ROOT', $root.'/bjf/'); //chemin par dossier
-        define('HOST', 'http://'.$host.'/bjf/'); //chemin d'url
+        define('ROOT', $root.'/jean_forteroche/'); //chemin par dossier
+        define('HOST', 'http://'.$host.'/jean_forteroche/'); //chemin d'url
 
         /**je définis où est mon controller... */
         define('CONTROLLER', ROOT.'controller/');

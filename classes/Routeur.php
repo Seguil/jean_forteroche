@@ -2,7 +2,7 @@
 class Routeur {
     private $request;
     private $routes = [
-        'user_home_page.html'         => ['controller' => 'UserHome'    ,    'method' => 'showHomePage'           ],
+        'user-home-page.html'         => ['controller' => 'UserHome'    ,    'method' => 'showHomePage'           ],
         'admin_home_page.html'        => ['controller' => 'AdminHome'   ,    'method' => 'showAdminHomePage'      ],
         'inscription_user.html'       => ['controller' => 'UserHome'    ,    'method' => 'createUser'             ], //pas de view pour inscriptionUser car redirect sur userHomePage
         'user_billet_page.html'       => ['controller' => 'UserHome'    ,    'method' => 'readBilletComments'     ],
