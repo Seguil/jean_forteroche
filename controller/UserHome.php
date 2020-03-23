@@ -38,7 +38,7 @@ class UserHome {
         $userManager->create($myUser);
 
         $currentView = new View();
-        $currentView->redirect('admin/admin_home_page.html');
+        $currentView->redirect('admin/admin-home-page.html');
     }
 
     public function readBilletComments($params) {
@@ -90,7 +90,7 @@ class UserHome {
         $commentManager->create($myComment);
 
         $currentView = new View();
-        $currentView->redirect('user_billet_page.html/id/' . $_POST['billet']);
+        $currentView->redirect('user-billet-page.html/id/' . $_POST['billet']);
     }
 
     // public function getJsonServices($params) {
