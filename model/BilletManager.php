@@ -69,37 +69,13 @@ class BilletManager {
 
     }
 
-    public function readAll() {
-        $pdo = $this->pdo;
-
-        $request = $pdo->query('SELECT * FROM billet ORDER BY number DESC');
-
-        $request->execute();
-        
-        while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
-            $billet = new Billet();
-            $billet->setId($row['b_id']);
-            $billet->setNumber($row['number']);
-            $billet->setTitle($row['title']);
-            $billet->setContent($row['content']);
-            $billet->setPublicationDate($row['publication_date']);
-            $billets[] = $billet;
-        };
-            return $billets;
-    }
-
-
-    // public function readAll($depart, $billetsParPage) {
-
+    // public function readAll() {
     //     $pdo = $this->pdo;
 
+    //     $request = $pdo->query('SELECT * FROM billet ORDER BY number DESC');
 
-    //     //Affichage des billets
-    //     $request = $pdo->prepare('SELECT * FROM billet ORDER BY number DESC LIMIT '.$depart.','.$billetsParPage);
-    //     // $request = $pdo->prepare('SELECT * FROM billet ORDER BY number DESC LIMIT 0,5');
-
-    //     //exécution de la requête
     //     $request->execute();
+        
     //     while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
     //         $billet = new Billet();
     //         $billet->setId($row['b_id']);
@@ -109,9 +85,33 @@ class BilletManager {
     //         $billet->setPublicationDate($row['publication_date']);
     //         $billets[] = $billet;
     //     };
-
-    //     return $billets;
+    //         return $billets;
     // }
+
+
+    public function readAll($depart, $billetsParPage) {
+
+        $pdo = $this->pdo;
+
+
+        //Affichage des billets
+        $request = $pdo->prepare('SELECT * FROM billet ORDER BY number DESC LIMIT '.$depart.','.$billetsParPage);
+        // $request = $pdo->prepare('SELECT * FROM billet ORDER BY number DESC LIMIT 0,5');
+
+        //exécution de la requête
+        $request->execute();
+        while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
+            $billet = new Billet();
+            $billet->setId($row['b_id']);
+            $billet->setNumber($row['number']);
+            $billet->setTitle($row['title']);
+            $billet->setContent($row['content']);
+            $billet->setPublicationDate($row['publication_date']);
+            $billets[] = $billet;
+        };
+
+        return $billets;
+    }
 
 
     public function update($billet) {
