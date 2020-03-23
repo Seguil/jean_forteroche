@@ -40,7 +40,7 @@
             
                 <!-- <a href="<?php echo HOST;?>admin_home_page.html">Espace administrateur</a> -->
                 <div id="form_connection">
-                    <form action="<?php echo HOST ;?>connection_admin.html" method="post">
+                    <form action="<?php echo HOST ;?>connection-admin.html" method="post">
                         <label for="username_connect">Pseudo</label>
                             <input type="text" name="username_connect" required/>
                         <label for="password">Mot de passe</label>
@@ -52,7 +52,7 @@
             <!-- Connexion form -->
             <div id="form_inscription">
                 <h2>Inscription</h2>
-                <form action="<?php echo HOST ;?>inscription_user.html" method="post">
+                <form action="<?php echo HOST ;?>inscription-user.html" method="post">
                     <label for="username">Pseudo
                         <input type="text" name="username" required/>
                     </label>
