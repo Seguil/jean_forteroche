@@ -22,7 +22,7 @@ class UserHome {
         //
         $billets = $billetManager->readAll($depart, $billetsParPage);
 
-        $currentView = new View('user-home-page');
+        $currentView = new View('user_home_page');
         $currentView->render(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante, 'billets' => $billets));
     }
 
