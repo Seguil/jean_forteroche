@@ -1,0 +1,55 @@
+<?php
+
+class Comment {
+    private $idComment;
+    private $idBillet;
+    private $comment;
+    private $commentDate;
+    private $report;
+
+    public function getIdComment() {
+        return $this->idComment;
+    }
+
+    public function setIdComment($idComment) {
+        $this->idComment = $idComment;
+        return $this;
+    }
+
+    public function getIdBillet() {
+        return $this->idBillet;
+    }
+
+    public function setIdBillet($idBillet) {
+        $this->idBillet = $idBillet;
+        return $this;
+    }
+
+    public function getComment() {
+        return $this->comment;
+    }
+
+    public function setComment($comment) {
+        $this->comment = $comment;
+        return $this;
+    }
+
+    public function getCommentDate() {
+        return $this->commentDate;
+    }
+
+    public function setCommentDate($commentDate) {
+        $this->commentDate = new DateTime($commentDate);
+        return $this;
+    }
+
+    public function getReport() {
+        return $this->report;
+    }
+
+    public function setReport($report) {
+        $this->report = $report;
+        return $this;
+    }
+
+}
