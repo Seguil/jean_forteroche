@@ -1,0 +1,194 @@
+body {
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+/* ---------------header -----------------*/
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5vh;
+    margin-left: 2vw;
+    width: 90vw;
+}
+
+/* ---------------main -----------------*/
+main {
+    display: flex;
+    justify-content: space-around;
+    width: 99vw;
+}
+
+nav,
+aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 0;
+    width: 20vw;
+}
+
+aside nav ul {
+    padding-left: 0;
+    margin: auto;
+}
+
+aside nav ul .billet {
+    margin: 0;
+    width: 15vw;
+}
+
+aside nav ul .billet h2 {
+    margin-bottom: 0;
+}
+
+aside nav ul .billet h3 {
+    margin-top: 0;
+}
+
+
+
+#container {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+}
+
+#container nav {
+    flex-grow: 2;
+    width: auto;
+}
+
+.pagination {
+    display: flex;
+    margin-left: 4vw;
+
+}
+
+article {
+    margin: 2vh;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(85, 78, 73);
+}
+
+h1, h2 {
+    font-family: 'Sacramento', cursive, Calibri, Arial, Helvetica, sans-serif;
+    color: rgb(233, 108, 5);
+}
+
+h1 {
+    font-size: 4em;
+    display: flex;
+    flex-grow: 2;
+    justify-content: center;
+    margin-top: 6vh;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+h3 {
+    font-size: 1.6em;
+    text-transform: uppercase;
+    color: rgb(73, 57, 46);
+}
+
+p {
+    font-size: 1.4em;
+    color: rgb(85, 78, 73);
+    margin-top: 0;
+    margin-bottom: 0;
+}
+/* ---------------homepage - aside -----------------*/
+header img {
+    width: 17vw;
+    border-radius: 30px;
+}
+
+#bibliography {
+    padding: 0 2vw 0 2vw;
+    text-align: justify;
+}
+
+#bibliography h2 {
+    text-align: center;
+}
+
+/* ---------------homepage - liste des chapitres -----------------*/
+#container nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.billet {
+    width: 20vw;
+    margin: 2vw 2vh;
+    text-align: center;
+}
+/* ---------------userhomepage - commentaires -----------------*/
+#comments {
+    background-color: rgba(200, 197, 0, 0.4);
+    margin: 2vh;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 2vh;
+}
+
+.comment button {
+    width: 10vw;
+}
+
+/* ---------------userhomepage - commentaires -----------------*/
+#admin_buttons {
+    margin: 2vh;
+}
+
+
+/* ---------------adminhomepage -----------------*/
+#writing_billet form {
+    width: auto;
+}
+
+
+/* ---------------footer -----------------*/
+footer {
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    height: 9vh;
+    background-color: rgba(210, 210, 211, 0.4);
+}
+
+#mentions_legales,
+#forms {
+    margin: 2vh;
+    display: flex;
+    align-items: center;
+}
+
+/* ---------------footer - forms -----------------*/
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+}
+
+form input[type=submit] {
+    width: 10vw;
+}
+
+#form_inscription {
+    display: none;
+}
