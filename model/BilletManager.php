@@ -13,12 +13,12 @@ class BilletManager {
         //prend en param User $user objet de type user passé par référence (&) (cad alias)
         //return bool true si l'objet a été inséré, false si une erreur est survenue
         $pdo = $this->pdo;
-        $request = $pdo->prepare('INSERT INTO billet (number, title, content, publication_date) VALUES (:number, :title, :content, NOW())');
+        $request = $pdo->prepare('INSERT INTO billet (b_number, b_title, b_content, b_publication_date) VALUES (:b_number, :b_title, :b_content, NOW())');
     
         //Liaison des paramètres
-        $request->bindValue(':number', $billet->getNumber(), PDO::PARAM_INT);
-        $request->bindValue(':title', $billet->getTitle(), PDO::PARAM_STR);
-        $request->bindValue(':content', $billet->getContent(), PDO::PARAM_STR);
+        $request->bindValue(':b_number', $billet->getNumber(), PDO::PARAM_INT);
+        $request->bindValue(':b_title', $billet->getTitle(), PDO::PARAM_STR);
+        $request->bindValue(':b_content', $billet->getContent(), PDO::PARAM_STR);
 
         //Exécution de la requête
         $executeIsOk = $request->execute();
@@ -49,10 +49,10 @@ class BilletManager {
         
         $billet = new Billet();
         $billet->setId($row['b_id']);
-        $billet->setNumber($row['number']);
-        $billet->setTitle($row['title']);
-        $billet->setContent($row['content']);
-        $billet->setPublicationDate($row['publication_date']);
+        $billet->setNumber($row['b_number']);
+        $billet->setTitle($row['b_title']);
+        $billet->setContent($row['b_content']);
+        $billet->setPublicationDate($row['b_publication_date']);
 
         return $billet;
     }
@@ -103,10 +103,10 @@ class BilletManager {
         while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
             $billet = new Billet();
             $billet->setId($row['b_id']);
-            $billet->setNumber($row['number']);
-            $billet->setTitle($row['title']);
-            $billet->setContent($row['content']);
-            $billet->setPublicationDate($row['publication_date']);
+            $billet->setNumber($row['b_number']);
+            $billet->setTitle($row['b_title']);
+            $billet->setContent($row['b_content']);
+            $billet->setPublicationDate($row['b_publication_date']);
             $billets[] = $billet;
         };
 
@@ -122,12 +122,12 @@ class BilletManager {
         //Préparation de la requête
         $pdo = $this->pdo;
 
-        $request = $pdo->prepare('UPDATE billet set number=:number, title=:title, content=:content, publication_date=NOW() WHERE b_id=:b_id LIMIT 1');
+        $request = $pdo->prepare('UPDATE billet set b_number=:b_number, b_title=:b_title, b_content=:b_content, b_publication_date=NOW() WHERE b_id=:b_id LIMIT 1');
 
         //Liaison des paramètres
-        $request->bindValue(':number', $billet->getNumber(), PDO::PARAM_INT);
-        $request->bindValue(':title', $billet->getTitle(), PDO::PARAM_STR);
-        $request->bindValue(':content', $billet->getContent(), PDO::PARAM_STR);
+        $request->bindValue(':b_number', $billet->getNumber(), PDO::PARAM_INT);
+        $request->bindValue(':b_title', $billet->getTitle(), PDO::PARAM_STR);
+        $request->bindValue(':b_content', $billet->getContent(), PDO::PARAM_STR);
         $request->bindValue(':b_id', $billet->getId(), PDO::PARAM_INT);
 
 

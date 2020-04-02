@@ -14,14 +14,14 @@ class CommentManager {
         //return bool true si l'objet a été inséré, false si une erreur est survenue
         $pdo = $this->pdo;
         $request = $pdo->prepare('
-            INSERT INTO comment (id_billet, comment, comment_date, report)
-            VALUES (:id_billet, :comment, NOW(), :report)
+            INSERT INTO comment (c_id_billet, c_comment, c_comment_date, c_report)
+            VALUES (:c_id_billet, :c_comment, NOW(), :c_report)
         ');
     
         //Liaison des paramètres
-        $request->bindValue(':id_billet', $comment->getIdBillet(), PDO::PARAM_INT);
-        $request->bindValue(':comment', $comment->getComment(), PDO::PARAM_STR);
-        $request->bindValue(':report', $comment->getReport(), PDO::PARAM_STR);
+        $request->bindValue(':c_id_billet', $comment->getIdBillet(), PDO::PARAM_INT);
+        $request->bindValue(':c_comment', $comment->getComment(), PDO::PARAM_STR);
+        $request->bindValue(':c_report', $comment->getReport(), PDO::PARAM_STR);
 
         //Exécution de la requête
           $executeIsOk = $request->execute();
@@ -68,9 +68,9 @@ class CommentManager {
         
         $comment = new Comment();
         $comment->setIdComment($row['c_id']);
-        $comment->setIdBillet($row['id_billet']);
-        $comment->setComment($row['comment']);
-        $comment->setCommentDate($row['comment_date']);
+        $comment->setIdBillet($row['c_id_billet']);
+        $comment->setComment($row['c_comment']);
+        $comment->setCommentDate($row['c_comment_date']);
 
         if(isset($comment)) {
             return $comment;
@@ -84,24 +84,24 @@ class CommentManager {
         $pdo = $this->pdo;
 
         $request = $pdo->prepare('
-            SELECT c_id, id_billet, comment, comment_date
+            SELECT c_id, c_id_billet, c_comment, c_comment_date
             FROM comment
             INNER JOIN billet 
-                ON comment.id_billet = billet.b_id
-            WHERE id_billet=:id_billet
-            ORDER BY comment_date DESC
+                ON comment.c_id_billet = billet.b_id
+            WHERE c_id_billet=:c_id_billet
+            ORDER BY c_comment_date DESC
         ');
         
-        $request->bindValue(':id_billet', $idBillet, PDO::PARAM_INT);
+        $request->bindValue(':c_id_billet', $idBillet, PDO::PARAM_INT);
 
         //exécution de la requête
         $request->execute();
         while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
             $comment = new Comment();
             $comment->setIdComment($row['c_id']);
-            $comment->setIdBillet($row['id_billet']);
-            $comment->setComment($row['comment']);
-            $comment->setCommentDate($row['comment_date']);
+            $comment->setIdBillet($row['c_id_billet']);
+            $comment->setComment($row['c_comment']);
+            $comment->setCommentDate($row['c_comment_date']);
             $comments[] = $comment;
         };
         if(isset($comments)) {
@@ -115,8 +115,8 @@ class CommentManager {
         $request = $pdo->prepare('
             SELECT *
             FROM comment
-            WHERE report = "on"
-            ORDER BY comment_date DESC
+            WHERE c_report = "on"
+            ORDER BY c_comment_date DESC
         ');
         
         //  $request->bindValue('report', $comment->getReport(), PDO::PARAM_BOOL);
@@ -127,10 +127,10 @@ class CommentManager {
         while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
             $comment = new Comment();
             $comment->setIdComment($row['c_id']);
-            $comment->setIdBillet($row['id_billet']);
-            $comment->setComment($row['comment']);
-            $comment->setCommentDate($row['comment_date']);
-            $comment->setReport($row['report']);
+            $comment->setIdBillet($row['c_id_billet']);
+            $comment->setComment($row['c_comment']);
+            $comment->setCommentDate($row['c_comment_date']);
+            $comment->setReport($row['c_report']);
             $comments[] = $comment;
         };
         if(isset($comments)) {
@@ -148,14 +148,14 @@ class CommentManager {
         //Préparation de la requête
         $pdo = $this->pdo;
 
-        $request = $pdo->prepare('UPDATE comment set report=:report WHERE c_id=:c_id LIMIT 1');
+        $request = $pdo->prepare('UPDATE comment set c_report=:c_report WHERE c_id=:c_id LIMIT 1');
 
         //Liaison des paramètres
         // $request->bindValue(':comment', $comment->getComment(), PDO::PARAM_STR);
         $request->bindValue(':c_id', $comment->getIdComment(), PDO::PARAM_INT);
         // $request->bindValue(':id_billet', $comment->getIdBillet(), PDO::PARAM_INT);
         // $request->bindValue(':comment_date', $comment->getCommentDate(), PDO::PARAM_STR);
-        $request->bindValue(':report', $comment->getReport(), PDO::PARAM_BOOL);
+        $request->bindValue(':c_report', $comment->getReport(), PDO::PARAM_BOOL);
         //Exécution de la requête
         /**$executeIsOk =*/$request->execute();
         // if($executeIsOk) {
@@ -173,14 +173,14 @@ class CommentManager {
         //Préparation de la requête
         $pdo = $this->pdo;
 
-        $request = $pdo->prepare('UPDATE comment SET report=:report WHERE c_id=:c_id AND id_billet=:id_billet LIMIT 1');
+        $request = $pdo->prepare('UPDATE comment SET c_report=:c_report WHERE c_id=:c_id AND c_id_billet=:c_id_billet LIMIT 1');
 
         //Liaison des paramètres
         // $request->bindValue(':comment', $comment->getComment(), PDO::PARAM_STR);
         $request->bindValue(':c_id', $comment->getIdComment(), PDO::PARAM_INT);
-        $request->bindValue(':id_billet', $comment->getIdBillet(), PDO::PARAM_INT);
+        $request->bindValue(':c_id_billet', $comment->getIdBillet(), PDO::PARAM_INT);
         // $request->bindValue(':comment_date', $comment->getCommentDate(), PDO::PARAM_STR);
-        $request->bindValue(':report', $comment->getReport(), PDO::PARAM_STR);
+        $request->bindValue(':c_report', $comment->getReport(), PDO::PARAM_STR);
 // var_dump($comment->getIdComment()); exit;
         //Exécution de la requête
         /**$executeIsOk =*/$request->execute();

@@ -13,11 +13,11 @@ class UserManager {
         //prend en param User $user objet de type user passé par référence (&) (cad alias)
         //return bool true si l'objet a été inséré, false si une erreur est survenue
         $pdo = $this->pdo;
-        $request = $pdo->prepare('INSERT INTO user (username, password, creation_date) VALUES (:username, :password, NOW())');
+        $request = $pdo->prepare('INSERT INTO user (u_username, u_password, u_creation_date) VALUES (:u_username, :u_password, NOW())');
     
         //Liaison des paramètres
-        $request->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
-        $request->bindValue(':password', password_hash($user->getPassword(), PASSWORD_DEFAULT), PDO::PARAM_STR);
+        $request->bindValue(':u_username', $user->getUsername(), PDO::PARAM_STR);
+        $request->bindValue(':u_password', password_hash($user->getPassword(), PASSWORD_DEFAULT), PDO::PARAM_STR);
 
         //Exécution de la requête
           $executeIsOk = $request->execute();
@@ -37,10 +37,10 @@ class UserManager {
 
         $pdo = $this->pdo;
 
-        $request = $pdo->prepare('SELECT * FROM user WHERE username = :username');
+        $request = $pdo->prepare('SELECT * FROM user WHERE u_username = :u_username');
     
         //Liaison des paramètres
-        $request->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
+        $request->bindValue(':u_username', $user->getUsername(), PDO::PARAM_STR);
         
         //exécution de la requête
         $executeIsOk = $request->execute();
@@ -51,12 +51,12 @@ class UserManager {
             $row = $request->fetch(PDO::FETCH_ASSOC);
     
             //je vérifie les mots de passe
-            if(password_verify($user->getPassword(), $row['password'])) {
+            if(password_verify($user->getPassword(), $row['u_password'])) {
                 $user = new User();
                 $user->setIdUser($row['u_id']);
-                $user->setUsername($row['username']);
-                $user->setPassword($row['password']);
-                $user->setCreationDate($row['creation_date']);
+                $user->setUsername($row['u_username']);
+                $user->setPassword($row['u_password']);
+                $user->setCreationDate($row['u_creation_date']);
     
                 return $user;
             } else {
@@ -87,13 +87,13 @@ class UserManager {
         //Préparation de la requête
         $pdo = $this->pdo;
 
-        $request = $pdo->prepare('UPDATE user set username=:username, password=:password WHERE u_id=:u_id LIMIT 1');
+        $request = $pdo->prepare('UPDATE user set u_username=:u_username, u_password=:u_password WHERE u_id=:u_id LIMIT 1');
 
         //Liaison des paramètres
-        $request->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
-        $request->bindValue(':mdp', password_hash($user->getMdp(), PASSWORD_DEFAULT), PDO::PARAM_STR);
+        $request->bindValue(':u_username', $user->getUsername(), PDO::PARAM_STR);
+        $request->bindValue(':u_mdp', password_hash($user->getMdp(), PASSWORD_DEFAULT), PDO::PARAM_STR);
         $request->bindValue(':u_id', $user->getIdUser(), PDO::PARAM_INT);
-        $request->bindValue(':date_creation', $user->getCreationdate(), PDO::PARAM_STR);
+        $request->bindValue(':u_date_creation', $user->getCreationdate(), PDO::PARAM_STR);
 
         //Exécution de la requête
         /**$executeIsOk =*/$request->execute();
