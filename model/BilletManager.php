@@ -95,7 +95,7 @@ class BilletManager {
 
 
         //Affichage des billets
-        $request = $pdo->prepare('SELECT * FROM billet ORDER BY number DESC LIMIT '.$depart.','.$billetsParPage);
+        $request = $pdo->prepare('SELECT * FROM billet ORDER BY b_number DESC LIMIT '.$depart.','.$billetsParPage);
         // $request = $pdo->prepare('SELECT * FROM billet ORDER BY number DESC LIMIT 0,5');
 
         //exécution de la requête
