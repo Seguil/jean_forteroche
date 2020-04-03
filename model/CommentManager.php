@@ -14,12 +14,12 @@ class CommentManager {
         //return bool true si l'objet a été inséré, false si une erreur est survenue
         $pdo = $this->pdo;
         $request = $pdo->prepare('
-            INSERT INTO comment (id_billet, comment, comment_date, report)
-            VALUES (:id_billet, :comment, NOW(), :report)
+            INSERT INTO comment (b_id_billet, comment, comment_date, report)
+            VALUES (:b_id_billet, :comment, NOW(), :report)
         ');
     
         //Liaison des paramètres
-        $request->bindValue(':id_billet', $comment->getIdBillet(), PDO::PARAM_INT);
+        $request->bindValue(':b_id_billet', $comment->getIdBillet(), PDO::PARAM_INT);
         $request->bindValue(':comment', $comment->getComment(), PDO::PARAM_STR);
         $request->bindValue(':report', $comment->getReport(), PDO::PARAM_STR);
 
@@ -84,24 +84,24 @@ class CommentManager {
         $pdo = $this->pdo;
 
         $request = $pdo->prepare('
-            SELECT c_id, id_billet, comment, comment_date
+            SELECT c_id, c_id_billet, c_comment, c_comment_date
             FROM comment
             INNER JOIN billet 
-                ON comment.id_billet = billet.b_id
-            WHERE id_billet=:id_billet
-            ORDER BY comment_date DESC
+                ON comment.c_id_billet = billet.b_id
+            WHERE c_id_billet=:c_id_billet
+            ORDER BY c_comment_date DESC
         ');
         
-        $request->bindValue(':id_billet', $idBillet, PDO::PARAM_INT);
+        $request->bindValue(':c_id_billet', $idBillet, PDO::PARAM_INT);
 
         //exécution de la requête
         $request->execute();
         while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
             $comment = new Comment();
             $comment->setIdComment($row['c_id']);
-            $comment->setIdBillet($row['id_billet']);
-            $comment->setComment($row['comment']);
-            $comment->setCommentDate($row['comment_date']);
+            $comment->setIdBillet($row['c_id_billet']);
+            $comment->setComment($row['c_comment']);
+            $comment->setCommentDate($row['c_comment_date']);
             $comments[] = $comment;
         };
         if(isset($comments)) {
