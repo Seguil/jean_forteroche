@@ -9,8 +9,8 @@ function displayChapters(){
       for (let i=0; i<dataBillets.length; i++) {
         let billet = dataBillets[i]; //Je récupère les stations sous forme de tableau
        // Je récupère les informations pour l'affichage des infos 
-       let number = billet.number;
-       let title = billet.title;
+    //    let number = billet.number;
+    //    let title = billet.title;
    // const html = dataBillets.map(function(getBillets){
    //     return `
    //         <div class="nav_chapters">
@@ -18,10 +18,18 @@ function displayChapters(){
    //             <h3 class="title">${getBillets.title}</h3>
    //         </div>
    //     `
-       document.querySelector('.number').innerHTML = number;
-       document.querySelector('.title').innerHTML = title;
-
-   };
+           let numberBillet = document.createElement("h2");
+           numberBillet.textContent = billet.number;
+           ajaxreq.appendChild(numberBillet);
+   
+           let titleBillet = document.createElement("h2");
+           titleBillet.textContent = billet.title;
+           ajaxreq.appendChild(titleBillet);
+   
+           let contentBillet = document.createElement("p");
+           contentBillet.textContent = billet.content;
+           ajaxreq.appendChild(contentBillet);
+      };
 }
   
     // 3. On envoie la requête
