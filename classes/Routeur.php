@@ -11,8 +11,8 @@ class Routeur {
         'create-billet.html'          =>      ['controller' => 'AdminHome'   ,    'method' => 'createBillet'           ],
         'report-comment.html'         =>      ['controller' => 'AdminHome'   ,    'method' => 'reportComment'          ],
         'connection-admin.html'       =>      ['controller' => 'AdminHome'   ,    'method' => 'readUser'               ],
-        'deconnexion.html'            =>      ['controller' => 'AdminHome'   ,    'method' => 'deconnexionUser'        ]
-        // 'user_billet_page.html'           => ['controller' => 'AjaxHome',     'method' => 'getBillets']
+        'deconnexion.html'            =>      ['controller' => 'AdminHome'   ,    'method' => 'deconnexionUser'        ],
+        'chapter.html'                =>      ['controller' => 'AjaxHome'    ,    'method' => 'getBillets'             ]
         // 'updateBillet.html'     => ['controller' => 'Home', 'method' => 'updateBillet'],
         // 'deleteBillet.html'     => ['controller' => 'Home', 'method' => 'deleteBillet'],
         // 'readBillet.html'       => ['controller' => 'Home', 'method' => 'readBillet'],
