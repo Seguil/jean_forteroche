@@ -12,7 +12,7 @@
         <ul>
             <?php foreach($billets as $bil):?>
                 <div class="billet">
-                    <a href="<?php echo HOST;?>user-billet-page.html/id/<?php echo $bil->getId(); ?>">
+                    <a class="chapt" href="<?php echo HOST;?>user-billet-page.html/id/<?php echo $bil->getId(); ?>">
                         <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
                         <h3><?php echo $bil->getTitle();?></h3>
                     </a>
