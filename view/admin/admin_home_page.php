@@ -68,7 +68,10 @@
                                     <td><?php echo $com->getIdBillet(); ?></td>
                                     <td><?php echo $com->getComment(); ?></td>
                                     <td><?php echo $com->getCommentDate()->format('d/m/Y'); ?></td>
-                                    <td><a href="<?php echo HOST;?>delete-report-comment.html"><i class="fas fa-trash-alt"></i></a></td>
+                                    <td><a href="<?php echo HOST;?>delete-report-comment.html" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></a></td>
+                                    <td><a href="<?php echo HOST;?>update-report-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a></td>
+                                    <td><a href="<?php echo HOST;?>answer-report-comment.html" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a></td>
+                                    <td><a href="<?php echo HOST;?>read-report-comment.html" title="Lire plus" class="tooltip"><i class="fas fa-plus-square"></i></a></td>
                                 </tr>
                             <?php endforeach ;
                         };?>

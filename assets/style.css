@@ -192,3 +192,9 @@ form input[type=submit] {
 #form_inscription {
     display: none;
 }
+
+/* ------------------tooltip-------------------- */
+.tooltip {
+    display: inline;
+    position: relative;
+}
