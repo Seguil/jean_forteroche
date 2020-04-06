@@ -43,7 +43,7 @@
 
 <div id="container">
     <article>
-        <div id="chapters">
+        <div id="totalchapter">
         </div>
 
     </article>

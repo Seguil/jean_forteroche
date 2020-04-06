@@ -10,6 +10,7 @@ class Chapters {
        
         requestBillets.ajaxGet(this.url, (response) => {
     console.log(this.url);
+    console.log(response);
 
             let dataBillets = JSON.parse(response);
             for (let i=0; i<dataBillets.length; i++) {
@@ -19,13 +20,13 @@ class Chapters {
                 numberBillet.textContent = billet.number;
                 this.id.appendChild(numberBillet);
         
-                let titleBillet = document.createElement("h2");
-                titleBillet.textContent = billet.title;
-                this.id.appendChild(titleBillet);
+        //         let titleBillet = document.createElement("h2");
+        //         titleBillet.textContent = billet.title;
+        //         this.id.appendChild(titleBillet);
         
-                let contentBillet = document.createElement("p");
-                contentBillet.textContent = billet.content;
-                this.id.appendChild(contentBillet);
+        //         let contentBillet = document.createElement("p");
+        //         contentBillet.textContent = billet.content;
+        //         this.id.appendChild(contentBillet);
             };            
         });
         
