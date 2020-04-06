@@ -11,28 +11,20 @@ class NavChapters {
             let dataBillets = JSON.parse(response);
             // console.log(response);
             for (let i=0; i<dataBillets.length; i++) {
-                 let billet = dataBillets[i]; //Je récupère les stations sous forme de tableau
+                let billet = dataBillets[i]; //Je récupère les stations sous forme de tableau
                 // Je récupère les informations pour l'affichage des infos 
-                let number = billet.number;
-                let title = billet.title;
-            // const html = dataBillets.map(function(getBillets){
-            //     return `
-            //         <div class="nav_chapters">
-            //             <h2 class="number">${getBillets.number}</h2>
-            //             <h3 class="title">${getBillets.title}</h3>
-            //         </div>
-            //     `
-                document.querySelector('.number').innerHTML = number;
-                document.querySelector('.title').innerHTML = title;
-
-            };
-            // console.log(html);
-            // .join('');
-
+                let numberBillet = document.createElement("h2");
+                numberBillet.innerHTML = billet.number;
+                this.id.appendChild(numberBillet);
         
-            // const billets = document.querySelector('.nav_chapters');
-            // billets.innerHTML = html;
-            
+                let titleBillet = document.createElement("h2");
+                titleBillet.innerHTML = billet.title;
+                this.id.appendChild(titleBillet);
+        
+                let contentBillet = document.createElement("p");
+                contentBillet.innerHTML = billet.content;
+                this.id.appendChild(contentBillet);
+            };            
         });
         
     };
