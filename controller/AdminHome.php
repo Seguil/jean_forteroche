@@ -92,7 +92,7 @@ class AdminHome {
         $commentManager->flag($myComment);
 
         $currentView = new View();
-        $currentView->redirect('admin-billet-page.html/id/' . $_POST['idBillet']);
+        $currentView->redirect('user-billet-page.html/id/' . $_POST['idBillet']);
     }
 
     public function readUser($params) {
