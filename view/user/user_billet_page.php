@@ -1,9 +1,5 @@
 <aside>
     <a href="<?php echo HOST;?>user-home-page.html">Page d'accueil</a>
-<!-- <div class="nav_chapters">
-    <h2 class="number">3</h2>
-    <h3 class="title">aze</h3>
-</div> -->
 
     <div class="pagination">
         <?php
@@ -47,11 +43,14 @@
 
 <div id="container">
     <article>
+        <div class="chapters">
+        </div>
+
         <!-- Récupère le chapitre choisi -->
-        <h2>Chapitre n°<?php echo $billet->getNumber();?></h2>
+        <!-- <h2>Chapitre n°<?php echo $billet->getNumber();?></h2>
         <h3><?php echo $billet->getTitle();?></h3>
         <p><?php echo $billet->getContent();?></p>
-        <p>Publié le <?php echo $billet->getPublicationDate()->format('d/m/Y');?></p>
+        <p>Publié le <?php echo $billet->getPublicationDate()->format('d/m/Y');?></p> -->
     </article>
 
     <div id="comments">
