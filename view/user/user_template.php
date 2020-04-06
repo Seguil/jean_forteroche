@@ -70,10 +70,9 @@
     </footer>
 
 <!-- Fichiers js -->
-    <!-- <script src="<?php echo JS;?>ajax.js"></script>
-    <script src="<?php echo JS;?>nav_chapters.js"></script>
-    <script src="<?php echo JS;?>main.js"></script> -->
-    <script src="<?php echo JS;?>app.js"></script>
+    <script src="<?php echo JS;?>ajax.js"></script>
+    <script src="<?php echo JS;?>chapters.js"></script>
+    <script src="<?php echo JS;?>main.js"></script>
 
 </body>
 </html>
