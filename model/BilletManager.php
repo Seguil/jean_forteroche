@@ -54,6 +54,7 @@ class BilletManager {
         $billet->setContent($row['b_content']);
         $billet->setPublicationDate($row['b_publication_date']);
 
+        echo json_encode($billet);
         // return $billet;
     }
 

@@ -46,11 +46,6 @@
         <div class="chapters">
         </div>
 
-        <!-- Récupère le chapitre choisi -->
-        <!-- <h2>Chapitre n°<?php echo $billet->getNumber();?></h2>
-        <h3><?php echo $billet->getTitle();?></h3>
-        <p><?php echo $billet->getContent();?></p>
-        <p>Publié le <?php echo $billet->getPublicationDate()->format('d/m/Y');?></p> -->
     </article>
 
     <div id="comments">
