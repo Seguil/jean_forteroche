@@ -4,7 +4,7 @@ class Billet {
     private $id;
     private $number;
     private $title;
-    private $billet;
+    private $content;
     private $publicationDate;
 
     public function getId() {

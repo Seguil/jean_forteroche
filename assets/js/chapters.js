@@ -9,8 +9,9 @@ class Chapters {
         console.log(requestBillets);
        
         requestBillets.ajaxGet(this.url, (response) => {
+    console.log(this.url);
+
             let dataBillets = JSON.parse(response);
-            console.log(dataBillets);
             for (let i=0; i<dataBillets.length; i++) {
                 let billet = dataBillets[i]; //Je récupère les stations sous forme de tableau
                 // Je récupère les informations pour l'affichage des infos 
