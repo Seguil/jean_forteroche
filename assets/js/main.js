@@ -1,9 +1,10 @@
-const navChapters1 = new Chapters(
-    'chapters',
-    '<?php echo CLASSES;?>Routeur.php'
-);
-navChapters1.displayChapters();
+let reference = function(e) {
+    e.preventDefault();
+    const chapt = new Chapters('chapters','http://localhost/jean_forteroche/classes/Routeur.php');
+    chapt.displayChapters();
+};
 
-// window.addEventListener('load', () => { //fonction fléchée sur 2 lignes = accolades/ fonction fléchée sur 1 ligne = pas d'accolades
-//     navChapters1.displayChapters() //chargement de la map
-// });
+let elements = document.getElementsByClassName("chapt");
+for(let i = 0; i<elements.length; i++) { 
+    elements[i].addEventListener("click", reference, true);
+};
