@@ -1,5 +1,5 @@
-const navChapters1 = new NavChapters(
-    'nav_chapters',
+const navChapters1 = new Chapters(
+    'chapters',
     '<?php echo CLASSES;?>Routeur.php'
 );
 navChapters1.displayChapters();

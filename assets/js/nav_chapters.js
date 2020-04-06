@@ -1,4 +1,4 @@
-class NavChapters {
+class Chapters {
     constructor(id, url) {
         this.id = document.querySelector(id); 
         this.url = url;
