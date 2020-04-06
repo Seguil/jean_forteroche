@@ -12,7 +12,7 @@ class Routeur {
         'report-comment.html'         =>      ['controller' => 'AdminHome'   ,    'method' => 'reportComment'          ],
         'connection-admin.html'       =>      ['controller' => 'AdminHome'   ,    'method' => 'readUser'               ],
         'deconnexion.html'            =>      ['controller' => 'AdminHome'   ,    'method' => 'deconnexionUser'        ],
-        'chapter.html'                =>      ['controller' => 'AjaxHome'    ,    'method' => 'getBillets'             ]
+        'chapter.html'                =>      ['controller' => 'AjaxHome'    ,    'method' => 'chapter'             ]
         // 'updateBillet.html'     => ['controller' => 'Home', 'method' => 'updateBillet'],
         // 'deleteBillet.html'     => ['controller' => 'Home', 'method' => 'deleteBillet'],
         // 'readBillet.html'       => ['controller' => 'Home', 'method' => 'readBillet'],
