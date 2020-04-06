@@ -1,6 +1,6 @@
 let reference = function(e) {
     e.preventDefault();
-    const chapt = new Chapters('chapters','http://localhost/jean_forteroche/classes/Routeur.php');
+    const chapt = new Chapters('chapters','http://localhost/jean_forteroche/chapter.html');
     chapt.displayChapters();
 };
 
