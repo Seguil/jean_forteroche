@@ -96,6 +96,13 @@ h3 {
     color: rgb(73, 57, 46);
 }
 
+h4 {
+    font-size: 1.5em;
+    color: rgb(73, 57, 46);
+    font-weight: bolder;
+    margin-top: 0;
+}
+
 p {
     font-size: 1.4em;
     color: rgb(85, 78, 73);
@@ -134,7 +141,7 @@ header img {
 }
 /* ---------------userhomepage - commentaires -----------------*/
 #comments {
-    background-color: rgba(200, 197, 0, 0.4);
+    background-color: rgba(0, 143, 200, 0.4);
     margin: 2vh;
 }
 
@@ -182,7 +189,7 @@ footer {
 form {
     display: flex;
     flex-direction: column;
-    width: 30vw;
+    width: 20vw;
 }
 
 form input[type=submit] {
@@ -197,4 +204,56 @@ form input[type=submit] {
 .tooltip {
     display: inline;
     position: relative;
+}
+
+
+/* ------------------Comments user-------------------- */
+#comments {
+    display: flex;
+    justify-content: space-around;
+}
+
+#read_comments,
+#add_comment {
+    width: 40vw;
+    padding: 2vh 2vw;
+}
+
+#read_comments .comment {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment {
+    border-bottom: 1px grey solid;
+}
+
+.comment .header_comment {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+}
+
+.form_report_comment {
+    width: auto;
+}
+
+i.fas.fa-flag {
+    color: rgb(233, 108, 5);
+}
+
+.form_report_comment button {
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+    padding: 0.5vh 2vw 0vh 0vw;
+    width: auto;
+}
+
+.pseudo_comment {
+    font-weight: bolder;
+}
+
+.comment_date {
+    font-size: 0.8em;
+    font-style: italic;
 }

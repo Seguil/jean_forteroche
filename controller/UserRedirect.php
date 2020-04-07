@@ -35,6 +35,22 @@ class UserRedirect {
         $currentView->redirect('user-billet-page.html/id/' . $_POST['billet']);
     }
 
+    public function reportComment($params) {
+        extract($params);
+
+        $myComment = new Comment();
+        $myComment  ->setIdComment($_POST['idComment'])
+                    ->setIdBillet($_POST['idBillet'])
+                    ->setReport($_POST['report']);
+
+        $commentManager = new CommentManager();
+        $commentManager->flag($myComment);
+
+        $currentView = new View();
+        $currentView->redirect('user-billet-page.html/id/' . $_POST['idBillet']);
+    }
+
+
     // public function getJsonServices($params) {
     //     extract($params);
     //     $billetManager = new BilletManager();

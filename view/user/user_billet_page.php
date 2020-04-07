@@ -55,37 +55,47 @@
     </article>
 
     <div id="comments">
-        <h4>Commentaires</h4>
-        <button>Ajouter un commentaire</button>
-        <form action="<?php echo HOST;?>create-comment.html" method="post">
-            <label for="pseudo">Pseudo :</label>
-                <input type="text" name="pseudo" id="pseudo"/>
-            <label for="message">Message :</label>
-                <input type="text" name="message" id="message" />
-            <input name="billet" type="hidden" value="<?php echo $billet->getId();?>"/><br/>
-            <input name="commentDate" type="hidden"/><br/>
-            <input name="status" type="hidden" value="non lu"/><br />
-            <input name="report" type="hidden" value="off"/><br />
-            <input type="submit" value="Envoyer" />
-        </form>
 
-        <!-- Publication des commentaires -->
-        <?php if(isset($comments)) {
-            foreach($comments as $com):?>
-                <div class="comment">
-                    <?php echo $com->getPseudo();?><br/>
-                    <?php echo $com->getComment();?><br/>
-                    <?php echo $com->getCommentDate()->format('d/m/Y');?><br/>
-                    <?php echo $com->getAnswer();?><br/>
-                    <form action="<?php echo HOST;?>report-comment.html" method="post">
-                        <input name="idComment" type="hidden" value="<?php echo $com->getIdComment();?>"/>
-                        <input name="idBillet" type="hidden" value="<?php echo $com->getIdBillet();?>"/>
-                        <input name="report" type="hidden" value="on"/>
-                        <!-- <input type="submit" value="Signaler" /> -->
-                        <button type="submit"><i class="fas fa-exclamation-triangle"></i></button>
-                    </form>
-                </div>
-            <?php endforeach; 
-        }?>
+        <div id="read_comments">
+            <h4>Commentaires</h4>
+            <!-- Publication des commentaires -->
+            <?php if(isset($comments)) {
+                foreach($comments as $com):?>
+                    <div class="comment">
+                        <div class="header_comment">
+                            <div class="pseudo_comment"><?php echo $com->getPseudo();?></div>
+                            <form class="form_report_comment" action="<?php echo HOST;?>user-report-comment.html" method="post">
+                                <input name="idComment" type="hidden" value="<?php echo $com->getIdComment();?>"/>
+                                <input name="idBillet" type="hidden" value="<?php echo $com->getIdBillet();?>"/>
+                                <input name="report" type="hidden" value="on"/>
+                                <!-- <input type="submit" value="Signaler" /> -->
+                                <button type="submit" title="Signaler"><i class="fas fa-flag"></i></button>
+                            </form>
+                        </div>
+                        <div class="comment_date"><?php echo $com->getCommentDate()->format('d/m/Y');?></div>
+                        <div class="comment_content"><?php echo $com->getComment();?></div>
+                        <div class="answer"><?php echo $com->getAnswer();?></div>
+                    </div>
+                <?php endforeach; 
+            }?>
+        </div>
+
+
+
+        <div id="add_comment">
+            <h4>Ajouter un commentaire</h4>
+            <form action="<?php echo HOST;?>create-comment.html" method="post">
+                <label for="pseudo">Pseudo :</label>
+                    <input type="text" name="pseudo" id="pseudo"/>
+                <label for="message">Message :</label>
+                    <input type="text" name="message" id="message" />
+                <input name="billet" type="hidden" value="<?php echo $billet->getId();?>"/><br/>
+                <input name="commentDate" type="hidden"/><br/>
+                <input name="status" type="hidden" value="non lu"/><br />
+                <input name="report" type="hidden" value="off"/><br />
+                <input type="submit" value="Envoyer" />
+            </form>
+        </div>
+
     </div>
 </div>
