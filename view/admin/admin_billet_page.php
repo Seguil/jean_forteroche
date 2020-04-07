@@ -73,7 +73,7 @@
 
                     <!-- Répondre à un commentaire -->
                     <button type="submit" name="answer_button" title="Répondre"><i class="fas fa-share"></i></button>
-
+                    
                     <form action="<?php echo HOST;?>update-comment.html" method="post">
                         <label for="answer">Réponse :</label>
                             <input type="text" name="answer" id="answer" />
