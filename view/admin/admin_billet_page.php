@@ -49,7 +49,7 @@
                 <input type="text" name="message" id="message" />
             <input name="billet" type="hidden" value="<?php echo $billet->getId();?>"/><br/>
             <input name="commentDate" type="hidden"/><br/>
-            <input name="status" type="hidden" value="non lu"/><br />
+            <input name="status" type="hidden" value="lu"/><br />
             <input name="report" type="hidden" value="off"/><br />
             <input type="submit" value="Envoyer" />
         </form>
@@ -61,12 +61,25 @@
                     <?php echo $com->getPseudo();?><br/>
                     <?php echo $com->getComment();?><br/>
                     <?php echo $com->getCommentDate()->format('d/m/Y');?><br/>
+
+                    <!-- Signaler un commentaire -->
                     <form action="<?php echo HOST;?>report-comment.html" method="post">
                         <input name="idComment" type="hidden" value="<?php echo $com->getIdComment();?>"/>
                         <input name="idBillet" type="hidden" value="<?php echo $com->getIdBillet();?>"/>
                         <input name="report" type="hidden" value="on"/>
                         <!-- <input type="submit" value="Signaler" /> -->
-                        <button type="submit"><i class="fas fa-exclamation-triangle"></i></button>
+                        <button type="submit" name="report" value="on" title="Signaler"><i class="fas fa-exclamation-triangle"></i></button>
+                    </form>
+
+                    <!-- Répondre à un commentaire -->
+                    <button type="submit" name="answer_button" title="Répondre"><i class="fas fa-share"></i></button>
+
+                    <form action="<?php echo HOST;?>update-comment.html" method="post">
+                        <label for="answer">Réponse :</label>
+                            <input type="text" name="answer" id="answer" />
+                        <input name="idComment" type="hidden" value="<?php echo $com->getIdComment();?>"/>
+                        <input name="idBillet" type="hidden" value="<?php echo $com->getIdBillet();?>"/>
+                        <input type="submit" value="Envoyer" />
                     </form>
                 </div>
             <?php endforeach; 

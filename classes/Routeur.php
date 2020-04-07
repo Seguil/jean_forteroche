@@ -9,6 +9,7 @@ class Routeur {
 
         //user - redirect
         'inscription-user.html'       =>      ['controller' => 'UserRedirect'    ,    'method' => 'createUser'             ], //pas de view pour inscriptionUser car redirect sur userHomePage
+        
         'create-comment.html'         =>      ['controller' => 'UserRedirect'    ,    'method' => 'createComment'          ],
 
 
@@ -19,7 +20,9 @@ class Routeur {
 
         //admin - redirect
         'create-billet.html'          =>      ['controller' => 'AdminRedirect'   ,    'method' => 'createBillet'           ],
+        
         'report-comment.html'         =>      ['controller' => 'AdminRedirect'   ,    'method' => 'reportComment'          ],
+        
         'connection-admin.html'       =>      ['controller' => 'AdminRedirect'   ,    'method' => 'readUser'               ],
         'deconnexion.html'            =>      ['controller' => 'AdminRedirect'   ,    'method' => 'deconnexionUser'        ]
  
