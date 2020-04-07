@@ -77,7 +77,7 @@
                     
                     <form action="<?php echo HOST;?>answer-comment.html" method="post">
                         <label for="answer">Réponse :</label>
-                            <input type="text" name="answerComment" id="answer" value="<?php echo $com->getAnswer();?>"/>
+                            <input type="text" name="answerComment" id="answer"/>
                         <input name="idComment" type="hidden" value="<?php echo $com->getIdComment();?>"/>
                         <input name="idBillet" type="hidden" value="<?php echo $com->getIdBillet();?>"/>
                         <input type="submit" value="Envoyer" />

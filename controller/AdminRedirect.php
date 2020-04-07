@@ -43,7 +43,7 @@ class AdminRedirect {
                     ->setAnswer($_POST['answerComment']);
 
         $commentManager = new CommentManager();
-        $commentManager->update($myComment);
+        $commentManager->answer($myComment);
 
         $currentView = new View();
         $currentView->redirect('admin-billet-page.html/id/' . $_POST['idBillet']);
