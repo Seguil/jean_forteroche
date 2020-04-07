@@ -3,8 +3,10 @@
 class Comment {
     private $idComment;
     private $idBillet;
+    private $pseudo;
     private $comment;
     private $commentDate;
+    private $status;
     private $report;
 
     public function getIdComment() {
@@ -22,6 +24,15 @@ class Comment {
 
     public function setIdBillet($idBillet) {
         $this->idBillet = $idBillet;
+        return $this;
+    }
+
+    public function getPseudo() {
+        return $this->pseudo;
+    }
+
+    public function setPseudo($pseudo) {
+        $this->pseudo = $pseudo;
         return $this;
     }
 
@@ -43,6 +54,15 @@ class Comment {
         return $this;
     }
 
+    public function getStatus() {
+        return $this->status;
+    }
+
+    public function setStatus($status) {
+        $this->status = $status;
+        return $this;
+    }
+ 
     public function getReport() {
         return $this->report;
     }

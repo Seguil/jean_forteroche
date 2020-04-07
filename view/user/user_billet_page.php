@@ -59,25 +59,28 @@
         <button>Ajouter un commentaire</button>
         <form action="<?php echo HOST;?>create-comment.html" method="post">
             <label for="message">Message :</label>
-            <input type="text" name="message" id="message" />
-            <input name="billet" type="hidden" value="<?php echo $billet->getId();?>"/><br />
+                <input type="text" name="message" id="message" />
+            <label for="pseudo">Pseudo</label>
+                <input type="text" name="pseudo"/>
+            <input name="billet" type="hidden" value="<?php echo $billet->getId();?>"/><br/>
+            <input name="status" type="hidden" value="non lu"/><br />
             <input name="report" type="hidden" value="off"/><br />
             <input type="submit" value="Envoyer" />
         </form>
 
-        <!-- PUblication des commentaires -->
+        <!-- Publication des commentaires -->
         <?php if(isset($comments)) {
             foreach($comments as $com):?>
                 <div class="comment">
-                    <?php echo $com->getComment(); ?><br/>
-                    <?php echo $com->getCommentDate()->format('d/m/Y'); ?><br/>
+                    <?php echo $com->getPseudo();?><br/>
+                    <?php echo $com->getComment();?><br/>
+                    <?php echo $com->getCommentDate()->format('d/m/Y');?><br/>
                     <form action="<?php echo HOST;?>report-comment.html" method="post">
                         <input name="idComment" type="hidden" value="<?php echo $com->getIdComment();?>"/>
-                        <p><?php echo $com->getIdComment();?></p>
                         <input name="idBillet" type="hidden" value="<?php echo $com->getIdBillet();?>"/>
-                        <label for="report"><i class="fas fa-exclamation-triangle"></i></label>
-                        <input type="checkbox" name="report" value="on"/>
-                        <input type="submit" value="Signaler" />
+                        <input name="report" value="on"/>
+                        <!-- <input type="submit" value="Signaler" /> -->
+                        <button type="submit"><i class="fas fa-exclamation-triangle"></i></button>
                     </form>
                 </div>
             <?php endforeach; 
