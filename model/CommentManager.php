@@ -197,7 +197,7 @@ class CommentManager {
         $pdo = $this->pdo;
         $request = $pdo->prepare('
             UPDATE comment
-            SET c_answer=:c_answer
+            SET c_answer=:c_answer, c_status=:c_status
             WHERE c_id=:c_id
                 AND c_id_billet=:c_id_billet
             LIMIT 1
@@ -207,6 +207,7 @@ class CommentManager {
         $request->bindValue(':c_id', $comment->getIdComment(), PDO::PARAM_INT);
         $request->bindValue(':c_id_billet', $comment->getIdBillet(), PDO::PARAM_INT);
         $request->bindValue(':c_answer', $comment->getAnswer(), PDO::PARAM_STR);
+        $request->bindValue(':c_status', $comment->getStatus(), PDO::PARAM_STR);
         
         $request->execute();
     }

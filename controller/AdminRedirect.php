@@ -40,7 +40,8 @@ class AdminRedirect {
         $myComment = new Comment();
         $myComment  ->setIdComment($_POST['idComment'])
                     ->setIdBillet($_POST['idBillet'])
-                    ->setAnswer($_POST['answerComment']);
+                    ->setAnswer($_POST['answerComment'])
+                    ->setStatus($_POST['status']);
 
         $commentManager = new CommentManager();
         $commentManager->answer($myComment);

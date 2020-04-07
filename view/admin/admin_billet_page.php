@@ -80,6 +80,7 @@
                             <input type="text" name="answerComment" id="answer"/>
                         <input name="idComment" type="hidden" value="<?php echo $com->getIdComment();?>"/>
                         <input name="idBillet" type="hidden" value="<?php echo $com->getIdBillet();?>"/>
+                        <input name="status" type="hidden" value="lu"/>
                         <input type="submit" value="Envoyer" />
                     </form>
                 </div>
