@@ -10,8 +10,8 @@ class CommentManager {
     public function create($comment) {
         $pdo = $this->pdo;
         $request = $pdo->prepare('
-            INSERT INTO comment (c_id_billet, c_pseudo, c_comment, c_comment_date, c_status, c_report, c_answer)
-            VALUES (:c_id_billet, :c_pseudo, :c_comment, NOW(), :c_status, :c_report, :c_answer)
+            INSERT INTO comment (c_id_billet, c_pseudo, c_comment, c_comment_date, c_status, c_report)
+            VALUES (:c_id_billet, :c_pseudo, :c_comment, NOW(), :c_status, :c_report)
         ');
     
         //Liaison des paramètres
@@ -20,7 +20,6 @@ class CommentManager {
         $request->bindValue(':c_comment', $comment->getComment(), PDO::PARAM_STR);
         $request->bindValue(':c_status', $comment->getStatus(), PDO::PARAM_STR);
         $request->bindValue(':c_report', $comment->getReport(), PDO::PARAM_STR);
-        $request->bindValue(':c_answer', $comment->getRAnswer(), PDO::PARAM_STR);
 
         //Exécution de la requête
           $executeIsOk = $request->execute();
