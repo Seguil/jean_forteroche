@@ -58,11 +58,12 @@
         <h4>Commentaires</h4>
         <button>Ajouter un commentaire</button>
         <form action="<?php echo HOST;?>create-comment.html" method="post">
+            <label for="pseudo">Pseudo :</label>
+                <input type="text" name="pseudo" id="pseudo"/>
             <label for="message">Message :</label>
                 <input type="text" name="message" id="message" />
-            <label for="pseudo">Pseudo</label>
-                <input type="text" name="pseudo"/>
             <input name="billet" type="hidden" value="<?php echo $billet->getId();?>"/><br/>
+            <input name="commentDate" type="hidden"/><br/>
             <input name="status" type="hidden" value="non lu"/><br />
             <input name="report" type="hidden" value="off"/><br />
             <input type="submit" value="Envoyer" />
@@ -78,7 +79,7 @@
                     <form action="<?php echo HOST;?>report-comment.html" method="post">
                         <input name="idComment" type="hidden" value="<?php echo $com->getIdComment();?>"/>
                         <input name="idBillet" type="hidden" value="<?php echo $com->getIdBillet();?>"/>
-                        <input name="report" value="on"/>
+                        <input name="report" type="hidden" value="on"/>
                         <!-- <input type="submit" value="Signaler" /> -->
                         <button type="submit"><i class="fas fa-exclamation-triangle"></i></button>
                     </form>

@@ -22,10 +22,11 @@ class AdminHome {
         $billets = $billetManager->readAll($depart, $billetsParPage);
 
         $commentManager = new CommentManager();
-        $comment = $commentManager->readAllReport();
+        $reportComment = $commentManager->readAllReport();
+        $nonReadComment = $commentManager->readAllNonRead();
 
         $currentView = new View('admin_home_page');
-        $currentView->renderAdmin(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante, 'billets' => $billets, 'comment' => $comment));
+        $currentView->renderAdmin(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante, 'billets' => $billets, 'reportComment' => $reportComment, 'nonReadComment' => $nonReadComment));
         // $currentView->render(array('billets' => $billets, 'billet' => $billet));
     }
 
@@ -82,10 +83,8 @@ class AdminHome {
         extract($params);
 
         $myComment = new Comment();
-        $myComment->setIdComment($_POST['idComment'])
-                    // ->setComment($_POST['comment'])
+        $myComment  ->setIdComment($_POST['idComment'])
                     ->setIdBillet($_POST['idBillet'])
-                    // ->setCommentDate($_POST['commentDate'])
                     ->setReport($_POST['report']);
 
         $commentManager = new CommentManager();

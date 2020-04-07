@@ -103,13 +103,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if(isset($comment)) {
-                            foreach($comment as $com):?>
+                        <?php if(isset($reportComment)) {
+                            foreach($reportComment as $repCom):?>
                                 <tr>
-                                    <td><?php echo $com->getIdBillet(); ?></td>
-                                    <td><?php echo $com->getPseudo(); ?></td>
-                                    <td><?php echo $com->getComment(); ?></td>
-                                    <td><?php echo $com->getCommentDate()->format('d/m/Y'); ?></td>
+                                    <td><?php echo $repCom->getIdBillet(); ?></td>
+                                    <td><?php echo $repCom->getPseudo(); ?></td>
+                                    <td><?php echo $repCom->getComment(); ?></td>
+                                    <td><?php echo $repCom->getCommentDate()->format('d/m/Y'); ?></td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -126,7 +126,7 @@
         </div>
 
 
-        <!-- Récupère les commentaires signalés-->
+        <!-- Récupère les commentaires non lus-->
         <div id="last_comments">
             <div class="last_comments">
                 <h3>Derniers commentaires</h3>
@@ -140,13 +140,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if(isset($comment)) {
-                            foreach($comment as $com):?>
+                        <?php if(isset($nonReadComment)) {
+                            foreach($nonReadComment as $nrd):?>
                                 <tr>
-                                    <td><?php echo $com->getIdBillet(); ?></td>
-                                    <td><?php echo $com->getPseudo(); ?></td>
-                                    <td><?php echo $com->getComment(); ?></td>
-                                    <td><?php echo $com->getCommentDate()->format('d/m/Y'); ?></td>
+                                    <td><?php echo $nrd->getIdBillet(); ?></td>
+                                    <td><?php echo $nrd->getPseudo(); ?></td>
+                                    <td><?php echo $nrd->getComment(); ?></td>
+                                    <td><?php echo $nrd->getCommentDate()->format('d/m/Y'); ?></td>
                                 </tr>
                                 <tr>
                                     <td>

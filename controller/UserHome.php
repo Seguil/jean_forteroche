@@ -41,6 +41,7 @@ class UserHome {
         $currentView->redirect('admin/admin-home-page.html');
     }
 
+
     public function readBilletComments($params) {
         extract($params);
 
@@ -77,13 +78,16 @@ class UserHome {
 
     }
 
+
     public function createComment($params) {
         extract($params);
         $myComment = new Comment();
-        $myComment->setComment($_POST['message'])
+        $myComment  ->setPseudo($_POST['pseudo'])
+                    ->setComment($_POST['message'])
                     ->setIdBillet($_POST['billet'])
-                    ->setReport($_POST['report']);
-                    // ->setCommentDate($_POST['commentDate']);
+                    ->setStatus($_POST['status'])
+                    ->setReport($_POST['report'])
+                    ->setCommentDate($_POST['commentDate']);
 
 
         $commentManager = new CommentManager();

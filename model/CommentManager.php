@@ -60,7 +60,7 @@ class CommentManager {
     public function readAll($idBillet) {
         $pdo = $this->pdo;
         $request = $pdo->prepare('
-            SELECT c_id, c_id_billet, c_pseudo, c_comment, c_comment_date
+            SELECT c_id, c_id_billet, c_pseudo, c_comment, c_comment_date, c_status, c_report
             FROM comment
             INNER JOIN billet 
                 ON comment.c_id_billet = billet.b_id
@@ -115,6 +115,35 @@ class CommentManager {
             return $comments;
         }
     }
+
+
+    public function readAllNonRead() { 
+        $pdo = $this->pdo;
+        $request = $pdo->prepare('
+            SELECT *
+            FROM comment
+            WHERE c_status = "non lu"
+            ORDER BY c_comment_date DESC
+        ');
+        
+        //exécution de la requête
+        $request->execute();
+        while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
+            $comment = new Comment();
+            $comment->setIdComment($row['c_id']);
+            $comment->setIdBillet($row['c_id_billet']);
+            $comment->setPseudo($row['c_pseudo']);
+            $comment->setComment($row['c_comment']);
+            $comment->setCommentDate($row['c_comment_date']);
+            $comment->setStatus($row['c_status']);
+            $comment->setReport($row['c_report']);
+            $comments[] = $comment;
+        };
+        if(isset($comments)) {
+            return $comments;
+        }
+    }
+
 
 
     public function update($comment) { 
