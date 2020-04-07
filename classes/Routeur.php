@@ -2,16 +2,28 @@
 class Routeur {
     private $request;
     private $routes = [
-        'user-home-page.html'         =>      ['controller' => 'UserHome'    ,    'method' => 'showHomePage'           ],
-        'admin-home-page.html'        =>      ['controller' => 'AdminHome'   ,    'method' => 'showAdminHomePage'      ],
-        'inscription-user.html'       =>      ['controller' => 'UserHome'    ,    'method' => 'createUser'             ], //pas de view pour inscriptionUser car redirect sur userHomePage
-        'user-billet-page.html'       =>      ['controller' => 'UserHome'    ,    'method' => 'readBilletComments'     ],
-        'admin-billet-page.html'      =>      ['controller' => 'AdminHome'   ,    'method' => 'adminReadBilletComments'],
-        'create-comment.html'         =>      ['controller' => 'UserHome'    ,    'method' => 'createComment'          ],
-        'create-billet.html'          =>      ['controller' => 'AdminHome'   ,    'method' => 'createBillet'           ],
-        'report-comment.html'         =>      ['controller' => 'AdminHome'   ,    'method' => 'reportComment'          ],
-        'connection-admin.html'       =>      ['controller' => 'AdminHome'   ,    'method' => 'readUser'               ],
-        'deconnexion.html'            =>      ['controller' => 'AdminHome'   ,    'method' => 'deconnexionUser'        ]
+        //user - render
+        'user-home-page.html'         =>      ['controller' => 'UserRender'    ,    'method' => 'showHomePage'           ],
+        'user-billet-page.html'       =>      ['controller' => 'UserRender'    ,    'method' => 'readBilletComments'     ],
+
+
+        //user - redirect
+        'inscription-user.html'       =>      ['controller' => 'UserRedirect'    ,    'method' => 'createUser'             ], //pas de view pour inscriptionUser car redirect sur userHomePage
+        'create-comment.html'         =>      ['controller' => 'UserRedirect'    ,    'method' => 'createComment'          ],
+
+
+        //admin - render
+        'admin-home-page.html'        =>      ['controller' => 'AdminRender'   ,    'method' => 'showAdminHomePage'      ],
+        'admin-billet-page.html'      =>      ['controller' => 'AdminRender'   ,    'method' => 'adminReadBilletComments'],
+
+
+        //admin - redirect
+        'create-billet.html'          =>      ['controller' => 'AdminRedirect'   ,    'method' => 'createBillet'           ],
+        'report-comment.html'         =>      ['controller' => 'AdminRedirect'   ,    'method' => 'reportComment'          ],
+        'connection-admin.html'       =>      ['controller' => 'AdminRedirect'   ,    'method' => 'readUser'               ],
+        'deconnexion.html'            =>      ['controller' => 'AdminRedirect'   ,    'method' => 'deconnexionUser'        ]
+ 
+ 
         // 'user_billet_page.html'           => ['controller' => 'AjaxHome',     'method' => 'getBillets']
         // 'updateBillet.html'     => ['controller' => 'Home', 'method' => 'updateBillet'],
         // 'deleteBillet.html'     => ['controller' => 'Home', 'method' => 'deleteBillet'],

@@ -1,6 +1,6 @@
 <?php
 
-class UserHome {
+class UserRender {
     //pour montrer la page homepage, je suis la méthode showhomepage
     public function showHomePage($params) {
         //extract($params);
@@ -24,21 +24,6 @@ class UserHome {
 
         $currentView = new View('user_home_page');
         $currentView->render(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante, 'billets' => $billets));
-    }
-
-
-    public function createUser($params) {
-        extract($params);
-        
-        $myUser = new User();
-        $myUser->setUsername($_POST['username'])
-             ->setPassword($_POST['password']);
-
-        $userManager = new UserManager();
-        $userManager->create($myUser);
-
-        $currentView = new View();
-        $currentView->redirect('admin/admin-home-page.html');
     }
 
 
@@ -76,25 +61,6 @@ class UserHome {
 
         // $currentView->render(array('billets' => $billets, 'billet' => $billet, 'comments' => $comments));
 
-    }
-
-
-    public function createComment($params) {
-        extract($params);
-        $myComment = new Comment();
-        $myComment  ->setPseudo($_POST['pseudo'])
-                    ->setComment($_POST['message'])
-                    ->setIdBillet($_POST['billet'])
-                    ->setStatus($_POST['status'])
-                    ->setReport($_POST['report'])
-                    ->setCommentDate($_POST['commentDate']);
-
-
-        $commentManager = new CommentManager();
-        $commentManager->create($myComment);
-
-        $currentView = new View();
-        $currentView->redirect('user-billet-page.html/id/' . $_POST['billet']);
     }
 
     // public function getJsonServices($params) {
