@@ -3,8 +3,8 @@ class Routeur {
     private $request;
     private $routes = [
         //user - render
-        'user-home-page.html'         =>      ['controller' => 'UserRender'    ,    'method' => 'showHomePage'           ],
-        'user-billet-page.html'       =>      ['controller' => 'UserRender'    ,    'method' => 'readBilletComments'     ],
+        'user-home-page.html'         =>      ['controller' => 'UserRender'      ,    'method' => 'showHomePage'           ],
+        'user-billet-page.html'       =>      ['controller' => 'UserRender'      ,    'method' => 'readBilletComments'     ],
 
 
         //user - redirect
@@ -13,8 +13,8 @@ class Routeur {
 
 
         //admin - render
-        'admin-home-page.html'        =>      ['controller' => 'AdminRender'   ,    'method' => 'showAdminHomePage'      ],
-        'admin-billet-page.html'      =>      ['controller' => 'AdminRender'   ,    'method' => 'adminReadBilletComments'],
+        'admin-home-page.html'        =>      ['controller' => 'AdminRender'     ,    'method' => 'showAdminHomePage'      ],
+        'admin-billet-page.html'      =>      ['controller' => 'AdminRender'     ,    'method' => 'adminReadBilletComments'],
 
 
         //admin - redirect
