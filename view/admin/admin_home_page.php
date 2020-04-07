@@ -141,9 +141,10 @@
                                     <td><?php echo $com->getIdBillet(); ?></td>
                                     <td><?php echo $com->getComment(); ?></td>
                                     <td><?php echo $com->getCommentDate()->format('d/m/Y'); ?></td>
-                                    <td><a href="<?php echo HOST;?>delete-report-comment.html" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></a></td>
-                                    <td><a href="<?php echo HOST;?>update-report-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a></td>
-                                    <td><a href="<?php echo HOST;?>answer-report-comment.html" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a></td>
+                                    <td><a href="<?php echo HOST;?>delete-comment.html" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></a></td>
+                                    <td><a href="<?php echo HOST;?>update-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a></td>
+                                    <td><a href="<?php echo HOST;?>answer-comment.html" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a></td>
+                                    <td><a href="<?php echo HOST;?>read-comment.html" title="Marquer comme lu" class="tooltip"><i class="far fa-envelope-open"></i></a></td>
                                 </tr>
                             <?php endforeach ;
                         };?>
