@@ -10,8 +10,8 @@ class CommentManager {
     public function create($comment) {
         $pdo = $this->pdo;
         $request = $pdo->prepare('
-            INSERT INTO comment (c_id_billet, c_pseudo, c_comment, c_comment_date, c_status, c_report)
-            VALUES (:c_id_billet, :c_pseudo, :c_comment, NOW(), :c_status, :c_report)
+            INSERT INTO comment (c_id_billet, c_pseudo, c_comment, c_comment_date, c_status, c_report, c_answer)
+            VALUES (:c_id_billet, :c_pseudo, :c_comment, NOW(), :c_status, :c_report, :c_answer)
         ');
     
         //Liaison des paramètres
@@ -20,6 +20,7 @@ class CommentManager {
         $request->bindValue(':c_comment', $comment->getComment(), PDO::PARAM_STR);
         $request->bindValue(':c_status', $comment->getStatus(), PDO::PARAM_STR);
         $request->bindValue(':c_report', $comment->getReport(), PDO::PARAM_STR);
+        $request->bindValue(':c_answer', $comment->getRAnswer(), PDO::PARAM_STR);
 
         //Exécution de la requête
           $executeIsOk = $request->execute();
@@ -50,6 +51,7 @@ class CommentManager {
         $comment->setPseudo($row['c_pseudo']);
         $comment->setComment($row['c_comment']);
         $comment->setCommentDate($row['c_comment_date']);
+        $comment->setAnswer($row['c_answer']);
 
         if(isset($comment)) {
             return $comment;
@@ -60,7 +62,7 @@ class CommentManager {
     public function readAll($idBillet) {
         $pdo = $this->pdo;
         $request = $pdo->prepare('
-            SELECT c_id, c_id_billet, c_pseudo, c_comment, c_comment_date, c_status, c_report
+            SELECT c_id, c_id_billet, c_pseudo, c_comment, c_comment_date, c_status, c_report, c_answer
             FROM comment
             INNER JOIN billet 
                 ON comment.c_id_billet = billet.b_id
@@ -81,6 +83,7 @@ class CommentManager {
             $comment->setCommentDate($row['c_comment_date']);
             $comment->setStatus($row['c_status']);
             $comment->setReport($row['c_report']);
+            $comment->setAnswer($row['c_answer']);
             $comments[] = $comment;
         };
         if(isset($comments)) {
@@ -109,6 +112,7 @@ class CommentManager {
             $comment->setCommentDate($row['c_comment_date']);
             $comment->setStatus($row['c_status']);
             $comment->setReport($row['c_report']);
+            $comment->setAnswer($row['c_answer']);
             $comments[] = $comment;
         };
         if(isset($comments)) {
@@ -137,6 +141,7 @@ class CommentManager {
             $comment->setCommentDate($row['c_comment_date']);
             $comment->setStatus($row['c_status']);
             $comment->setReport($row['c_report']);
+            $comment->setAnswer($row['c_answer']);
             $comments[] = $comment;
         };
         if(isset($comments)) {
@@ -151,7 +156,7 @@ class CommentManager {
         $pdo = $this->pdo;
         $request = $pdo->prepare('
             UPDATE comment
-            set c_comment=:c_comment, c_status=:c_status, c_report=:c_report
+            set c_comment=:c_comment, c_status=:c_status, c_report=:c_report, c_answer=:c_answer
             WHERE c_id=:c_id 
             LIMIT 1
         ');
@@ -161,6 +166,8 @@ class CommentManager {
         $request->bindValue(':c_comment', $comment->getComment(), PDO::PARAM_STR);
         $request->bindValue(':c_status', $comment->getStatus(), PDO::PARAM_STR);
         $request->bindValue(':c_report', $comment->getReport(), PDO::PARAM_STR);
+        $request->bindValue(':c_answer', $comment->getAnswer(), PDO::PARAM_STR);
+
 
         //Exécution de la requête
         $request->execute();

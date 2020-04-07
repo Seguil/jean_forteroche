@@ -61,6 +61,7 @@
                     <?php echo $com->getPseudo();?><br/>
                     <?php echo $com->getComment();?><br/>
                     <?php echo $com->getCommentDate()->format('d/m/Y');?><br/>
+                    <?php echo $com->getAnswer();?><br/>
 
                     <!-- Signaler un commentaire -->
                     <form action="<?php echo HOST;?>report-comment.html" method="post">
@@ -74,9 +75,9 @@
                     <!-- Répondre à un commentaire -->
                     <button type="submit" name="answer_button" title="Répondre"><i class="fas fa-share"></i></button>
                     
-                    <form action="<?php echo HOST;?>update-comment.html" method="post">
+                    <form action="<?php echo HOST;?>answer-comment.html" method="post">
                         <label for="answer">Réponse :</label>
-                            <input type="text" name="answer" id="answer" />
+                            <input type="text" name="answerComment" id="answer" value="<?php echo $com->getAnswer();?>"/>
                         <input name="idComment" type="hidden" value="<?php echo $com->getIdComment();?>"/>
                         <input name="idBillet" type="hidden" value="<?php echo $com->getIdBillet();?>"/>
                         <input type="submit" value="Envoyer" />

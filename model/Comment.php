@@ -8,6 +8,7 @@ class Comment {
     private $commentDate;
     private $status;
     private $report;
+    private $answer;
 
     public function getIdComment() {
         return $this->idComment;
@@ -71,5 +72,15 @@ class Comment {
         $this->report = $report;
         return $this;
     }
+
+    public function getAnswer() {
+        return $this->answer;
+    }
+
+    public function setAnswer($answer) {
+        $this->answer = $answer;
+        return $this;
+    }
+
 
 }

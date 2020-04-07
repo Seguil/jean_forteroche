@@ -30,8 +30,25 @@ class AdminRedirect {
         $commentManager->flag($myComment);
 
         $currentView = new View();
-        $currentView->redirect('user-billet-page.html/id/' . $_POST['idBillet']);
+        $currentView->redirect('admin-billet-page.html/id/' . $_POST['idBillet']);
     }
+
+    
+    public function answerComment($params) {
+        extract($params);
+
+        $myComment = new Comment();
+        $myComment  ->setIdComment($_POST['idComment'])
+                    ->setIdBillet($_POST['idBillet'])
+                    ->setAnswer($_POST['answerComment']);
+
+        $commentManager = new CommentManager();
+        $commentManager->upadte($myComment);
+
+        $currentView = new View();
+        $currentView->redirect('admin-billet-page.html/id/' . $_POST['idBillet']);
+    }
+
 
 
     public function readUser($params) {

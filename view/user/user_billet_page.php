@@ -76,6 +76,7 @@
                     <?php echo $com->getPseudo();?><br/>
                     <?php echo $com->getComment();?><br/>
                     <?php echo $com->getCommentDate()->format('d/m/Y');?><br/>
+                    <?php echo $com->getAnswer();?><br/>
                     <form action="<?php echo HOST;?>report-comment.html" method="post">
                         <input name="idComment" type="hidden" value="<?php echo $com->getIdComment();?>"/>
                         <input name="idBillet" type="hidden" value="<?php echo $com->getIdBillet();?>"/>
