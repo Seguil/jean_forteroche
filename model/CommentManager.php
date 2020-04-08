@@ -237,10 +237,16 @@ class CommentManager {
         $request = $pdo->prepare('DELETE FROM comment WHERE c_id=:c_id LIMIT 1');
 
         //Liaison des paramètres
-        $request->bindValue(':c_id', $comment->getIdComment(), PDO::PARAM_INT);
+        $request->bindValue(':c_id', $comment, PDO::PARAM_INT);
 
         //Ecécution de la requête
-        $request->execute();
+        $result=$request->execute();
+
+        if(isset($result)) {
+            return $result;
+        } else {
+            return false;
+        }
     }
 
 

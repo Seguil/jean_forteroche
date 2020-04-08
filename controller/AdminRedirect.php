@@ -36,17 +36,15 @@ class AdminRedirect {
     
     public function deleteReportComment($params) {
         extract($params);
-
-        $myComment = new Comment();
-        $myComment  ->setIdComment($_POST['idComment'])
-                    ->setIdBillet($_POST['idBillet'])
-                    ->setReport($_POST['report']);
-
+        // $myComment = new Comment();
+        // $myComment->setIdComment($id);
         $commentManager = new CommentManager();
-        $commentManager->delete($myComment);
+        $commentManager->delete($id);
+        var_dump($commentManager);
 
-        $currentView = new View();
-        $currentView->redirect('admin-home-page.html');
+        echo json_encode($commentManager);
+        // $currentView = new View();
+        // $currentView->redirect('admin-home-page.html');
     }
 
 
