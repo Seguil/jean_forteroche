@@ -113,9 +113,9 @@
                                 </tr>
                                 <tr>
                                     <td class="tdbutton" colspan="4">
-                                        <a href="<?php echo HOST;?>delete-report-comment.html" title="Supprimer" class="tooltip"><i class="fas fa-envelope-open"></i></i></a>
-                                        <a href="<?php echo HOST;?>update-report-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a>
+                                        <!-- <a href="<?php echo HOST;?>update-report-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a> -->
                                         <a href="<?php echo HOST;?>answer-report-comment.html" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a>
+                                        <a href="<?php echo HOST;?>delete-report-comment.html" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach ;

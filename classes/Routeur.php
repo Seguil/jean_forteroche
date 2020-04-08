@@ -22,6 +22,7 @@ class Routeur {
         'create-billet.html'          =>      ['controller' => 'AdminRedirect'   ,    'method' => 'createBillet'           ],
         
         'report-comment.html'         =>      ['controller' => 'AdminRedirect'   ,    'method' => 'reportComment'          ],
+        'delete-report-comment.html'  =>      ['controller' => 'AdminRedirect'   ,    'method' => 'deleteReportComment'    ],
         'answer-comment.html'         =>      ['controller' => 'AdminRedirect'   ,    'method' => 'answerComment'          ],
 
         'connection-admin.html'       =>      ['controller' => 'AdminRedirect'   ,    'method' => 'readUser'               ],
