@@ -115,7 +115,7 @@
                                     <td class="tdbutton" colspan="4">
                                         <!-- <a href="<?php echo HOST;?>update-report-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a> -->
                                         <a href="<?php echo HOST;?>answer-report-comment.html" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a>
-                                        <a id="drc" href="<?php echo HOST;?>delete-report-comment.html/id/<?php echo $repCom->getIdComment();?>" name="idComment" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></i></a>
+                                        <a id="drc" href="#" name="idComment" title="Supprimer" class="tooltip" value="<?php echo $repCom->getIdComment();?>"><i class="fas fa-trash-alt"></i></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach ;

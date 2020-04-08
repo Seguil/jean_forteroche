@@ -240,13 +240,7 @@ class CommentManager {
         $request->bindValue(':c_id', $comment, PDO::PARAM_INT);
 
         //Ecécution de la requête
-        $result=$request->execute();
-
-        if(isset($result)) {
-            return $result;
-        } else {
-            return false;
-        }
+        $resultRequest=$request->execute();
     }
 
 
