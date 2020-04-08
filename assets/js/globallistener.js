@@ -4,14 +4,10 @@
 // });
 
 document.getElementById('drc').addEventListener('click', e => {
-        let idComment = document.getElementById('drc').value;
         deleteComment.ajaxGet('http://localhost/jean_forteroche/delete-report-comment.html', (response) => {
-            let datas = JSON.parse(response);
-
-            document.getElementById("response").textContent = datas.result;
-
+            JSON.parse(response);
         });
-        e.preventDefault();
+        // e.preventDefault();
         console.log('after');
 
 });
