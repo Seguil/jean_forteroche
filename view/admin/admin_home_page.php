@@ -91,29 +91,29 @@
 
         <!-- Récupère les commentaires signalés-->
         <div id="report_comments">
-            <div class="comment">
-                <h3>Commentaires signalés</h3>
+            <div class="admin_comments">
+                <h4>Commentaires signalés</h3>
                 <table>
                     <thead>
                         <tr>
-                            <td>Chapitre n°</td>
-                            <td>Pseudo</td>
-                            <td>Commentaire signalé</td>
-                            <td>Date</td>
+                            <th class="td1">Chapitre n°</td>
+                            <th class="td2">Pseudo</td>
+                            <th class="td3">Commentaire signalé</td>
+                            <th class="td4">Date</td>
                         </tr>
                     </thead>
                     <tbody>
                         <?php if(isset($reportComment)) {
                             foreach($reportComment as $repCom):?>
                                 <tr>
-                                    <td><?php echo $repCom->getIdBillet(); ?></td>
-                                    <td><?php echo $repCom->getPseudo(); ?></td>
-                                    <td><?php echo $repCom->getComment(); ?></td>
-                                    <td><?php echo $repCom->getCommentDate()->format('d/m/Y'); ?></td>
+                                    <td class="td1"><?php echo $repCom->getIdBillet(); ?></td>
+                                    <td class="td2"><?php echo $repCom->getPseudo(); ?></td>
+                                    <td class="td3"><?php echo $repCom->getComment(); ?></td>
+                                    <td class="td4"><?php echo $repCom->getCommentDate()->format('d/m/Y'); ?></td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <a href="<?php echo HOST;?>delete-report-comment.html" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></a>
+                                    <td class="tdbutton" colspan="4">
+                                        <a href="<?php echo HOST;?>delete-report-comment.html" title="Supprimer" class="tooltip"><i class="fas fa-envelope-open"></i></i></a>
                                         <a href="<?php echo HOST;?>update-report-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a>
                                         <a href="<?php echo HOST;?>answer-report-comment.html" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a>
                                     </td>
@@ -128,29 +128,29 @@
 
         <!-- Récupère les commentaires non lus-->
         <div id="last_comments">
-            <div class="last_comments">
-                <h3>Derniers commentaires</h3>
+            <div class="admin_comments">
+                <h4>Derniers commentaires</h3>
                 <table>
                     <thead>
                         <tr>
-                            <td>Chapitre n°</td>
-                            <td>Pseudo</td>
-                            <td>Commentaire</td>
-                            <td>Date</td>
+                            <th class="td1">Chapitre n°</td>
+                            <th class="td2">Pseudo</td>
+                            <th class="td3">Commentaire</td>
+                            <th class="td4">Date</td>
                         </tr>
                     </thead>
                     <tbody>
                         <?php if(isset($nonReadComment)) {
                             foreach($nonReadComment as $nrd):?>
                                 <tr>
-                                    <td><?php echo $nrd->getIdBillet(); ?></td>
-                                    <td><?php echo $nrd->getPseudo(); ?></td>
-                                    <td><?php echo $nrd->getComment(); ?></td>
-                                    <td><?php echo $nrd->getCommentDate()->format('d/m/Y'); ?></td>
+                                    <td class="td1"><?php echo $nrd->getIdBillet(); ?></td>
+                                    <td class="td2"><?php echo $nrd->getPseudo(); ?></td>
+                                    <td class="td3"><?php echo $nrd->getComment(); ?></td>
+                                    <td class="td4"><?php echo $nrd->getCommentDate()->format('d/m/Y'); ?></td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <a href="<?php echo HOST;?>read-comment.html" title="Marquer comme lu" class="tooltip"><i class="far fa-envelope-open"></i></a>
+                                    <td class="tdbutton" colspan="4">
+                                        <a href="<?php echo HOST;?>read-comment.html" title="Marquer comme lu" class="tooltip"><i class="fas fa-envelope-open"></i></a>
                                         <a href="<?php echo HOST;?>answer-comment.html" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a>
                                         <a href="<?php echo HOST;?>update-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a>
                                         <a href="<?php echo HOST;?>delete-comment.html" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></a>
