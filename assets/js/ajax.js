@@ -9,6 +9,7 @@ class Ajax {
                 console.log('success');
             } else {
                 console.error(req.status + " " + req.statusText + " " + url);
+                console.log('erreur');
             }
         });
         req.addEventListener("error", function () {

@@ -115,8 +115,16 @@
                                     <td class="tdbutton" colspan="4">
                                         <!-- <a href="<?php echo HOST;?>update-report-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a> -->
                                         <!-- <a href="<?php echo HOST;?>answer-comment.html/id/<?php echo $repCom->getIdComment();?>" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a> -->
-                                        <a href="#" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a>
-                                        <form class="response" action="<?php echo HOST;?>answer-comment.html" method="post">                                        
+                                        <a  href="#"
+                                            title="Répondre"
+                                            class="tooltip"
+                                            id="answer_comment<?php echo $repCom->getIdComment();?>"
+                                            onclick="afficher('response<?php echo $repCom->getIdComment(); ?>')">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form   id="response<?php echo $repCom->getIdComment();?>"
+                                                class="response" action="<?php echo HOST;?>answer-comment.html"
+                                                method="post">                                        
                                             <input type="text" name="answer" placeholder="Réponse"/>
                                             <input name="idComment" type="hidden" value="<?php echo $repCom->getIdComment();?>"/><br/>
                                             <input name="status" type="hidden" value="lu"/><br />
@@ -162,12 +170,30 @@
                                 </tr>
                                 <tr>
                                     <td class="tdbutton" colspan="4">
-                                        <a href="<?php echo HOST;?>read-comment.html" title="Marquer comme lu" class="tooltip"><i class="fas fa-envelope-open"></i></a>
+                                        <!-- <a href="<?php echo HOST;?>read-comment.html" title="Marquer comme lu" class="tooltip"><i class="fas fa-envelope-open"></i></a> -->
                                         
                                         <!-- <a href="<?php echo HOST;?>answer-comment.html" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a> -->
+                                        <a  href="#" 
+                                            title="Marquer comme lu"
+                                            class="tooltip"
+                                            id="update_comment<?php echo $nrd->getIdComment();?>"
+                                            onclick="updateStatus('<?php echo $nrd->getStatus();?>', 'lu')" >
+                                            <i class="fas fa-envelope-open"></i>
+                                        </a>
+                                            <!--<form id="modification<?php echo $nrd->getIdComment();?>" class="form_report_comment" action="<?php echo HOST;?>update-comment.html" method="post">                                        
+                                                <input name="idComment" type="hidden" value="<?php echo $nrd->getIdComment();?>"/><br/>
+                                                <input name="status" type="hidden" value="lu"/><br />
+                                                <button type="submit" title="Modifier"><i class="fas fa-flag"></i></button>
+                                            </form> -->
                                        
-                                        <a href="#" title="Répondre" class="response_comment"><i class="fas fa-edit"></i></a>
-                                            <form class="response" action="<?php echo HOST;?>answer-comment.html" method="post">                                        
+                                        <a  href="#" 
+                                            title="Répondre"
+                                            class="tooltip"
+                                            id="answer_comment<?php echo $nrd->getIdComment();?>"
+                                            onclick="afficher('response<?php echo $nrd->getIdComment(); ?>')">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                            <form id="response<?php echo $nrd->getIdComment();?>" class="response" action="<?php echo HOST;?>answer-comment.html" method="post">                                        
                                                 <input type="text" name="answer" placeholder="Réponse"/>
                                                 <input name="idComment" type="hidden" value="<?php echo $nrd->getIdComment();?>"/><br/>
                                                 <input name="status" type="hidden" value="lu"/><br />
@@ -175,7 +201,9 @@
                                                 <input type="submit" value="Répondre" />
                                             </form>
 
-                                        <a href="<?php echo HOST;?>update-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a>
+                                        <!-- <a href="<?php echo HOST;?>update-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a> -->
+
+
                                         <a href="<?php echo HOST;?>delete-comment.html" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>

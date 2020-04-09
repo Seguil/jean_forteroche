@@ -68,7 +68,6 @@
                                 <input name="idComment" type="hidden" value="<?php echo $com->getIdComment();?>"/>
                                 <input name="idBillet" type="hidden" value="<?php echo $com->getIdBillet();?>"/>
                                 <input name="report" type="hidden" value="on"/>
-                                <!-- <input type="submit" value="Signaler" /> -->
                                 <button type="submit" title="Signaler"><i class="fas fa-flag"></i></button>
                             </form>
                         </div>

@@ -1,11 +1,9 @@
 class Comment {
-    constructor (url) {
-        this.url = url;//url qui pointe la route à suivre
-//au clic sur la corbeille
-//requête envoyée pour deleter par l'id au serveur. l'url est celle qui va déterminer l'action à effectuer donc envoyer le delete-report-comment.html?
-
-let obj = document.querySelector("a");
-document.write( "<br> Valeur de href : "+ obj.getAttribute("href") ); // on récupère la valeur de 
+    constructor (element, value) {
+        this.element = element;//url qui pointe la route à suivre
+        this.value = value;
+// let obj = document.querySelector("a");
+// document.write( "<br> Valeur de href : "+ obj.getAttribute("href") ); // on récupère la valeur de 
         // document.getElementById(this.html).addEventListener('click', function(e) {
         //     document.getElementById('voilebleu').style.display = 'none';
         //     document.getElementById('formulaire').style.visibility = 'hidden';
@@ -15,10 +13,10 @@ document.write( "<br> Valeur de href : "+ obj.getAttribute("href") ); // on réc
 
     }
 
-    deleteReportComment() {
+    updateStatus(element, value) {
         const request = new Ajax () //Je crée une requête des stations qui est une nouvelle requête Ajax. Elle prendra comme paramètres l'url et la réponse
         
-        request.ajaxGet(this.url, (response) => {
+        request.ajaxGet('http://localhost/jean_forteroche/update_comment.html', (response) => {
             let datas = JSON.parse(response);
             // let markers = L.markerClusterGroup(); //La réponse doit arriver sous forme de regroupement de marqueurs
 
