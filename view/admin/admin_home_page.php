@@ -116,13 +116,13 @@
                                         <!-- <a href="<?php echo HOST;?>update-report-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a> -->
                                         <!-- <a href="<?php echo HOST;?>answer-comment.html/id/<?php echo $repCom->getIdComment();?>" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a> -->
                                         <a href="#" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a>
-                                            <form action="<?php echo HOST;?>answer-comment.html" method="post">                                        
-                                                <input type="text" name="answer" placeholder="Réponse"/>
-                                                <input name="idComment" type="hidden" value="<?php echo $repCom->getIdComment();?>"/><br/>
-                                                <input name="status" type="hidden" value="lu"/><br />
-                                                <input name="report" type="hidden" value="off"/><br />
-                                                <input type="submit" value="Répondre" />
-                                            </form>
+                                        <form class="response" action="<?php echo HOST;?>answer-comment.html" method="post">                                        
+                                            <input type="text" name="answer" placeholder="Réponse"/>
+                                            <input name="idComment" type="hidden" value="<?php echo $repCom->getIdComment();?>"/><br/>
+                                            <input name="status" type="hidden" value="lu"/><br />
+                                            <input name="report" type="hidden" value="off"/><br />
+                                            <input type="submit" value="Répondre" />
+                                        </form>
                                       
                                         
                                         
@@ -166,8 +166,8 @@
                                         
                                         <!-- <a href="<?php echo HOST;?>answer-comment.html" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a> -->
                                        
-                                        <a href="#" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a>
-                                            <form action="<?php echo HOST;?>answer-comment.html" method="post">                                        
+                                        <a href="#" title="Répondre" class="response_comment"><i class="fas fa-edit"></i></a>
+                                            <form class="response" action="<?php echo HOST;?>answer-comment.html" method="post">                                        
                                                 <input type="text" name="answer" placeholder="Réponse"/>
                                                 <input name="idComment" type="hidden" value="<?php echo $nrd->getIdComment();?>"/><br/>
                                                 <input name="status" type="hidden" value="lu"/><br />

@@ -3,14 +3,14 @@
 //     lyon.deleteReportComment() //chargement de la map
 // });
 
-document.getElementById('drc').addEventListener('click', e => {
-        deleteComment.ajaxGet('http://localhost/jean_forteroche/delete-report-comment.html', (response) => {
-            JSON.parse(response);
-        });
-        // e.preventDefault();
-        console.log('after');
+// document.getElementById('drc').addEventListener('click', e => {
+//         deleteComment.ajaxGet('http://localhost/jean_forteroche/delete-report-comment.html', (response) => {
+//             JSON.parse(response);
+//         });
+//         // e.preventDefault();
+//         console.log('after');
 
-});
+// });
 
 //Bouton de transition
 // document.getElementById('transition_down').addEventListener('click', e => {
@@ -25,13 +25,11 @@ document.getElementById('drc').addEventListener('click', e => {
 //     document.getElementById('fonctionnement').scrollIntoView({behavior: "smooth", block: "end"})
 // });
 
+document.querySelectorAll('a[href^="#"]').addEventListener('click', function (e) {
+        document.getElementsByClassName('response').style.display = 'flex'
+    });
 
-//Au click sur le bouton réserver, le formulaire de réservation s'affiche
-// document.getElementById('reservation_button').addEventListener('click', e => {
-//     document.getElementById('formulaire').style.visibility = 'visible';
-//     document.getElementById('voilebleu').style.display = 'flex';
-//     document.getElementById('clear').style.visibility='hidden';
-//     document.getElementById('submit_button').style.visibility='hidden';
-//     document.getElementById('idname').value = localStorage.getItem('name');
-//     document.getElementById('idfirstname').value = localStorage.getItem('firstname');
-// });
+
+
+//Au click sur le lien répondre, le formulaire de réponse s'affiche
+// document.getElementsByClassName('response_comment').addEventListener('click', () =>  document.getElementsByClassName('response').style.display = 'flex');

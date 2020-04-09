@@ -264,7 +264,9 @@ i.fas.fa-flag {
     font-style: italic;
 }
 
-#add_comment form input[type=submit] {
+#add_comment form input[type=submit],
+#report_comments form input[type=submit],
+#last_comments form input[type=submit] {
     margin-top: -5vh;
 }
 
@@ -273,6 +275,10 @@ i.fas.fa-flag {
     margin-right: 5vw;
     margin-left: auto;
     font-style: italic;
+}
+
+form.response {
+    display: none;
 }
 
 
