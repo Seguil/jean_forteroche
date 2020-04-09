@@ -268,6 +268,13 @@ i.fas.fa-flag {
     margin-top: -5vh;
 }
 
+.answer {
+    text-align: right;
+    margin-right: 5vw;
+    margin-left: auto;
+    font-style: italic;
+}
+
 
 /* ------------------Comments admin-------------------- */
 table {

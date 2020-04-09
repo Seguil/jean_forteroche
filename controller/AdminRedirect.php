@@ -43,27 +43,29 @@ class AdminRedirect {
         // $commentManager->delete($id);
         $comManager->delete($id);
 var_dump($comManager);
-        echo json_encode($comManager);
-        // $currentView = new View();
-        // $currentView->redirect('admin-home-page.html');
+        // echo json_encode($comManager);
+        $currentView = new View();
+        $currentView->redirect('admin-home-page.html');
     }
 
 
     
     public function answerComment($params) {
         extract($params);
-
+var_dump($params);
         $myComment = new Comment();
-        $myComment  ->setIdComment($_POST['idComment'])
-                    ->setIdBillet($_POST['idBillet'])
-                    ->setAnswer($_POST['answerComment'])
+        $myComment  ->setAnswer($_POST['answer'])
+                    ->setIdComment($_POST['idComment'])
+                    ->setReport($_POST['report'])
                     ->setStatus($_POST['status']);
+var_dump($myComment);
 
         $commentManager = new CommentManager();
         $commentManager->answer($myComment);
+var_dump($myComment);
 
         $currentView = new View();
-        $currentView->redirect('admin-billet-page.html/id/' . $_POST['idBillet']);
+        $currentView->redirect('admin-home-page.html');
     }
 
 

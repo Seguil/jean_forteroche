@@ -114,8 +114,19 @@
                                 <tr>
                                     <td class="tdbutton" colspan="4">
                                         <!-- <a href="<?php echo HOST;?>update-report-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a> -->
-                                        <a href="<?php echo HOST;?>answer-report-comment.html" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a>
-                                        <a id="drc" href="<?php echo HOST;?>delete-report-comment.html/id/<?php echo $repCom->getIdComment();?>" name="idComment" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></i></a>
+                                        <!-- <a href="<?php echo HOST;?>answer-comment.html/id/<?php echo $repCom->getIdComment();?>" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a> -->
+                                        <a href="#" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a>
+                                            <form action="<?php echo HOST;?>answer-comment.html" method="post">                                        
+                                                <input type="text" name="answer" placeholder="Réponse"/>
+                                                <input name="idComment" type="hidden" value="<?php echo $repCom->getIdComment();?>"/><br/>
+                                                <input name="status" type="hidden" value="lu"/><br />
+                                                <input name="report" type="hidden" value="off"/><br />
+                                                <input type="submit" value="Répondre" />
+                                            </form>
+                                      
+                                        
+                                        
+                                        <a href="<?php echo HOST;?>delete-comment.html/id/<?php echo $repCom->getIdComment();?>" name="idComment" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></i></a>
                                         <!-- <a id="drc" href="#" value="<?php echo $repCom->getIdComment();?>" name="idComment" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></i></a> -->
                                     </td>
                                 </tr>
@@ -152,7 +163,18 @@
                                 <tr>
                                     <td class="tdbutton" colspan="4">
                                         <a href="<?php echo HOST;?>read-comment.html" title="Marquer comme lu" class="tooltip"><i class="fas fa-envelope-open"></i></a>
-                                        <a href="<?php echo HOST;?>answer-comment.html" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a>
+                                        
+                                        <!-- <a href="<?php echo HOST;?>answer-comment.html" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a> -->
+                                       
+                                        <a href="#" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a>
+                                            <form action="<?php echo HOST;?>answer-comment.html" method="post">                                        
+                                                <input type="text" name="answer" placeholder="Réponse"/>
+                                                <input name="idComment" type="hidden" value="<?php echo $nrd->getIdComment();?>"/><br/>
+                                                <input name="status" type="hidden" value="lu"/><br />
+                                                <input name="report" type="hidden" value="off"/><br />
+                                                <input type="submit" value="Répondre" />
+                                            </form>
+
                                         <a href="<?php echo HOST;?>update-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a>
                                         <a href="<?php echo HOST;?>delete-comment.html" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></a>
                                     </td>

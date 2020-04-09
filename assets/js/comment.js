@@ -1,12 +1,11 @@
 class Comment {
-    constructor (id, url) {
-        this.id = document.getElementById(id); //je récupère l'élément sur lequel portera la requete
-        this.idValue = this.id.value;
+    constructor (url) {
         this.url = url;//url qui pointe la route à suivre
 //au clic sur la corbeille
 //requête envoyée pour deleter par l'id au serveur. l'url est celle qui va déterminer l'action à effectuer donc envoyer le delete-report-comment.html?
 
-
+let obj = document.querySelector("a");
+document.write( "<br> Valeur de href : "+ obj.getAttribute("href") ); // on récupère la valeur de 
         // document.getElementById(this.html).addEventListener('click', function(e) {
         //     document.getElementById('voilebleu').style.display = 'none';
         //     document.getElementById('formulaire').style.visibility = 'hidden';
