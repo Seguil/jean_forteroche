@@ -73,20 +73,25 @@ class CommentManager {
         //exécution de la requête
         $request->execute();
         while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
-            $comment = new Comment();
-            $comment->setIdComment($row['c_id']);
-            $comment->setIdBillet($row['c_id_billet']);
-            $comment->setPseudo($row['c_pseudo']);
-            $comment->setComment($row['c_comment']);
-            $comment->setCommentDate($row['c_comment_date']);
-            $comment->setStatus($row['c_status']);
-            $comment->setReport($row['c_report']);
-            $comment->setAnswer($row['c_answer']);
+            $comment = $this->hydrate($row);
             $comments[] = $comment;
         };
         if(isset($comments)) {
             return $comments;
         }
+    }
+
+    public function hydrate($row) {
+        $comment = new Comment();
+        $comment->setIdComment($row['c_id']);
+        $comment->setIdBillet($row['c_id_billet']);
+        $comment->setPseudo($row['c_pseudo']);
+        $comment->setComment($row['c_comment']);
+        $comment->setCommentDate($row['c_comment_date']);
+        $comment->setStatus($row['c_status']);
+        $comment->setReport($row['c_report']);
+        $comment->setAnswer($row['c_answer']);
+        return $comment;
     }
 
 
@@ -178,13 +183,10 @@ class CommentManager {
             UPDATE comment
             SET c_report=:c_report
             WHERE c_id=:c_id
-                AND c_id_billet=:c_id_billet
-            LIMIT 1
         ');
 
         //Liaison des paramètres
         $request->bindValue(':c_id', $comment->getIdComment(), PDO::PARAM_INT);
-        $request->bindValue(':c_id_billet', $comment->getIdBillet(), PDO::PARAM_INT);
         $request->bindValue(':c_report', $comment->getReport(), PDO::PARAM_STR);
         
         $request->execute();

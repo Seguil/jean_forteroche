@@ -70,6 +70,7 @@
     </footer>
 
 <!-- Fichiers js -->
+<script src="<?php echo JS;?>globallistener.js"></script>
 
 </body>
 </html>

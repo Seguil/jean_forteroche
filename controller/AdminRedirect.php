@@ -71,7 +71,7 @@ var_dump($myComment);
 
     public function updateComment($params) {
         extract($params);
-var_dump($id);exit;
+var_dump($params);exit;
         // $myComment = new Comment();
         // $myComment  ->setAnswer($_POST['answer'])
         //             ->setIdComment($_POST['idComment'])

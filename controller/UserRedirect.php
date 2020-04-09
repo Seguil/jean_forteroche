@@ -38,14 +38,16 @@ class UserRedirect {
     public function reportComment($params) {
         extract($params);
 
-        $myComment = new Comment();
-        $myComment  ->setIdComment($_POST['idComment'])
-                    ->setIdBillet($_POST['idBillet'])
-                    ->setReport($_POST['report']);
-
         $commentManager = new CommentManager();
-        $commentManager->flag($myComment);
 
+        $myComment = $commentManager->read($id); // récupréer l'objet comment
+
+        $myComment->setReport($report);
+
+        $commentManager->save($myComment);
+
+
+        // retrun Json si ajax
         $currentView = new View();
         $currentView->redirect('user-billet-page.html/id/' . $_POST['idBillet']);
     }

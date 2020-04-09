@@ -1,5 +1,6 @@
 function afficher(elt) {
     document.getElementById(elt).style.display = 'flex';
+    return false;
 }
 
 
@@ -18,4 +19,18 @@ function updateStatus(element, newValue) {
         }
     });
 
+}
+
+const reportButtons = document.querySelectorAll('buttonReportComment');
+console.log(reportButtons);
+
+for(let i = 0; i <= reportButtons.length; i++) {
+    console.log('hello1');
+
+    reportButtons[i].addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('hello');
+        let url = this.getAttribute('data-href');
+        
+    });
 }
