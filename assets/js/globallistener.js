@@ -21,16 +21,36 @@ function updateStatus(element, newValue) {
 
 }
 
-const reportButtons = document.querySelectorAll('buttonReportComment');
+const reportButtons = document.querySelectorAll('.buttonReportComment');
 console.log(reportButtons);
 
-for(let i = 0; i <= reportButtons.length; i++) {
-    console.log('hello1');
+for(let i = 0; i < reportButtons.length; i++) {
+    console.log(reportButtons.length);
 
     reportButtons[i].addEventListener('click', (e) => {
         e.preventDefault();
         console.log('hello');
-        let url = this.getAttribute('data-href');
-        
+        let url = reportButtons[i].getAttribute('data-href');
+        console.log (url);
+
+
+        ajaxGet(url, callback) {
+            var req = new XMLHttpRequest();
+            req.open("GET", url);
+            req.addEventListener("load", () => {
+                if (req.status >= 200 && req.status < 400) {
+                    // Appelle la fonction callback en lui passant la réponse de la requête
+                    callback(req.responseText);
+                    console.log('success');
+                } else {
+                    console.error(req.status + " " + req.statusText + " " + url);
+                    console.log('erreur');
+                }
+            });
+            req.addEventListener("error", function () {
+                console.error("Erreur réseau avec l'URL " + url);
+            });
+            req.send(null);
+        };
     });
 }

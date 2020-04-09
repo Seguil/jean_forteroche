@@ -60,9 +60,7 @@
             <h4>Commentaires</h4>
             <!-- Publication des commentaires -->
             <?php if(isset($comments)) {
-                // $i = 0;
                 foreach($comments as $com):?>
-                    <!-- <?php $i++;?> -->
                     <div class="comment">
                         <div class="header_comment">
                             <div class="pseudo_comment"><?php echo $com->getPseudo();?></div>
