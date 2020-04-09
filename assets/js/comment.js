@@ -1,7 +1,8 @@
 class Comment {
-    constructor (html, url) {
-        this.html = html;
-        this.url = url;
+    constructor (id, url) {
+        this.id = document.getElementById(id); //je récupère l'élément sur lequel portera la requete
+        this.idValue = this.id.value;
+        this.url = url;//url qui pointe la route à suivre
 //au clic sur la corbeille
 //requête envoyée pour deleter par l'id au serveur. l'url est celle qui va déterminer l'action à effectuer donc envoyer le delete-report-comment.html?
 

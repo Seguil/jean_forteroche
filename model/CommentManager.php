@@ -33,17 +33,16 @@ class CommentManager {
     }
 
 
-    public function read($comment) {
+    public function read($id) {
         $pdo = $this->pdo;
         $request = $pdo->prepare('SELECT * FROM comment WHERE c_id = :c_id');
     
         //Liaison des paramètres
-        $request->bindValue(':c_id', $comment->getIdComment(), PDO::PARAM_INT);
-
+        $request->bindValue(':c_id', $id, PDO::PARAM_INT);
         //exécution de la requête
         $request->execute();
         $row = $request->fetch(PDO::FETCH_ASSOC);
-        
+
         $comment = new Comment();
         $comment->setIdComment($row['c_id']);
         $comment->setIdBillet($row['c_id_billet']);
@@ -51,10 +50,10 @@ class CommentManager {
         $comment->setComment($row['c_comment']);
         $comment->setCommentDate($row['c_comment_date']);
         $comment->setAnswer($row['c_answer']);
+        // var_dump($comment); exit;
+        return $comment;
 
-        if(isset($comment)) {
-            return $comment;
-        }
+
     }
 
 
@@ -242,11 +241,6 @@ class CommentManager {
         //Ecécution de la requête
         $result=$request->execute();
 
-        if(isset($result)) {
-            return $result;
-        } else {
-            return false;
-        }
     }
 
 
