@@ -192,7 +192,7 @@
                                     
                                         <a  href="#"
                                             data-href="<?php echo HOST;?>delete-comment.html/id/<?php echo $nrd->getIdComment();?>"
-                                            class="buttonReportComment"
+                                            class="buttonDeleteComment"
                                             title="Supprimer">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>

@@ -1,20 +1,13 @@
-function afficher(elt) {
-    document.getElementById(elt).style.display = 'flex';
-    return false;
-}
+const deleteButtons = document.querySelectorAll('.buttonDeleteComment');
+console.log(deleteButtons);
 
+for(let i = 0; i < deleteButtons.length; i++) {
+    console.log(deleteButtons.length);
 
-
-const reportButtons = document.querySelectorAll('.buttonReportComment');
-console.log(reportButtons);
-
-for(let i = 0; i < reportButtons.length; i++) {
-    console.log(reportButtons.length);
-
-    reportButtons[i].addEventListener('click', (e) => {
+    deleteButtons[i].addEventListener('click', (e) => {
         e.preventDefault();
         console.log('hello');
-        let url = reportButtons[i].getAttribute('data-href');
+        let url = deleteButtons[i].getAttribute('data-href');
         console.log (url);
     
         var req = new XMLHttpRequest();
@@ -22,9 +15,9 @@ for(let i = 0; i < reportButtons.length; i++) {
         req.addEventListener("load", () => {
             if (req.status >= 200 && req.status < 400) {
                 // Appelle la fonction callback en lui passant la réponse de la requête
-                req.responseText;
-                console.log(req.responseText);
-                JSON.parse(req.responseText);                
+                // req.responseText;
+                // console.log(req.responseText);
+                // JSON.parse(req.responseText);                
                 let one = document.querySelector('.test');
                 let two = document.querySelector('.test_ajax');
                 one.removeChild(two);
@@ -39,10 +32,5 @@ for(let i = 0; i < reportButtons.length; i++) {
             console.error("Erreur réseau avec l'URL " + url);
         });
         req.send(null);
-
-        // let tableau = JSON.parse(responseText);
-        // console.log(responseText);
-        // debug.log(tableau);
-        
     });
 }

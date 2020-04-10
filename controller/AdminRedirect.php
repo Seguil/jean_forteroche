@@ -86,7 +86,7 @@ echo json_encode(serialize($myComment));
         extract($params);
         $commentManager = new CommentManager();
         $myComment = $commentManager->delete($id);
-        echo json_encode(serialize($myComment));
+        // echo json_encode(serialize($myComment));
         // $currentView = new View();
         // $currentView->redirect('admin-home-page.html');
     }
