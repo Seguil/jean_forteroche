@@ -64,15 +64,10 @@
                     <div class="comment">
                         <div class="header_comment">
                             <div class="pseudo_comment"><?php echo $com->getPseudo();?></div>
-                            <!-- <form class="form_report_comment" action="<?php echo HOST;?>user-report-comment.html" method="post">
-                                <input name="idComment" type="hidden" value="<?php echo $com->getIdComment();?>"/>
-                                <input name="idBillet" type="hidden" value="<?php echo $com->getIdBillet();?>"/>
-                                <input name="report" type="hidden" value="on"/>
-                                <button type="submit" title="Signaler"><i class="fas fa-flag"></i></button>
-                            </form> -->
-                            <!-- <a href="#" id="buttonReportComment<?= $i;?>" data-href="<?php echo HOST;?>user-report-comment.html/id/<?php echo $com->getIdComment();?>/report/on"> -->
-                            <a href="#" class="buttonReportComment" data-href="<?php echo HOST;?>user-report-comment.html/id/<?php echo $com->getIdComment();?>/report/on">
-                            <i class="fas fa-flag"></i>
+                            <a  href="#" class="buttonReportComment"
+                                data-href="<?php echo HOST;?>user-report-comment.html/id/<?php echo $com->getIdComment();?>/report/on"
+                                title="Signaler">
+                                <i class="fas fa-flag"></i>
                             </a>
                         </div>
                         <div class="comment_date"><?php echo $com->getCommentDate()->format('d/m/Y');?></div>
