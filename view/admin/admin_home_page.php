@@ -116,13 +116,12 @@
                                         <!-- <a href="<?php echo HOST;?>update-report-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a> -->
                                         <!-- <a href="<?php echo HOST;?>answer-comment.html/id/<?php echo $repCom->getIdComment();?>" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a> -->
                                         <a  href="#"
-                                            title="Répondre"
-                                            class="tooltip"
-                                            id="answer_comment<?php echo $repCom->getIdComment();?>"
-                                            onclick="afficher('response<?php echo $repCom->getIdComment(); ?>')">
+                                            data-href="<?php echo HOST;?>update-comment.html/id/<?php echo $repCom->getIdComment();?>/status/lu"
+                                            class="buttonReportComment"
+                                            title="Répondre">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <form   id="response<?php echo $repCom->getIdComment();?>"
+                                        <!-- <form   id="response<?php echo $repCom->getIdComment();?>"
                                                 class="response" action="<?php echo HOST;?>answer-comment.html"
                                                 method="post">                                        
                                             <input type="text" name="answer" placeholder="Réponse"/>
@@ -130,7 +129,7 @@
                                             <input name="status" type="hidden" value="lu"/><br />
                                             <input name="report" type="hidden" value="off"/><br />
                                             <input type="submit" value="Répondre" />
-                                        </form>
+                                        </form> -->
                                       
                                         
                                         
@@ -160,8 +159,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <div class="test">
                         <?php if(isset($nonReadComment)) {
                             foreach($nonReadComment as $nrd):?>
+                            <div class='test_ajax'>
                                 <tr>
                                     <td class="td1"><?php echo $nrd->getIdBillet(); ?></td>
                                     <td class="td2"><?php echo $nrd->getPseudo(); ?></td>
@@ -173,42 +174,47 @@
                                         <!-- <a href="<?php echo HOST;?>read-comment.html" title="Marquer comme lu" class="tooltip"><i class="fas fa-envelope-open"></i></a> -->
                                         
                                         <!-- <a href="<?php echo HOST;?>answer-comment.html" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a> -->
-                                        <a  href="#" 
-                                            title="Marquer comme lu"
-                                            class="tooltip"
-                                            id="update_comment<?php echo $nrd->getIdComment();?>"
-                                            onclick="updateStatus('<?php echo $nrd->getStatus();?>', 'lu')" >
+                                        <a  href="#"
+                                            data-href="<?php echo HOST;?>update-comment.html/id/<?php echo $nrd->getIdComment();?>/status/lu"
+                                            class="buttonReportComment"
+                                            title="Répondre">
                                             <i class="fas fa-envelope-open"></i>
                                         </a>
-                                            <!--<form id="modification<?php echo $nrd->getIdComment();?>" class="form_report_comment" action="<?php echo HOST;?>update-comment.html" method="post">                                        
-                                                <input name="idComment" type="hidden" value="<?php echo $nrd->getIdComment();?>"/><br/>
-                                                <input name="status" type="hidden" value="lu"/><br />
-                                                <button type="submit" title="Modifier"><i class="fas fa-flag"></i></button>
-                                            </form> -->
                                        
-                                        <a  href="#" 
-                                            title="Répondre"
-                                            class="tooltip"
-                                            id="answer_comment<?php echo $nrd->getIdComment();?>"
-                                            onclick="afficher('response<?php echo $nrd->getIdComment(); ?>')">
+                                        <a  href="#response_comment">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                            <form id="response<?php echo $nrd->getIdComment();?>" class="response" action="<?php echo HOST;?>answer-comment.html" method="post">                                        
-                                                <input type="text" name="answer" placeholder="Réponse"/>
-                                                <input name="idComment" type="hidden" value="<?php echo $nrd->getIdComment();?>"/><br/>
-                                                <input name="status" type="hidden" value="lu"/><br />
-                                                <input name="report" type="hidden" value="off"/><br />
-                                                <input type="submit" value="Répondre" />
-                                            </form>
 
                                         <!-- <a href="<?php echo HOST;?>update-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a> -->
 
 
-                                        <a href="<?php echo HOST;?>delete-comment.html" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></a>
+                                        <!-- <a href="<?php echo HOST;?>delete-comment.html" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></a> -->
+                                    
+                                        <a  href="#"
+                                            data-href="<?php echo HOST;?>delete-comment.html/id/<?php echo $nrd->getIdComment();?>"
+                                            class="buttonReportComment"
+                                            title="Supprimer">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                       
                                     </td>
                                 </tr>
+                            </div>
                             <?php endforeach ;
                         };?>
+                        </div>
+                        <div id="response_comment">
+                        <?php if(isset($nonReadComment)) {;?>
+                            <form action="<?php echo HOST;?>answer-comment.html" method="post">                                        
+                                <input type="text" name="answer" placeholder="Réponse"/>
+                                <input name="idComment" type="hidden" value="<?php echo $nrd->getIdComment();?>"/><br/>
+                                <input name="status" type="hidden" value="lu"/><br />
+                                <input name="report" type="hidden" value="off"/><br />
+                                <input type="submit" value="Répondre"/>
+                            </form>
+                        <?php };?>
+                        </div>
+
                     </tbody>
                 </table>
             </div>

@@ -71,19 +71,22 @@ var_dump($myComment);
 
     public function updateComment($params) {
         extract($params);
-var_dump($params);exit;
-        // $myComment = new Comment();
-        // $myComment  ->setAnswer($_POST['answer'])
-        //             ->setIdComment($_POST['idComment'])
-        //             ->setReport($_POST['report'])
-        //             ->setStatus($_POST['status']);
-// var_dump($myComment);
-
         $commentManager = new CommentManager();
-        $commentManager->update($id);
-var_dump($commentManager);
+        $myComment = $commentManager->read($id); // récupréer l'objet comment
+        $myComment->setStatus($status);
+        $commentManager->save($myComment);
 
-echo json_encode($commentManager);
+        // retrun Json si ajax
+echo json_encode(serialize($myComment));
+        // $currentView = new View();
+        // $currentView->redirect('admin-home-page.html');
+    }
+
+    public function deleteComment($params) {
+        extract($params);
+        $commentManager = new CommentManager();
+        $myComment = $commentManager->delete($id);
+        echo json_encode(serialize($myComment));
         // $currentView = new View();
         // $currentView->redirect('admin-home-page.html');
     }

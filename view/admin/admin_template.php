@@ -52,8 +52,8 @@
     </footer>
 
 
-    <script src="<?php echo JS;?>ajax.js"></script>
-    <script src="<?php echo JS;?>main.js"></script>
+    <!-- <script src="<?php echo JS;?>ajax.js"></script>
+    <script src="<?php echo JS;?>comment.js"></script> -->
     <script src="<?php echo JS;?>globallistener.js"></script>
 
 

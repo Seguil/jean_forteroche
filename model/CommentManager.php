@@ -49,10 +49,10 @@ class CommentManager {
         $comment->setPseudo($row['c_pseudo']);
         $comment->setComment($row['c_comment']);
         $comment->setCommentDate($row['c_comment_date']);
+        $comment->setStatus($row['c_status']);
+        $comment->setReport($row['c_report']);
         $comment->setAnswer($row['c_answer']);
-        // var_dump($comment); exit;
         return $comment;
-
 
     }
 

@@ -64,8 +64,9 @@
                     <div class="comment">
                         <div class="header_comment">
                             <div class="pseudo_comment"><?php echo $com->getPseudo();?></div>
-                            <a  href="#" class="buttonReportComment"
+                            <a  href="#"
                                 data-href="<?php echo HOST;?>user-report-comment.html/id/<?php echo $com->getIdComment();?>/report/on"
+                                class="buttonReportComment"
                                 title="Signaler">
                                 <i class="fas fa-flag"></i>
                             </a>

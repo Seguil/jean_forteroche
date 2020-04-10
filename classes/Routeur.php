@@ -25,6 +25,7 @@ class Routeur {
         'delete-report-comment.html'  =>      ['controller' => 'AdminRedirect'   ,    'method' => 'deleteReportComment'    ],
         'answer-comment.html'         =>      ['controller' => 'AdminRedirect'   ,    'method' => 'answerComment'          ],
         'update-comment.html'         =>      ['controller' => 'AdminRedirect'   ,    'method' => 'updateComment'          ],
+        'delete-comment.html'         =>      ['controller' => 'AdminRedirect'   ,    'method' => 'deleteComment'          ],
 
         'connection-admin.html'       =>      ['controller' => 'AdminRedirect'   ,    'method' => 'readUser'               ],
         'deconnexion.html'            =>      ['controller' => 'AdminRedirect'   ,    'method' => 'deconnexionUser'        ]
