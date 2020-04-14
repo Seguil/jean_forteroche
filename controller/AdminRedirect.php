@@ -74,10 +74,12 @@ var_dump($myComment);
         $commentManager = new CommentManager();
         $myComment = $commentManager->read($id); // récupréer l'objet comment
         $myComment->setStatus($status);
-        $commentManager->save($myComment);
+        $myComment->setReport($report);
+        $myComment->setIdComment($id);
 
+        $commentManager->save($myComment);
         // retrun Json si ajax
-echo json_encode(serialize($myComment));
+echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id]);
         // $currentView = new View();
         // $currentView->redirect('admin-home-page.html');
     }

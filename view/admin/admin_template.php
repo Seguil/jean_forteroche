@@ -56,6 +56,7 @@
     <script src="<?php echo JS;?>comment.js"></script> -->
     <!-- <script src="<?php echo JS;?>globallistener.js"></script> -->
     <script src="<?php echo JS;?>deleteAjax.js"></script>
+    <script src="<?php echo JS;?>ignored_report_ajax.js"></script>
 
 
 </body>

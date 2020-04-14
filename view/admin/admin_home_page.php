@@ -118,7 +118,7 @@
 
                             <a  href="#"
                                 data-href="<?php echo HOST;?>update-comment.html/id/<?php echo $repCom->getIdComment();?>/status/lu/report/off"
-                                class="buttonIgnoredComment"
+                                class="buttonIgnoredReport"
                                 title="Annuler le signalement">
                                 <i class="fas fa-ban"></i>
                             </a>
