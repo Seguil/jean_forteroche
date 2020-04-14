@@ -147,7 +147,7 @@ header img {
 /* ---------------userhomepage - commentaires -----------------*/
 #comments,
 .admin_comments {
-    background-color: rgba(0, 143, 200, 0.4);
+    /* background-color: rgba(0, 143, 200, 0.4); */
     margin: 2vh;
 }
 
@@ -314,3 +314,63 @@ table .tdbutton {
     border-bottom: 1px grey solid;
 }
 
+.list_comments {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.one_comment {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    border-radius: 10px;
+    width: 20vw;
+    margin: auto;
+    padding: 1vh 1vw;
+}
+
+.one_comment.report {
+    background-color: #f7d9d9;
+}
+
+.one_comment.last {
+    background-color: #e3f7d9;
+}
+
+
+.one_comment h5 {
+    font-size: 1.2em;
+    margin: 0;
+    padding-bottom: 1vh;
+    text-align: center;
+}
+
+.one_comment .pseudo_date {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1vh;
+    align-items: center;
+}
+
+.one_comment .pseudo_comment {
+    font-weight: bolder;
+    font-size: 1.1em;
+}
+
+.one_comment .date_comment {
+    font-style: italic;
+    font-size: 0.8em;
+}
+
+.one_comment .content_comment {
+    font-size: 1em;
+    padding-bottom: 1vh;
+}
+
+.tdbutton {
+    text-align: center;
+    word-spacing: 3em;
+    padding-top: 1vh;
+    padding-bottom: 2vh;
+}
