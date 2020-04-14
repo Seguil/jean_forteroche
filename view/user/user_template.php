@@ -70,7 +70,8 @@
     </footer>
 
 <!-- Fichiers js -->
-<script src="<?php echo JS;?>globallistener.js"></script>
+<!-- <script src="<?php echo JS;?>globallistener.js"></script> -->
+<script src="<?php echo JS;?>reportAjax.js"></script>
 
 </body>
 </html>

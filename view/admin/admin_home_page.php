@@ -117,7 +117,7 @@
                                         <!-- <a href="<?php echo HOST;?>answer-comment.html/id/<?php echo $repCom->getIdComment();?>" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a> -->
                                         <a  href="#"
                                             data-href="<?php echo HOST;?>update-comment.html/id/<?php echo $repCom->getIdComment();?>/status/lu"
-                                            class="buttonReportComment"
+                                            class="buttonAnswerComment"
                                             title="Répondre">
                                             <i class="fas fa-edit"></i>
                                         </a>
@@ -176,7 +176,7 @@
                                         <!-- <a href="<?php echo HOST;?>answer-comment.html" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a> -->
                                         <a  href="#"
                                             data-href="<?php echo HOST;?>update-comment.html/id/<?php echo $nrd->getIdComment();?>/status/lu"
-                                            class="buttonReportComment"
+                                            class="buttonAnswerComment"
                                             title="Répondre">
                                             <i class="fas fa-envelope-open"></i>
                                         </a>
