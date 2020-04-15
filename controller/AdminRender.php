@@ -64,4 +64,28 @@ class AdminRender {
 
         // $currentView->render(array('billets' => $billets, 'billet' => $billet, 'comments' => $comments));
     }
+
+
+    public function readNonPublishedBillet($params) {
+        extract($params);
+
+        $billetManager = new BilletManager();
+        $billet = $billetManager->read($id);
+        
+        $currentView = new View('read_non_published_billet');
+        $currentView->renderAdmin(array('billet' => $billet));
+    }
+
+
+    public function changeBillet($params) {
+        extract($params);
+
+        $billetManager = new BilletManager();
+        $billet = $billetManager->read($id);
+        
+        $currentView = new View('change_billet');
+        $currentView->renderAdmin(array('billet' => $billet));
+    }
+
+
 }

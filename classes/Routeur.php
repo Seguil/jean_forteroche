@@ -16,6 +16,8 @@ class Routeur {
         //admin - render
         'admin-home-page.html'        =>      ['controller' => 'AdminRender'     ,    'method' => 'showAdminHomePage'      ],
         'admin-billet-page.html'      =>      ['controller' => 'AdminRender'     ,    'method' => 'adminReadBilletComments'],
+        'read-non-published-billet.html'=>      ['controller' => 'AdminRender'     ,    'method' => 'readNonPublishedBillet'],
+        'change-billet.html'          =>      ['controller' => 'AdminRender'     ,    'method' => 'changeBillet'],
 
 
         //admin - redirect

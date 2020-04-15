@@ -70,18 +70,17 @@
                         <h2>Chapitre n° <?php echo $npb->getNumber();?></h2>
                         <h3><?php echo $npb->getTitle();?></h2>
                         <div class="tdbutton">
-                            <a  href="#"
-                                data-href="<?php echo HOST;?>read-non-published-billet.html/id/<?php echo $npb->getId();?>"
+                            <a  href="<?php echo HOST;?>read-non-published-billet.html/id/<?php echo $npb->getId();?>"
                                 class="buttonReadBillet"
                                 title="Lire">
                                 <i class="fas fa-book-open"></i>
                             </a>
 
                             <a  href="#"
-                                data-href="<?php echo HOST;?>update-non-published-billet.html/id/<?php echo $npb->getId();?>"
-                                class="buttonUpdateBillet"
+                                data-href="<?php echo HOST;?>change-billet.html/id/<?php echo $npb->getId();?>"
+                                class="buttonChangeBillet"
                                 title="Modifier">
-                                <i class="fas fa-ban"></i>
+                                <i class="fas fa-edit"></i>
                             </a>
 
                             <a  href="#"
