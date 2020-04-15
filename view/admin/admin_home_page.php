@@ -110,7 +110,7 @@
                         <p class="content_comment"><?php echo $repCom->getComment();?></p>
                         <div class="tdbutton">
                             <a  href="#"
-                                data-href="<?php echo HOST;?>update-comment.html/id/<?php echo $repCom->getIdComment();?>/status/lu"
+                                data-href="<?php echo HOST;?>answer-comment.html/id/<?php echo $repCom->getIdComment();?>/status/lu/report/off"
                                 class="buttonAnswerComment"
                                 title="Répondre">
                                 <i class="fas fa-edit"></i>
@@ -165,8 +165,16 @@
                                 <i class="fas fa-envelope-open"></i>
                             </a>
 
-                            <a  href="#response_comment">
+                            <a  href="#"
+                                class="buttonAnswerComment"
+                                title="Répondre">
                                 <i class="fas fa-edit"></i>
+                                <form class="response_comment" action="<?php echo HOST;?>answer-comment.html/id/<?php echo $nrd->getIdComment();?>" method="post">                                        
+                                    <input type="text" name="answer" placeholder="Réponse"/>
+                                    <input name="status" type="hidden" value="lu"/><br />
+                                    <input name="report" type="hidden" value="off"/><br />
+                                    <input type="submit" value="Répondre"/>
+                                </form>
                             </a>
 
                             <a  href="#"
@@ -230,8 +238,7 @@
                             <?php endforeach ;
                         };?>
                         </div> -->
-                        <div id="response_comment">
-                        <?php if(isset($nonReadComment)) {;?>
+                        <!-- <div class="response_comment">
                             <form action="<?php echo HOST;?>answer-comment.html" method="post">                                        
                                 <input type="text" name="answer" placeholder="Réponse"/>
                                 <input name="idComment" type="hidden" value="<?php echo $nrd->getIdComment();?>"/><br/>
@@ -239,13 +246,12 @@
                                 <input name="report" type="hidden" value="off"/><br />
                                 <input type="submit" value="Répondre"/>
                             </form>
-                        <?php };?>
                         </div>
 
                     </tbody>
-                </table>
-            </div>
-        </div>
+                </table> -->
+            <!-- </div>
+        </div> -->
 
 
     </article>

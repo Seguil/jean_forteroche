@@ -374,3 +374,7 @@ table .tdbutton {
     padding-top: 1vh;
     padding-bottom: 2vh;
 }
+
+.one_comment .response_comment {
+    display: none;
+}
