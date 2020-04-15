@@ -20,13 +20,14 @@ class AdminRender {
     
         //
         $billets = $billetManager->readAll($depart, $billetsParPage);
+        $nonPublishedBillets = $billetManager->readNonPublished();
 
         $commentManager = new CommentManager();
         $reportComment = $commentManager->readAllReport();
         $nonReadComment = $commentManager->readAllNonRead();
 
         $currentView = new View('admin_home_page');
-        $currentView->renderAdmin(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante, 'billets' => $billets, 'reportComment' => $reportComment, 'nonReadComment' => $nonReadComment));
+        $currentView->renderAdmin(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante, 'billets' => $billets, 'nonPublishedBillets' => $nonPublishedBillets, 'reportComment' => $reportComment, 'nonReadComment' => $nonReadComment));
         // $currentView->render(array('billets' => $billets, 'billet' => $billet));
     }
 

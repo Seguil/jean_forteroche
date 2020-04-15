@@ -56,19 +56,59 @@
                 <a href="<?php echo HOST;?>delete-billet.html" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></a>
                 <a href="<?php echo HOST;?>update-billet.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a>
             </div>
+        </div>
 
             <!-- Affiche les articles enregistrés et non publié -->
             <div id="non_published_billets">
-                <h3>Chapitres non publiés</h3>
+                <h4>Chapitres non publiés</h4>
                 
+                <div class="list_billets">
+                    <?php if(isset($nonPublishedBillets)) {
+                        foreach($nonPublishedBillets as $npb):
+                    ?>
+                    <div class="one_billet non_published">
+                        <h2>Chapitre n° <?php echo $npb->getNumber();?></h2>
+                        <h3><?php echo $npb->getTitle();?></h2>
+                        <div class="tdbutton">
+                            <a  href="#"
+                                data-href="<?php echo HOST;?>read-non-published-billet.html/id/<?php echo $npb->getId();?>"
+                                class="buttonReadBillet"
+                                title="Lire">
+                                <i class="fas fa-book-open"></i>
+                            </a>
+
+                            <a  href="#"
+                                data-href="<?php echo HOST;?>update-non-published-billet.html/id/<?php echo $npb->getId();?>"
+                                class="buttonUpdateBillet"
+                                title="Modifier">
+                                <i class="fas fa-ban"></i>
+                            </a>
+
+                            <a  href="#"
+                                data-href="<?php echo HOST;?>published-non-published-billet.html/id/<?php echo $npb->getId();?>/status/published"
+                                class="buttonPublishedBillet"
+                                title="Publier">
+                                <i class="fas fa-share-alt"></i>
+                            </a>
+
+                            <a href="#"
+                                data-href="<?php echo HOST;?>delete-non-published-billet.html<?php echo $npb->getId();?>"
+                                class="buttonDeleteBillet"
+                                title="Supprimer">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <?php endforeach;};?>
+                </div>
+
                 
-                
-                <table>
+                <!-- <table>
                     <thead>
                         <tr>
                             <td>Chapitre n°</td>
                             <td>Titre</td>
-                            <!-- <td>Pseudo</td> -->
+                            <td>Pseudo</td>
                             <td>Date d'enregistrement</td>
                         </tr>
                     </thead>
@@ -86,9 +126,9 @@
                             <?php endforeach ;
                         };?>
                     </tbody>
-                </table>
+                </table> -->
             </div>
-        </div>
+        
 
         
 
@@ -169,9 +209,10 @@
                                 class="buttonAnswerComment"
                                 title="Répondre">
                                 <i class="fas fa-edit"></i>
-                                <form class="response_comment" action="<?php echo HOST;?>answer-comment.html/id/<?php echo $nrd->getIdComment();?>" method="post">                                        
+                                <form class="response_comment" action="<?php echo HOST;?>answer-comment.html" method="post">                                        
                                     <input type="text" name="answer" placeholder="Réponse"/>
                                     <input name="status" type="hidden" value="lu"/><br />
+                                    <input name="idComment" type="hidden" value="<?php echo $nrd->getIdComment();?>"/><br />
                                     <input name="report" type="hidden" value="off"/><br />
                                     <input type="submit" value="Répondre"/>
                                 </form>

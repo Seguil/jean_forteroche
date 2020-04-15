@@ -314,12 +314,14 @@ table .tdbutton {
     border-bottom: 1px grey solid;
 }
 
+.list_billets,
 .list_comments {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
+.one_billet,
 .one_comment {
     display: flex;
     flex-direction: column;
@@ -336,6 +338,17 @@ table .tdbutton {
 
 .one_comment.last {
     background-color: #e3f7d9;
+}
+
+.one_billet.non_published {
+    background-color: #bbbbbb;
+}
+
+.one_billet h2,
+.one_billet h3 {
+    margin: 0;
+    padding-bottom: 1vh;
+    text-align: center;
 }
 
 

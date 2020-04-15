@@ -52,23 +52,31 @@ var_dump($comManager);
     
     public function answerComment($params) {
         extract($params);
+// var_dump($params); exit;
+        // $myComment = $commentManager->read($id); // récupréer l'objet comment
+        $myComment = new Comment();
 
+        // $myComment  ->setAnswer($_POST['answer'])
+        //             ->setReport($_POST['report'])
+        //             ->setReport($_POST['idComment'])
+        //             ->setStatus($_POST['status']);
+        $myComment->setStatus($_POST['status']);
+        $myComment->setReport($report);
+        $myComment->setAnswer($answer);
+        $myComment->setIdComment($id);
         $commentManager = new CommentManager();
-        $myComment = $commentManager->read($id); // récupréer l'objet comment
 
-        $myComment  ->setAnswer($_POST['answer'])
-                    ->setIdComment($_POST['idComment'])
-                    ->setReport($_POST['report'])
-                    ->setStatus($_POST['status']);
-
-        $commentManager = new CommentManager();
         $commentManager->save($myComment);
+
+            
+        // $commentManager = new CommentManager();
+        // $commentManager->save($myComment);
 
 echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id, "answer"=>$answer]);
 
 
-        $currentView = new View();
-        $currentView->redirect('admin-home-page.html');
+        // $currentView = new View();
+        // $currentView->redirect('admin-home-page.html');
     }
 
 

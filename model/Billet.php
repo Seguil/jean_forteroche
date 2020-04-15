@@ -6,6 +6,7 @@ class Billet {
     private $title;
     private $content;
     private $publicationDate;
+    private $status;
 
     public function getId() {
         return $this->id;
@@ -51,5 +52,15 @@ class Billet {
         $this->publicationDate = new DateTime($publicationDate);
         return $this;
     }
+
+    public function getStatus() {
+        return $this->status;
+    }
+
+    public function setStatus($status) {
+        $this->status = $status;
+        return $this;
+    }
+
 
 }

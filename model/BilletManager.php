@@ -13,7 +13,7 @@ class BilletManager {
         //prend en param User $user objet de type user passé par référence (&) (cad alias)
         //return bool true si l'objet a été inséré, false si une erreur est survenue
         $pdo = $this->pdo;
-        $request = $pdo->prepare('INSERT INTO billet (b_number, b_title, b_content, b_publication_date) VALUES (:b_number, :b_title, :b_content, NOW())');
+        $request = $pdo->prepare('INSERT INTO billet (b_number, b_title, b_content, b_publication_date, b_status) VALUES (:b_number, :b_title, :b_content, NOW(), :b_status)');
     
         //Liaison des paramètres
         $request->bindValue(':b_number', $billet->getNumber(), PDO::PARAM_INT);
@@ -53,6 +53,8 @@ class BilletManager {
         $billet->setTitle($row['b_title']);
         $billet->setContent($row['b_content']);
         $billet->setPublicationDate($row['b_publication_date']);
+        $billet->setStatus($row['b_status']);
+
 
         return $billet;
     }
@@ -107,6 +109,37 @@ class BilletManager {
             $billet->setTitle($row['b_title']);
             $billet->setContent($row['b_content']);
             $billet->setPublicationDate($row['b_publication_date']);
+            $billet->setStatus($row['b_status']);
+
+            $billets[] = $billet;
+        };
+
+        return $billets;
+    }
+
+
+    public function readNonPublished() {
+
+        $pdo = $this->pdo;
+
+        //Affichage des billets
+        $request = $pdo->prepare('
+            SELECT *
+            FROM billet
+            WHERE b_status = "non published"
+            ORDER BY b_number
+        ');
+
+        //exécution de la requête
+        $request->execute();
+        while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
+            $billet = new Billet();
+            $billet->setId($row['b_id']);
+            $billet->setNumber($row['b_number']);
+            $billet->setTitle($row['b_title']);
+            $billet->setContent($row['b_content']);
+            $billet->setPublicationDate($row['b_publication_date']);
+            $billet->setStatus($row['b_status']);
             $billets[] = $billet;
         };
 
@@ -122,12 +155,13 @@ class BilletManager {
         //Préparation de la requête
         $pdo = $this->pdo;
 
-        $request = $pdo->prepare('UPDATE billet set b_number=:b_number, b_title=:b_title, b_content=:b_content, b_publication_date=NOW() WHERE b_id=:b_id LIMIT 1');
+        $request = $pdo->prepare('UPDATE billet set b_number=:b_number, b_title=:b_title, b_content=:b_content, b_publication_date=NOW(), b_status=:b_status WHERE b_id=:b_id LIMIT 1');
 
         //Liaison des paramètres
         $request->bindValue(':b_number', $billet->getNumber(), PDO::PARAM_INT);
         $request->bindValue(':b_title', $billet->getTitle(), PDO::PARAM_STR);
         $request->bindValue(':b_content', $billet->getContent(), PDO::PARAM_STR);
+        $request->bindValue(':b_status', $billet->getStatus(), PDO::PARAM_STR);
         $request->bindValue(':b_id', $billet->getId(), PDO::PARAM_INT);
 
 

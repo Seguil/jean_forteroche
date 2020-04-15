@@ -1,30 +1,59 @@
 const answerButtons = document.querySelectorAll('.buttonAnswerComment');
-console.log(answerButtons);
+console.log('answerButtons is known');
+let answerForm="";
 
 for(let i = 0; i < answerButtons.length; i++) {
     console.log(answerButtons.length);
 
     answerButtons[i].addEventListener('click', (e) => {
         e.preventDefault();
-        console.log('hello');
+        console.log('clic answer button is ok');
 
-        const answerForm = answerButtons[i].querySelector('.response_comment');
+        answerForm = answerButtons[i].querySelector('.response_comment');
         answerForm.style.display='flex';
+        console.log('fin affichage');
+    });
+};
+
+const submitForm = document.querySelectorAll('input[type="submit"]');
+console.log('submitForm is known');
+
+for(let i = 0; i < submitForm.length; i++) {
+    console.log(submitForm.length);
+
+    submitForm[i].addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('submiltForm is ok');
+
 
         for(let i = 0; i < answerForm.length; i++) {
             console.log(answerForm.length);
         
-            let url = answerForm[i].getAttribute('action');
-            // let url = answerForm.getAttribute('action');
+            // let url = answerForm[i].getElementsByName('action').value;
+            let url = answerForm.getAttribute('action');
             console.log (url);
-            
-            let answer = document.getElementsByName("answer").value;
-            let status = document.getElementsByName("status").value;
-            let report = document.getElementsByName("report").value;
-            let datas = [answer, status, report];
-            
+
+            let status = answerForm.querySelector('input[name="status"]').value;
+            console.log(status);
+            let idComment = answerForm.querySelector('input[name="idComment"]').value;
+            console.log(idComment);
+            let answer = answerForm.querySelector('input[name="answer"]').value;
+            console.log(answer);
+            let report = answerForm.querySelector('input[name="report"]').value;
+            console.log(report);
+
+//             let formDatas = new FormData();
+//             formDatas.append("status", status);
+//             formDatas.append("idComment", idComment);
+//             formDatas.append("answer", answer);
+//             formDatas.append("report", report);
+// console.log(formDatas);
+
             var req = new XMLHttpRequest();
             req.open("POST", url);
+            
+            
+
             req.addEventListener("load", () => {
                 if (req.status >= 200 && req.status < 400) {
                     req.responseText;
@@ -48,7 +77,7 @@ for(let i = 0; i < answerButtons.length; i++) {
             req.addEventListener("error", function () {
                 console.error("Erreur réseau avec l'URL " + url);
             });
-            req.send(datas);
+            req.send(status, idComment, answer, report);
         }
     });
-}
+};
