@@ -69,7 +69,7 @@ var_dump($myComment);
     }
 
 
-    public function updateComment($params) {
+    public function updateReportComment($params) {
         extract($params);
         $commentManager = new CommentManager();
         $myComment = $commentManager->read($id); // récupréer l'objet comment
@@ -79,16 +79,31 @@ var_dump($myComment);
 
         $commentManager->save($myComment);
         // retrun Json si ajax
-echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id]);
+        echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id]);
         // $currentView = new View();
         // $currentView->redirect('admin-home-page.html');
     }
+
+    public function updateStatusComment($params) {
+        extract($params);
+        $commentManager = new CommentManager();
+        $myComment = $commentManager->read($id); // récupréer l'objet comment
+        $myComment->setStatus($status);
+        $myComment->setIdComment($id);
+
+        $commentManager->save($myComment);
+        // retrun Json si ajax
+        echo json_encode(["status"=>$status, "idComment"=>$id]);
+        // $currentView = new View();
+        // $currentView->redirect('admin-home-page.html');
+    }
+
 
     public function deleteComment($params) {
         extract($params);
         $commentManager = new CommentManager();
         $myComment = $commentManager->delete($id);
-        // echo json_encode(serialize($myComment));
+        echo json_encode($id);
         // $currentView = new View();
         // $currentView->redirect('admin-home-page.html');
     }

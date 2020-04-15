@@ -130,6 +130,7 @@ class CommentManager {
             SELECT *
             FROM comment
             WHERE c_status = "non lu"
+                AND c_report = "off"
             ORDER BY c_comment_date DESC
         ');
         

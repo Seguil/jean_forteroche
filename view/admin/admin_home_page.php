@@ -117,7 +117,7 @@
                             </a>
 
                             <a  href="#"
-                                data-href="<?php echo HOST;?>update-comment.html/id/<?php echo $repCom->getIdComment();?>/status/lu/report/off"
+                                data-href="<?php echo HOST;?>update-report-comment.html/id/<?php echo $repCom->getIdComment();?>/status/lu/report/off"
                                 class="buttonIgnoredReport"
                                 title="Annuler le signalement">
                                 <i class="fas fa-ban"></i>
@@ -147,16 +147,20 @@
                         foreach($nonReadComment as $nrd):
                     ?>
                     <div class="one_comment last">
+                        
                         <h5>Chapitre n° <?php echo $nrd->getIdBillet();?></h5>
+                        
                         <div class="pseudo_date">
                             <p class="pseudo_comment"><?php echo $nrd->getPseudo();?></p>
                             <p class="date_comment"><?php echo $nrd->getCommentDate()->format('d/m/Y');?></p>
                         </div>
+                        
                         <p class="content_comment"><?php echo $nrd->getComment();?></p>
+                        
                         <div class="tdbutton">
                             <a  href="#"
-                                data-href="<?php echo HOST;?>update-comment.html/id/<?php echo $nrd->getIdComment();?>/status/lu"
-                                class="buttonAnswerComment"
+                                data-href="<?php echo HOST;?>update-status-comment.html/id/<?php echo $nrd->getIdComment();?>/status/lu"
+                                class="buttonStatusComment"
                                 title="Marquer comme lu">
                                 <i class="fas fa-envelope-open"></i>
                             </a>

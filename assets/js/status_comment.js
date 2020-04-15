@@ -1,29 +1,31 @@
-const deleteButtons = document.querySelectorAll('.buttonDeleteComment');
-console.log(deleteButtons);
+const statusButtons = document.querySelectorAll('.buttonStatusComment');
+console.log(statusButtons);
 
-for(let i = 0; i < deleteButtons.length; i++) {
-    console.log(deleteButtons.length);
+for(let i = 0; i < statusButtons.length; i++) {
+    console.log(statusButtons.length);
 
-    deleteButtons[i].addEventListener('click', (e) => {
+    statusButtons[i].addEventListener('click', (e) => {
         e.preventDefault();
         console.log('hello');
-        let url = deleteButtons[i].getAttribute('data-href');
+        let url = statusButtons[i].getAttribute('data-href');
         console.log (url);
     
         var req = new XMLHttpRequest();
-        req.open("DELETE", url);
+        req.open("GET", url);
         req.addEventListener("load", () => {
             if (req.status >= 200 && req.status < 400) {
                 req.responseText;
                 console.log(req.responseText);
-                JSON.parse(req.responseText);                
 
-                let firstarg=deleteButtons[i];
+                let jResponse = JSON.parse(req.responseText);
+                console.log(jResponse);
+
+                let firstarg=statusButtons[i];
                 let parentdiv = firstarg.parentNode;
                 let parentOneComment = parentdiv.parentNode;
                 let parentList = parentOneComment.parentNode;
                 parentList.removeChild(parentOneComment);
-
+                
                 console.log('success');
             } else {
                 console.error(req.status + " " + req.statusText + " " + url);
