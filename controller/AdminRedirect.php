@@ -4,14 +4,17 @@ class AdminRedirect {
 
     public function createBillet($params) {
         extract($params);
-        
+
         $myBillet = new Billet();
         $myBillet->setNumber($_POST['number'])
                 ->setTitle($_POST['title'])
-                ->setContent($_POST['content']);
+                ->setContent($_POST['content'])
+                ->setId($_POST['id'])
+                ->setStatus($_POST['status']);
+
 
         $billetManager = new BilletManager();
-        $billetManager->create($myBillet);
+        $billetManager->save($myBillet);
 
         $currentView = new View();
         $currentView->redirect('admin-home-page.html');
@@ -115,6 +118,32 @@ echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id, "answe
         $commentManager = new CommentManager();
         $myComment = $commentManager->delete($id);
         echo json_encode($id);
+        // $currentView = new View();
+        // $currentView->redirect('admin-home-page.html');
+    }
+
+
+    public function deleteBillet($params) {
+        extract($params);
+        $billetManager = new BilletManager();
+        $myBillet = $billetManager->delete($id);
+        echo json_encode($id);
+        // $currentView = new View();
+        // $currentView->redirect('admin-home-page.html');
+    }
+
+
+
+    public function updateBillet($params) {
+        extract($params);
+        $billetManager = new BilletManager();
+        $myBillet = $billetManager->read($id); // récupréer l'objet comment
+        $myBillet->setStatus($status);
+        $myBillet->setId($id);
+
+        $billetManager->save($myBillet);
+        // retrun Json si ajax
+        echo json_encode(["status"=>$status, "id"=>$id]);
         // $currentView = new View();
         // $currentView->redirect('admin-home-page.html');
     }

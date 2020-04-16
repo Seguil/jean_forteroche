@@ -19,6 +19,7 @@ class BilletManager {
         $request->bindValue(':b_number', $billet->getNumber(), PDO::PARAM_INT);
         $request->bindValue(':b_title', $billet->getTitle(), PDO::PARAM_STR);
         $request->bindValue(':b_content', $billet->getContent(), PDO::PARAM_STR);
+        $request->bindValue(':b_status', $billet->getStatus(), PDO::PARAM_STR);
 
         //Exécution de la requête
         $executeIsOk = $request->execute();
@@ -143,7 +144,9 @@ class BilletManager {
             $billets[] = $billet;
         };
 
-        return $billets;
+        if(isset($billets)) {
+            return $billets;
+        }
     }
 
 
@@ -155,7 +158,16 @@ class BilletManager {
         //Préparation de la requête
         $pdo = $this->pdo;
 
-        $request = $pdo->prepare('UPDATE billet set b_number=:b_number, b_title=:b_title, b_content=:b_content, b_publication_date=NOW(), b_status=:b_status WHERE b_id=:b_id LIMIT 1');
+        $request = $pdo->prepare('
+            UPDATE billet 
+            set b_number=:b_number, 
+                b_title=:b_title,
+                b_content=:b_content,
+                b_publication_date=NOW(),
+                b_status=:b_status
+            WHERE b_id=:b_id
+            LIMIT 1
+        ');
 
         //Liaison des paramètres
         $request->bindValue(':b_number', $billet->getNumber(), PDO::PARAM_INT);
@@ -185,7 +197,7 @@ class BilletManager {
         $request = $pdo->prepare('DELETE FROM billet WHERE b_id=:b_id LIMIT 1');
 
         //Liaison des paramètres
-        $request->bindValue(':b_id', $billet->getId(), PDO::PARAM_INT);
+        $request->bindValue(':b_id', $billet, PDO::PARAM_INT);
 
         //Ecécution de la requête
         /*$executeIsOk = */$request->execute();

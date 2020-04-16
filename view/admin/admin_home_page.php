@@ -45,10 +45,11 @@
                     <input type="text" name="title" id="title" />
                 <label for="content">Contenu</label>
                     <input type="text" name="content" class="mytextarea" />
+                
                 <!-- Enregistrer en tant que brouillon -->
-                <button type="submit" value="Enregistré"><i class="fas fa-save"></i></button>
+                <button type="submit" name="status" value="non published"><i class="fas fa-save"></i></button>
                 <!-- Publier -->
-                <button type="submit" value="Publié"><i class="fas fa-file-export"></i></button>
+                <button type="submit" name="status" value="published"><i class="fas fa-file-export"></i></button>
             </form>
 
             <div id="admin_buttons">
@@ -76,22 +77,21 @@
                                 <i class="fas fa-book-open"></i>
                             </a>
 
-                            <a  href="#"
-                                data-href="<?php echo HOST;?>change-billet.html/id/<?php echo $npb->getId();?>"
+                            <a  href="<?php echo HOST;?>change-billet.html/id/<?php echo $npb->getId();?>"
                                 class="buttonChangeBillet"
                                 title="Modifier">
                                 <i class="fas fa-edit"></i>
                             </a>
 
                             <a  href="#"
-                                data-href="<?php echo HOST;?>published-non-published-billet.html/id/<?php echo $npb->getId();?>/status/published"
+                                data-href="<?php echo HOST;?>update-billet.html/id/<?php echo $npb->getId();?>/status/published"
                                 class="buttonPublishedBillet"
                                 title="Publier">
                                 <i class="fas fa-share-alt"></i>
                             </a>
 
                             <a href="#"
-                                data-href="<?php echo HOST;?>delete-non-published-billet.html<?php echo $npb->getId();?>"
+                                data-href="<?php echo HOST;?>delete-billet.html/id/<?php echo $npb->getId();?>"
                                 class="buttonDeleteBillet"
                                 title="Supprimer">
                                 <i class="fas fa-trash-alt"></i>
@@ -100,32 +100,6 @@
                     </div>
                     <?php endforeach;};?>
                 </div>
-
-                
-                <!-- <table>
-                    <thead>
-                        <tr>
-                            <td>Chapitre n°</td>
-                            <td>Titre</td>
-                            <td>Pseudo</td>
-                            <td>Date d'enregistrement</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php if(isset($billet)) {
-                            foreach($billet as $bil):?>
-                                <tr>
-                                    <td><?php echo $bil->getId(); ?></td>
-                                    <td><?php echo $bil->getTitle(); ?></td>
-                                    <td><?php echo $com->getPublicationDate()->format('d/m/Y'); ?></td>
-                                    <td><a href="<?php echo HOST;?>delete-non-published-billet.html" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></a></td>
-                                    <td><a href="<?php echo HOST;?>update-non-published-billet" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a></td>
-                                    <td><a href="<?php echo HOST;?>read-non-published-billet.html" title="Lire plus" class="tooltip"><i class="fas fa-plus-square"></i></a></td>
-                                </tr>
-                            <?php endforeach ;
-                        };?>
-                    </tbody>
-                </table> -->
             </div>
         
 

@@ -19,14 +19,14 @@
             </a>
 
             <a  href="#"
-                data-href="<?php echo HOST;?>published-non-published-billet.html/id/<?php echo $billet->getId();?>/status/published"
+                data-href="<?php echo HOST;?>update-billet.html/id/<?php echo $billet->getId();?>/status/published"
                 class="buttonPublishedBillet"
                 title="Publier">
                 <i class="fas fa-share-alt"></i>
             </a>
 
             <a href="#"
-                data-href="<?php echo HOST;?>delete-non-published-billet.html<?php echo $billet->getId();?>"
+                data-href="<?php echo HOST;?>delete-billet.html/id/<?php echo $billet->getId();?>"
                 class="buttonDeleteBillet"
                 title="Supprimer">
                 <i class="fas fa-trash-alt"></i>
