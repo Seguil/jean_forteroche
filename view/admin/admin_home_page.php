@@ -38,29 +38,27 @@
 <div id="container">
     <article>
         <div id="writing_billet">
-            <form action="<?php echo HOST;?>create-billet.html" method="post">
-                <label for="number">Chapitre n°</label>
-                    <input type="text" name="number" id="number" />
-                <label for="title">Titre</label>
-                    <input type="text" name="title" id="title" />
-                <label for="content">Contenu</label>
-                    <input type="text" name="content" class="mytextarea" />
-                
-                <!-- Enregistrer en tant que brouillon -->
-                <button type="submit" name="status" value="non published"><i class="fas fa-save"></i></button>
-                <!-- Publier -->
-                <button type="submit" name="status" value="published"><i class="fas fa-file-export"></i></button>
-            </form>
-
-            <div id="admin_buttons">
-                <a href="<?php echo HOST;?>read-billet-saved.html" title="Chapitres non publiés" class="tooltip"><i class="fas fa-plus-square"></i></a>
-                <a href="<?php echo HOST;?>delete-billet.html" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></a>
-                <a href="<?php echo HOST;?>update-billet.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a>
+            <div class="admin_billets">
+                <form action="<?php echo HOST;?>create-billet.html" method="post">
+                    <label for="number">Chapitre n°</label>
+                        <input type="text" name="number" id="number" />
+                    <label for="title">Titre</label>
+                        <input type="text" name="title" id="title" />
+                    <label for="content">Contenu</label>
+                        <input type="text" name="content" class="mytextarea" />                
+                    <!-- Enregistrer en tant que brouillon -->
+                    <div class="tdbutton submitform">
+                        <button type="submit" name="status" value="non published"><i class="fas fa-save"></i></button>
+                        <!-- Publier -->
+                        <button type="submit" name="status" value="published"><i class="fas fa-file-export"></i></button>
+                    </div>
+                </form>
             </div>
         </div>
 
             <!-- Affiche les articles enregistrés et non publié -->
-            <div id="non_published_billets">
+        <div id="non_published_billets">
+            <div class="admin_billets">
                 <h4>Chapitres non publiés</h4>
                 
                 <div class="list_billets">
@@ -101,6 +99,7 @@
                     <?php endforeach;};?>
                 </div>
             </div>
+        </div>
         
 
         

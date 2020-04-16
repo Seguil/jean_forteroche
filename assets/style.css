@@ -146,7 +146,8 @@ header img {
 }
 /* ---------------userhomepage - commentaires -----------------*/
 #comments,
-.admin_comments {
+.admin_comments,
+.admin_billets {
     /* background-color: rgba(0, 143, 200, 0.4); */
     margin: 2vh;
 }
@@ -283,36 +284,6 @@ form.response {
 
 
 /* ------------------Comments admin-------------------- */
-table {
-    margin: auto;
-}
-
-table thead {
-    line-height: 5em;
-}
-
-table .td1 {
-    width: 5vw;
-    text-align: center;
-}
-
-table .td2,
-table .td4 {
-    width: 8vw;
-    text-align: center;
-}
-
-table .td3 {
-    width: 50vw;
-}
-
-table .tdbutton {
-    text-align: center;
-    word-spacing: 3em;
-    padding-top: 1vh;
-    padding-bottom: 2vh;
-    border-bottom: 1px grey solid;
-}
 
 .list_billets,
 .list_comments {
@@ -387,6 +358,19 @@ table .tdbutton {
     padding-top: 1vh;
     padding-bottom: 2vh;
 }
+
+.submitform button,
+.submitform button i {
+    height: 4vh;
+    font-size: 1.2em;
+}
+
+.submitform button {
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+    padding: 0.5vh 2vw 0vh 0vw;
+}
+
 
 .one_comment .response_comment {
     display: none;

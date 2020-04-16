@@ -9,12 +9,11 @@ class AdminRedirect {
         $myBillet->setNumber($_POST['number'])
                 ->setTitle($_POST['title'])
                 ->setContent($_POST['content'])
-                ->setId($_POST['id'])
                 ->setStatus($_POST['status']);
 
 
         $billetManager = new BilletManager();
-        $billetManager->save($myBillet);
+        $billetManager->create($myBillet);
 
         $currentView = new View();
         $currentView->redirect('admin-home-page.html');
@@ -146,6 +145,25 @@ echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id, "answe
         echo json_encode(["status"=>$status, "id"=>$id]);
         // $currentView = new View();
         // $currentView->redirect('admin-home-page.html');
+    }
+
+
+    public function updateChangeBillet($params) {
+        extract($params);
+        $myBillet = new Billet();
+        $myBillet->setTitle($_POST['title'])
+                ->setNumber($_POST['number'])
+                ->setContent($_POST['content'])
+                ->setId($_POST['id'])
+                ->setStatus($_POST['status']);
+
+        $billetManager = new BilletManager();
+        $billetManager->update($myBillet); // récupréer l'objet comment
+
+        // retrun Json si ajax
+        // echo json_encode(["status"=>$status, "id"=>$id]);
+        $currentView = new View();
+        $currentView->redirect('change-billet.html/id/'.$_POST['id']);
     }
 
 

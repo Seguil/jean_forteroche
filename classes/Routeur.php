@@ -24,6 +24,7 @@ class Routeur {
         'create-billet.html'          =>      ['controller' => 'AdminRedirect'   ,    'method' => 'createBillet'           ],
         'update-billet.html'          =>      ['controller' => 'AdminRedirect'   ,    'method' => 'updateBillet'           ],
         'delete-billet.html'          =>      ['controller' => 'AdminRedirect'   ,    'method' => 'deleteBillet'           ],
+        'update-change-billet.html'          =>      ['controller' => 'AdminRedirect'   ,    'method' => 'updateChangeBillet'           ],
         
         'report-comment.html'         =>      ['controller' => 'AdminRedirect'   ,    'method' => 'reportComment'          ],
         'delete-report-comment.html'  =>      ['controller' => 'AdminRedirect'   ,    'method' => 'deleteReportComment'    ],

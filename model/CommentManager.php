@@ -63,7 +63,7 @@ class CommentManager {
             SELECT c_id, c_id_billet, c_pseudo, c_comment, c_comment_date, c_status, c_report, c_answer
             FROM comment
             INNER JOIN billet 
-                ON comment.c_id_billet = billet.b_id
+                ON comment.c_id_billet = billet.b_number
             WHERE c_id_billet=:c_id_billet
             ORDER BY c_comment_date DESC
         ');
