@@ -184,6 +184,8 @@ echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id, "answe
         } else {
             $_SESSION['u_id'] = $myUser->getIdUser();
             $_SESSION['username'] = $myUser->getUsername();
+            $_SESSION['role'] = $myUser->getRole();
+
 
             $currentView = new View();
             $currentView->redirect('admin-home-page.html');

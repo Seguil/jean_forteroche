@@ -4,7 +4,7 @@
     <div class="pagination">
         <?php
             if($pageCourante == $pagesTotales || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
-                <a href="?page=<?php echo $pageCourante - 1; ?>">Chapitres suivants</a>
+                <a href="<?= HOST;?>admin-home-page.html/id/<?=$billet->getId();?>/page/<?php echo $pageCourante - 1; ?>">Chapitres suivants</a>
             <?php };?>
     </div>
 
@@ -71,7 +71,7 @@
             <h4>Ajouter un commentaire</h4>
             <form action="<?php echo HOST;?>create-comment.html" method="post">
                 <label for="pseudo">Pseudo :</label>
-                    <input type="text" name="pseudo" id="pseudo" value="Jean Forteroche" required/>
+                    <input type="text" name="pseudo" id="pseudo" required/>
                 <label for="message">Message :</label>
                     <input type="text" name="message" id="message" required maxlength="250" rows="5"/>
                 <input name="billet" type="hidden" value="<?php echo $billet->getId();?>"/><br/>

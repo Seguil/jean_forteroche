@@ -35,7 +35,7 @@
     <div class="pagination">
         <?php
             if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
-                <a href="?page=<?php echo $pageCourante + 1; ?>">Chapitres précédents</a>
+                <a href="<? HOST ?>?page=<?php echo $pageCourante + 1; ?>">Chapitres précédents</a>
             <?php };?>
     </div>
 

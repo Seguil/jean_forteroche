@@ -2,15 +2,25 @@
 
 class AdminRender {
 
+    public function __construct()
+ {
+    $currentView = new View();
+    // if($_SESSION['ROLE'] != "ADMIN") return $currentView->redirect('403');
+
+ }
     public function showAdminHomePage($params) {
-        //extract($params);
+        extract($params);
+        var_dump($params);
+        $currentView = new View('admin_home_page');
+        // if($_SESSION['ROLE'] != "ADMIN") return $currentView->redirect('403');
+
         $billetManager = new BilletManager();
         $billetsTotal = $billetManager->pagination();
 
         //Eléments pour la pagination
         $billetsParPage = 3;
         $pagesTotales = ceil($billetsTotal/$billetsParPage);
-        if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page']>0 AND $_GET['page']<=$pagesTotales) {
+        if(isset($page) AND !empty($_GET['page']) AND $_GET['page']>0 AND $_GET['page']<=$pagesTotales) {
             $_GET['page'] = intval($_GET['page']);
             $pageCourante = $_GET['page'];
         } else {
@@ -26,7 +36,6 @@ class AdminRender {
         $reportComment = $commentManager->readAllReport();
         $nonReadComment = $commentManager->readAllNonRead();
 
-        $currentView = new View('admin_home_page');
         $currentView->renderAdmin(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante, 'billets' => $billets, 'nonPublishedBillets' => $nonPublishedBillets, 'reportComment' => $reportComment, 'nonReadComment' => $nonReadComment));
         // $currentView->render(array('billets' => $billets, 'billet' => $billet));
     }
@@ -34,6 +43,7 @@ class AdminRender {
 
     public function adminReadBilletComments($params) {
         extract($params);
+        var_dump($params);
 
         $billetManager = new BilletManager();
         $billetsTotal = $billetManager->pagination();
