@@ -375,3 +375,8 @@ form.response {
 .one_comment .response_comment {
     display: none;
 }
+
+/* ------------ form ---------------- */
+/* input:valid {
+    border: 1px solid green;
+} */

@@ -15,7 +15,7 @@ for(let i = 0; i < answerButtons.length; i++) {
     });
 };
 
-const submitForm = document.querySelectorAll('input[type="submit"]');
+const submitForm = document.querySelectorAll('.response_comment input[type="submit"]');
 console.log('submitForm is known');
 
 for(let i = 0; i < submitForm.length; i++) {

@@ -16,17 +16,17 @@
         <ul>
             <?php foreach($billets as $bil):?>
                 <div class="billet">
-                    <a  href="#"
+                    <!-- <a  href="#"
                         data-href="<?php echo HOST;?>select-billet.html/id/<?php echo $bil->getId();?>"
                         class="selectBillet">
                         <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
                         <h3><?php echo $bil->getTitle();?></h3>
-                    </a>
+                    </a> -->
 
-                    <!-- <a href="<?php echo HOST;?>user-billet-page.html/id/<?php echo $bil->getId(); ?>">
+                    <a href="<?php echo HOST;?>user-billet-page.html/id/<?php echo $bil->getId(); ?>">
                         <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
                         <h3><?php echo $bil->getTitle();?></h3>
-                    </a> -->
+                    </a>
                 </div>
             <?php endforeach; ?>
         </ul>
@@ -56,15 +56,15 @@
     <article id="chapter_choiced">
         <!-- Récupère le chapitre choisi -->
 
-        <h2 id="display_number"></h2>
+        <!-- <h2 id="display_number"></h2>
         <h3 id="display_title"></h3>
         <p id="display_content"></p>
-        <p id="display_date"></p>
+        <p id="display_date"></p> -->
 
-        <!-- <h2 id="display_number">Chapitre n°<?php echo $billet->getNumber();?></h2>
+        <h2 id="display_number">Chapitre n°<?php echo $billet->getNumber();?></h2>
         <h3 id="display_title"><?php echo $billet->getTitle();?></h3>
         <p id="display_content"><?php echo $billet->getContent();?></p>
-        <p id="display_date">Publié le <?php echo $billet->getPublicationDate()->format('d/m/Y');?></p> -->
+        <p id="display_date">Publié le <?php echo $billet->getPublicationDate()->format('d/m/Y');?></p>
     </article>
 
     <div id="comments">
@@ -98,9 +98,9 @@
             <h4>Ajouter un commentaire</h4>
             <form action="<?php echo HOST;?>create-comment.html" method="post">
                 <label for="pseudo">Pseudo :</label>
-                    <input type="text" name="pseudo" id="pseudo"/>
+                    <input type="text" name="pseudo" id="pseudo" required pattern="^[A-Za-z-]+$" minlength="3" maxlength="20"/>
                 <label for="message">Message :</label>
-                    <input type="text" name="message" id="message" />
+                    <input type="text" name="message" id="message" required maxlength="250" rows="5"/>
                 <input name="billet" type="hidden" value="<?php echo $billet->getId();?>"/><br/>
                 <input name="commentDate" type="hidden"/><br/>
                 <input name="status" type="hidden" value="non lu"/><br />

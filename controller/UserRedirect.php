@@ -34,6 +34,7 @@ class UserRedirect {
 
     public function createComment($params) {
         extract($params);
+
         $myComment = new Comment();
         $myComment  ->setPseudo(htmlspecialchars($_POST['pseudo']))
                     ->setComment(htmlspecialchars($_POST['message']))
@@ -42,9 +43,15 @@ class UserRedirect {
                     ->setReport(htmlspecialchars($_POST['report']))
                     ->setCommentDate(htmlspecialchars($_POST['commentDate']));
 
+        if (!empty($pseudo)
+            && strlen($pseudo)<= 20
+            && preg_match("^[A-Za-z-]+$",$pseudo)
+            && !empty($comment)
+            && strlen($comment)<= 255) {
 
-        $commentManager = new CommentManager();
-        $commentManager->create($myComment);
+            $commentManager = new CommentManager();
+            $commentManager->create($myComment);
+        };
 
         $currentView = new View();
         $currentView->redirect('user-billet-page.html/id/' . htmlspecialchars($_POST['billet']));

@@ -182,7 +182,8 @@
                                 title="Répondre">
                                 <i class="fas fa-edit"></i>
                                 <form class="response_comment" action="<?php echo HOST;?>answer-comment.html" method="post">                                        
-                                    <input type="text" name="answer" placeholder="Réponse"/>
+                                    <input type="hidden" name="pseudo" id="pseudo" value="Jean Forteroche" required/>
+                                    <input type="text" name="answer" placeholder="Réponse" required maxlength="250" rows="5"/>
                                     <input name="status" type="hidden" value="lu"/><br />
                                     <input name="idComment" type="hidden" value="<?php echo $nrd->getIdComment();?>"/><br />
                                     <input name="report" type="hidden" value="off"/><br />

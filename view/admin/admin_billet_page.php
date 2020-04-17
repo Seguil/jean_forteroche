@@ -71,9 +71,9 @@
             <h4>Ajouter un commentaire</h4>
             <form action="<?php echo HOST;?>create-comment.html" method="post">
                 <label for="pseudo">Pseudo :</label>
-                    <input type="text" name="pseudo" id="pseudo"/>
+                    <input type="text" name="pseudo" id="pseudo" value="Jean Forteroche" required/>
                 <label for="message">Message :</label>
-                    <input type="text" name="message" id="message" />
+                    <input type="text" name="message" id="message" required maxlength="250" rows="5"/>
                 <input name="billet" type="hidden" value="<?php echo $billet->getId();?>"/><br/>
                 <input name="commentDate" type="hidden"/><br/>
                 <input name="status" type="hidden" value="non lu"/><br />

@@ -27,7 +27,7 @@ class AdminRedirect {
         $myComment  ->setIdComment(htmlspecialchars($_POST['idComment']))
                     ->setIdBillet(htmlspecialchars($_POST['idBillet']))
                     ->setReport(htmlspecialchars($_POST['report']));
-var_dump($myComment);exit;
+
         $commentManager = new CommentManager();
         $commentManager->flag($myComment);
 
