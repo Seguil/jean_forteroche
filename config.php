@@ -11,6 +11,17 @@ class MyAutoload {
         //lancer la session
         session_start();
 
+        //On enregistre notre token
+        // $token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+        // $_SESSION['token'] = $token;
+
+        // if (isset($_SESSION['statut']) AND $_SESSION['statut'] == "administrateur") {
+        //     echo "Le code secret est 351633135153";
+        // } else {
+        //        echo "Vous n'avez pas le droit d'être ici !";
+        // }
+           
+
         //je déclare la fonction autoload qui est située dans la class en cours avec la méthode autoLoad
         spl_autoload_register(array(__CLASS__, 'autoload'));
         

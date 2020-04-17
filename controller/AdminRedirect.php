@@ -6,10 +6,10 @@ class AdminRedirect {
         extract($params);
 
         $myBillet = new Billet();
-        $myBillet->setNumber($_POST['number'])
-                ->setTitle($_POST['title'])
-                ->setContent($_POST['content'])
-                ->setStatus($_POST['status']);
+        $myBillet->setNumber(htmlspecialchars($_POST['number']))
+                ->setTitle(htmlspecialchars($_POST['title']))
+                ->setContent(htmlspecialchars($_POST['content']))
+                ->setStatus(htmlspecialchars($_POST['status']));
 
 
         $billetManager = new BilletManager();
@@ -24,10 +24,10 @@ class AdminRedirect {
         extract($params);
 
         $myComment = new Comment();
-        $myComment  ->setIdComment($_POST['idComment'])
-                    ->setIdBillet($_POST['idBillet'])
-                    ->setReport($_POST['report']);
-
+        $myComment  ->setIdComment(htmlspecialchars($_POST['idComment']))
+                    ->setIdBillet(htmlspecialchars($_POST['idBillet']))
+                    ->setReport(htmlspecialchars($_POST['report']));
+var_dump($myComment);exit;
         $commentManager = new CommentManager();
         $commentManager->flag($myComment);
 
@@ -62,7 +62,7 @@ var_dump($comManager);
         //             ->setReport($_POST['report'])
         //             ->setReport($_POST['idComment'])
         //             ->setStatus($_POST['status']);
-        $myComment->setStatus($_POST['status']);
+        $myComment->setStatus(htmlspecialchars($_POST['status']));
         $myComment->setReport($report);
         $myComment->setAnswer($answer);
         $myComment->setIdComment($id);
@@ -151,11 +151,11 @@ echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id, "answe
     public function updateChangeBillet($params) {
         extract($params);
         $myBillet = new Billet();
-        $myBillet->setTitle($_POST['title'])
-                ->setNumber($_POST['number'])
-                ->setContent($_POST['content'])
-                ->setId($_POST['id'])
-                ->setStatus($_POST['status']);
+        $myBillet->setTitle(htmlspecialchars($_POST['title']))
+                ->setNumber(htmlspecialchars($_POST['number']))
+                ->setContent(htmlspecialchars($_POST['content']))
+                ->setId(htmlspecialchars($_POST['id']))
+                ->setStatus(htmlspecialchars($_POST['status']));
 
         $billetManager = new BilletManager();
         $billetManager->update($myBillet); // récupréer l'objet comment
@@ -163,7 +163,7 @@ echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id, "answe
         // retrun Json si ajax
         // echo json_encode(["status"=>$status, "id"=>$id]);
         $currentView = new View();
-        $currentView->redirect('change-billet.html/id/'.$_POST['id']);
+        $currentView->redirect('change-billet.html/id/'.htmlspecialchars($_POST['id']));
     }
 
 
@@ -172,8 +172,8 @@ echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id, "answe
         extract($params);
 
         $myUser = new User();
-        $myUser->setUsername($_POST['username_connect'])
-                ->setPassword($_POST['password_connect']);
+        $myUser->setUsername(htmlspecialchars($_POST['username_connect']))
+                ->setPassword(htmlspecialchars($_POST['password_connect']));
 
         $userManager = new UserManager();
         $result = $userManager->read($myUser);

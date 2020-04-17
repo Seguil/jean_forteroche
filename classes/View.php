@@ -11,7 +11,6 @@ class View {
         extract($params); //parcourt params , crée une extraction de params et lui attribue dynamiquement 'un nom' => et sa valeur
 
         $page = $this->page;
-        
         ob_start();
         include(USER.$page.'.php');
         $main = ob_get_clean();
@@ -23,6 +22,7 @@ class View {
         extract($params); //parcourt params , crée une extraction de params et lui attribue dynamiquement 'un nom' => et sa valeur
 
         $page = $this->page;
+
         
         ob_start();
         include(ADMIN.$page.'.php');

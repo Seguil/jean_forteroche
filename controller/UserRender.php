@@ -63,13 +63,4 @@ class UserRender {
 
     }
 
-    // public function getJsonServices($params) {
-    //     extract($params);
-    //     $billetManager = new BilletManager();
-    //     $billetsTotal = $billetManager->pagination();
-    //     $billetsTotal = json_encode($billetsTotal);
-        // $currentView = new View('billetCommentsPage');
-        // $currentView->render(array('billetsTotal' => $billetsTotal));
-
-    // }
 }

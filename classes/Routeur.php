@@ -11,21 +11,21 @@ class Routeur {
         'inscription-user.html'       =>      ['controller' => 'UserRedirect'    ,    'method' => 'createUser'             ], //pas de view pour inscriptionUser car redirect sur userHomePage
         'user-report-comment.html'    =>      ['controller' => 'UserRedirect'    ,    'method' => 'reportComment'          ],
         'create-comment.html'         =>      ['controller' => 'UserRedirect'    ,    'method' => 'createComment'          ],
-        'select-billet.html'         =>      ['controller' => 'UserRedirect'    ,    'method' => 'selectBillet'          ],
+        'select-billet.html'          =>      ['controller' => 'UserRedirect'    ,    'method' => 'selectBillet'           ],
 
 
         //admin - render
         'admin-home-page.html'        =>      ['controller' => 'AdminRender'     ,    'method' => 'showAdminHomePage'      ],
         'admin-billet-page.html'      =>      ['controller' => 'AdminRender'     ,    'method' => 'adminReadBilletComments'],
         'read-non-published-billet.html'=>      ['controller' => 'AdminRender'     ,    'method' => 'readNonPublishedBillet'],
-        'change-billet.html'          =>      ['controller' => 'AdminRender'     ,    'method' => 'changeBillet'],
+        'change-billet.html'          =>      ['controller' => 'AdminRender'     ,    'method' => 'changeBillet'           ],
 
 
         //admin - redirect
         'create-billet.html'          =>      ['controller' => 'AdminRedirect'   ,    'method' => 'createBillet'           ],
         'update-billet.html'          =>      ['controller' => 'AdminRedirect'   ,    'method' => 'updateBillet'           ],
         'delete-billet.html'          =>      ['controller' => 'AdminRedirect'   ,    'method' => 'deleteBillet'           ],
-        'update-change-billet.html'          =>      ['controller' => 'AdminRedirect'   ,    'method' => 'updateChangeBillet'           ],
+        'update-change-billet.html'   =>      ['controller' => 'AdminRedirect'   ,    'method' => 'updateChangeBillet'     ],
         
         'report-comment.html'         =>      ['controller' => 'AdminRedirect'   ,    'method' => 'reportComment'          ],
         'delete-report-comment.html'  =>      ['controller' => 'AdminRedirect'   ,    'method' => 'deleteReportComment'    ],

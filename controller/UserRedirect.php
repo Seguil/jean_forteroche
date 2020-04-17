@@ -21,8 +21,8 @@ class UserRedirect {
         extract($params);
         
         $myUser = new User();
-        $myUser->setUsername($_POST['username'])
-             ->setPassword($_POST['password']);
+        $myUser->setUsername(htmlspecialchars($_POST['username']))
+             ->setPassword(htmlspecialchars($_POST['password']));
 
         $userManager = new UserManager();
         $userManager->create($myUser);
@@ -35,19 +35,19 @@ class UserRedirect {
     public function createComment($params) {
         extract($params);
         $myComment = new Comment();
-        $myComment  ->setPseudo($_POST['pseudo'])
-                    ->setComment($_POST['message'])
-                    ->setIdBillet($_POST['billet'])
-                    ->setStatus($_POST['status'])
-                    ->setReport($_POST['report'])
-                    ->setCommentDate($_POST['commentDate']);
+        $myComment  ->setPseudo(htmlspecialchars($_POST['pseudo']))
+                    ->setComment(htmlspecialchars($_POST['message']))
+                    ->setIdBillet(htmlspecialchars($_POST['billet']))
+                    ->setStatus(htmlspecialchars($_POST['status']))
+                    ->setReport(htmlspecialchars($_POST['report']))
+                    ->setCommentDate(htmlspecialchars($_POST['commentDate']));
 
 
         $commentManager = new CommentManager();
         $commentManager->create($myComment);
 
         $currentView = new View();
-        $currentView->redirect('user-billet-page.html/id/' . $_POST['billet']);
+        $currentView->redirect('user-billet-page.html/id/' . htmlspecialchars($_POST['billet']));
     }
 
     public function reportComment($params) {
@@ -64,17 +64,7 @@ class UserRedirect {
 
         // retrun Json si ajax
         $currentView = new View();
-        $currentView->redirect('user-billet-page.html/id/' . $_POST['idBillet']);
+        $currentView->redirect('user-billet-page.html/id/' . htmlspecialchars($_POST['idBillet']));
     }
 
-
-    // public function getJsonServices($params) {
-    //     extract($params);
-    //     $billetManager = new BilletManager();
-    //     $billetsTotal = $billetManager->pagination();
-    //     $billetsTotal = json_encode($billetsTotal);
-        // $currentView = new View('billetCommentsPage');
-        // $currentView->render(array('billetsTotal' => $billetsTotal));
-
-    // }
 }
