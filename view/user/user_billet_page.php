@@ -16,10 +16,17 @@
         <ul>
             <?php foreach($billets as $bil):?>
                 <div class="billet">
-                    <a href="<?php echo HOST;?>user-billet-page.html/id/<?php echo $bil->getId(); ?>">
+                    <a  href="#"
+                        data-href="<?php echo HOST;?>select-billet.html/id/<?php echo $bil->getId();?>"
+                        class="selectBillet">
                         <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
                         <h3><?php echo $bil->getTitle();?></h3>
                     </a>
+
+                    <!-- <a href="<?php echo HOST;?>user-billet-page.html/id/<?php echo $bil->getId(); ?>">
+                        <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
+                        <h3><?php echo $bil->getTitle();?></h3>
+                    </a> -->
                 </div>
             <?php endforeach; ?>
         </ul>
@@ -46,12 +53,18 @@
 </aside>
 
 <div id="container">
-    <article>
+    <article id="chapter_choiced">
         <!-- Récupère le chapitre choisi -->
-        <h2>Chapitre n°<?php echo $billet->getNumber();?></h2>
-        <h3><?php echo $billet->getTitle();?></h3>
-        <p><?php echo $billet->getContent();?></p>
-        <p>Publié le <?php echo $billet->getPublicationDate()->format('d/m/Y');?></p>
+
+        <h2 id="display_number"></h2>
+        <h3 id="display_title"></h3>
+        <p id="display_content"></p>
+        <p id="display_date"></p>
+
+        <!-- <h2 id="display_number">Chapitre n°<?php echo $billet->getNumber();?></h2>
+        <h3 id="display_title"><?php echo $billet->getTitle();?></h3>
+        <p id="display_content"><?php echo $billet->getContent();?></p>
+        <p id="display_date">Publié le <?php echo $billet->getPublicationDate()->format('d/m/Y');?></p> -->
     </article>
 
     <div id="comments">

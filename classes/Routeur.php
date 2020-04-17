@@ -11,6 +11,7 @@ class Routeur {
         'inscription-user.html'       =>      ['controller' => 'UserRedirect'    ,    'method' => 'createUser'             ], //pas de view pour inscriptionUser car redirect sur userHomePage
         'user-report-comment.html'    =>      ['controller' => 'UserRedirect'    ,    'method' => 'reportComment'          ],
         'create-comment.html'         =>      ['controller' => 'UserRedirect'    ,    'method' => 'createComment'          ],
+        'select-billet.html'         =>      ['controller' => 'UserRedirect'    ,    'method' => 'selectBillet'          ],
 
 
         //admin - render

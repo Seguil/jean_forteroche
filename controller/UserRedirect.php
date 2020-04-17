@@ -2,6 +2,21 @@
 
 class UserRedirect {
 
+    public function selectBillet($params) {
+        extract($params);
+
+        $billetManager = new BilletManager();
+        $myBillet = $billetManager->read($id);
+        
+        $number = $myBillet->getNumber();
+        $title = $myBillet->getTitle();
+        $content = $myBillet->getContent();
+        $publicationDate = $myBillet->getPublicationDate();
+        // echo json_encode(["number" => $number, "title"=>$title, "content"=>$content, "publication_date"=>$publicationDate]);
+        echo json_encode(["number"=>$number, "title"=>$title, "content"=>$content, "publication_date"=>$publicationDate]);
+    }
+
+    
     public function createUser($params) {
         extract($params);
         

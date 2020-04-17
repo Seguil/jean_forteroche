@@ -72,6 +72,7 @@
 <!-- Fichiers js -->
 <!-- <script src="<?php echo JS;?>globallistener.js"></script> -->
 <script src="<?php echo JS;?>reportAjax.js"></script>
+<script src="<?php echo JS;?>chapter_choiced.js"></script>
 
 </body>
 </html>

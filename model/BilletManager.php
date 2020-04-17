@@ -56,7 +56,6 @@ class BilletManager {
         $billet->setPublicationDate($row['b_publication_date']);
         $billet->setStatus($row['b_status']);
 
-
         return $billet;
     }
 
