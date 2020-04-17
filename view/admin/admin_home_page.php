@@ -204,69 +204,6 @@
             </div>
         </div>
 
-
-
-
-                    <!-- <div class="test">
-                        <?php if(isset($nonReadComment)) {
-                            foreach($nonReadComment as $nrd):?>
-                            <div class='test_ajax'>
-                                <tr>
-                                    <td class="td1"><?php echo $nrd->getIdBillet(); ?></td>
-                                    <td class="td2"><?php echo $nrd->getPseudo(); ?></td>
-                                    <td class="td3"><?php echo $nrd->getComment(); ?></td>
-                                    <td class="td4"><?php echo $nrd->getCommentDate()->format('d/m/Y'); ?></td>
-                                </tr>
-                                <tr>
-                                    <td class="tdbutton" colspan="4"> -->
-                                        <!-- <a href="<?php echo HOST;?>read-comment.html" title="Marquer comme lu" class="tooltip"><i class="fas fa-envelope-open"></i></a> -->
-                                        
-                                        <!-- <a href="<?php echo HOST;?>answer-comment.html" title="Répondre" class="tooltip"><i class="fas fa-edit"></i></a> -->
-                                        <!-- <a  href="#"
-                                            data-href="<?php echo HOST;?>update-comment.html/id/<?php echo $nrd->getIdComment();?>/status/lu"
-                                            class="buttonAnswerComment"
-                                            title="Répondre">
-                                            <i class="fas fa-envelope-open"></i>
-                                        </a> -->
-                                       
-                                        <!-- <a  href="#response_comment">
-                                            <i class="fas fa-edit"></i>
-                                        </a> -->
-
-                                        <!-- <a href="<?php echo HOST;?>update-comment.html" title="Modifier" class="tooltip"><i class="fas fa-pencil-alt"></i></a> -->
-
-
-                                        <!-- <a href="<?php echo HOST;?>delete-comment.html" title="Supprimer" class="tooltip"><i class="fas fa-trash-alt"></i></a> -->
-<!--                                     
-                                        <a  href="#"
-                                            data-href="<?php echo HOST;?>delete-comment.html/id/<?php echo $nrd->getIdComment();?>"
-                                            class="buttonDeleteComment"
-                                            title="Supprimer">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </a>
-                                       
-                                    </td>
-                                </tr>
-                            </div>
-                            <?php endforeach ;
-                        };?>
-                        </div> -->
-                        <!-- <div class="response_comment">
-                            <form action="<?php echo HOST;?>answer-comment.html" method="post">                                        
-                                <input type="text" name="answer" placeholder="Réponse"/>
-                                <input name="idComment" type="hidden" value="<?php echo $nrd->getIdComment();?>"/><br/>
-                                <input name="status" type="hidden" value="lu"/><br />
-                                <input name="report" type="hidden" value="off"/><br />
-                                <input type="submit" value="Répondre"/>
-                            </form>
-                        </div>
-
-                    </tbody>
-                </table> -->
-            <!-- </div>
-        </div> -->
-
-
     </article>
 
 </div>
