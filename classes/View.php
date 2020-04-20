@@ -5,6 +5,9 @@ class View {
 
     public function __construct($page = null) { //passage ) null car pas d'obligation de passer une page en paramètre s'il y a un redirect
         $this->page = $page;
+        // $page = str_replace("../","protect",$page);
+        // $page = str_replace(";","protect",$page);
+        // $page = str_replace("%","protect",$page);
     }
 
     public function render($params = array()) {
@@ -12,10 +15,10 @@ class View {
 
         $page = $this->page;
         ob_start();
-        include(USER.$page.'.php');
+        include(USER.trim($page.'.php'));// On supprime d'éventuels espaces avec trim
         $main = ob_get_clean();
 
-        include_once(USER.'user_template.php');
+        include_once(USER.trim('user_template.php'));
     }
 
     public function renderAdmin($params = array()) {
@@ -24,10 +27,10 @@ class View {
         $page = $this->page;
      
         ob_start();
-        include(ADMIN.$page.'.php');
+        include(ADMIN.trim($page.'.php'));// On supprime d'éventuels espaces avec trim
         $main = ob_get_clean();
 
-        include_once(ADMIN.'admin_template.php');
+        include_once(ADMIN.trim('admin_template.php'));
     }
 
     public function redirect($route) {
