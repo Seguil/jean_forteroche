@@ -39,6 +39,9 @@
             <!-- Connexion form -->
             
                 <!-- <a href="<?php echo HOST;?>admin_home_page.html">Espace administrateur</a> -->
+                <div id="connect_button">
+                    <button>Espace administrateur</button>
+                </div>               
                 <div id="form_connection">
                     <form action="<?php echo HOST ;?>connection-admin.html" method="post">
                         <label for="username_connect">Pseudo</label>
@@ -54,7 +57,7 @@
                 <h2>Inscription</h2>
                 <form action="<?php echo HOST ;?>inscription-user.html" method="post">
                     <label for="username">Pseudo
-                        <input type="text" name="username" required/>
+                        <input type="text" name="username" value="pseudo" required/>
                     </label>
                     <label for="password">Mot de passe
                         <input type="password" name="password" required/>
@@ -70,9 +73,10 @@
     </footer>
 
 <!-- Fichiers js -->
-<!-- <script src="<?php echo JS;?>globallistener.js"></script> -->
 <script src="<?php echo JS;?>reportAjax.js"></script>
 <!-- <script src="<?php echo JS;?>chapter_choiced.js"></script> -->
+<script src="<?php echo JS;?>globallistener.js"></script>
+
 
 </body>
 </html>

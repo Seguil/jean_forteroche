@@ -1,4 +1,11 @@
-// function afficher(elt) {
+document.getElementById('connect_button').addEventListener('click', (e) => {
+    document.getElementById('connect_button').style.display = 'none';
+    document.getElementById('form_connection').style.display = 'flex';
+});
+
+
+
+//function afficher(elt) {
 //     document.getElementById(elt).style.display = 'flex';
 //     return false;
 // }

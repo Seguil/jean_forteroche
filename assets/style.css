@@ -380,3 +380,7 @@ form.response {
 /* input:valid {
     border: 1px solid green;
 } */
+
+#form_connection {
+    display: none;
+}
