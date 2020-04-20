@@ -1,2 +1,2 @@
-const deleteComment = new Button ('.buttonDeleteComment');
-deleteComment.deleteElement();
+const deleteComment = new Button ();
+// deleteComment.deleteElement(url);

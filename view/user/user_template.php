@@ -49,6 +49,7 @@
                         <label for="password">Mot de passe</label>
                             <input type="password" name="password_connect" required/>
                         <input type="submit" value="Se connecter"/>
+                        <button id="annulation_connect">Annuler</button>
                     </form>
                 </div>
 
@@ -73,8 +74,12 @@
     </footer>
 
 <!-- Fichiers js -->
+
 <script src="<?php echo JS;?>reportAjax.js"></script>
 <!-- <script src="<?php echo JS;?>chapter_choiced.js"></script> -->
+<script src="<?php echo JS;?>ajax.js"></script>
+<script src="<?php echo JS;?>button.js"></script>
+<script src="<?php echo JS;?>main.js"></script>
 <script src="<?php echo JS;?>globallistener.js"></script>
 
 

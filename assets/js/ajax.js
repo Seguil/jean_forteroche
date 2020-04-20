@@ -1,22 +1,5 @@
 class Ajax {
 
-    constructor(button, url) {
-        this.button = document.querySelectorAll(button);
-        this.url = url
-
-        for(let i = 0; i < this.button.length; i++) {
-            console.log(this.button.length);
-        
-            this.button[i].addEventListener('click', (e) => {
-                e.preventDefault();
-                console.log('hello');
-                this.url = this.button[i].getAttribute('data-href');
-                console.log (this.url);
-            });
-        }
-        
-    }
-
     ajaxGet(url, callback) {
         const req = new XMLHttpRequest();
         req.open("GET", url);
@@ -32,6 +15,7 @@ class Ajax {
         });
         req.send();
     };
+
 
     ajaxPost(url, callback) {
         const req = new XMLHttpRequest();
@@ -49,6 +33,7 @@ class Ajax {
         req.send();
     };
 
+    
     ajaxDelete(url, callback) {
         const req = new XMLHttpRequest();
         req.open("DELETE", url);

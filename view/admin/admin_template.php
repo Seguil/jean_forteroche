@@ -52,20 +52,20 @@
     </footer>
 
 
-    <script src="<?php echo JS;?>answer_comment.js"></script>
+    <!-- <script src="<?php echo JS;?>answer_comment.js"></script>
     <script src="<?php echo JS;?>deleteAjax.js"></script>
     <script src="<?php echo JS;?>ignored_report_ajax.js"></script>
     <script src="<?php echo JS;?>status_comment.js"></script>
     <script src="<?php echo JS;?>update_billet.js"></script>
-    <script src="<?php echo JS;?>delete_billet.js"></script>
+    <script src="<?php echo JS;?>delete_billet.js"></script> -->
 
 
 
-    <!-- <script src="<?php echo JS;?>ajax.js"></script>
+    <script src="<?php echo JS;?>ajax.js"></script>
     <script src="<?php echo JS;?>button.js"></script>
     <script src="<?php echo JS;?>main.js"></script>
     <script src="<?php echo JS;?>globallistener.js"></script>
- -->
+
 
 
 </body>
