@@ -182,10 +182,9 @@ echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id, "answe
             $currentView = new View();
             $currentView->redirect('user-home-page.html');
         } else {
-            $_SESSION['u_id'] = $myUser->getIdUser();
-            $_SESSION['username'] = $myUser->getUsername();
-            $_SESSION['role'] = $myUser->getRole();
-
+            $_SESSION['u_id'] = $result->getIdUser();
+            $_SESSION['username'] = $result->getUsername();
+            $_SESSION['role'] = $result->getRole();
 
             $currentView = new View();
             $currentView->redirect('admin-home-page.html');
@@ -196,7 +195,6 @@ echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id, "answe
     public function deconnexionUser($params) {
         //extract($params);
         unset($_SESSION['u_id']);
-        unset($_SESSION['username']);
 
         session_destroy();
 

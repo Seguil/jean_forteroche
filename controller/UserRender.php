@@ -2,6 +2,16 @@
 
 class UserRender {
     //pour montrer la page homepage, je suis la méthode showhomepage
+    public function __construct() {
+        $currentView = new View();
+        if(isset($_SESSION['u_id'])) {
+            unset($_SESSION['u_id']);
+            session_destroy();
+        }
+    ;
+    }
+
+    
     public function showHomePage($params) {
         //extract($params);
         $billetManager = new BilletManager();
@@ -11,9 +21,9 @@ class UserRender {
         //Eléments pour la pagination
         $billetsParPage = 6;
         $pagesTotales = ceil($billetsTotal/$billetsParPage);
-        if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page']>0 AND $_GET['page']<=$pagesTotales) {
-            $_GET['page'] = intval($_GET['page']);
-            $pageCourante = $_GET['page'];
+        if(isset($page) AND !empty($page) AND $page>0 AND $page<=$pagesTotales) {
+            $page = intval($page);
+            $pageCourante = $page;
         } else {
             $pageCourante = 1;
         }
@@ -37,9 +47,9 @@ class UserRender {
         //Eléments pour la pagination
         $billetsParPage = 3;
         $pagesTotales = ceil($billetsTotal/$billetsParPage);
-        if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page']>0 AND $_GET['page']<=$pagesTotales) {
-            $_GET['page'] = intval($_GET['page']);
-            $pageCourante = $_GET['page'];
+        if(isset($page) AND !empty($page) AND $page>0 AND $page<=$pagesTotales) {
+            $page = intval($page);
+            $pageCourante = $page;
         } else {
             $pageCourante = 1;
         }

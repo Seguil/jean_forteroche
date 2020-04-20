@@ -4,6 +4,7 @@ class User {
     private $idUser;
     private $username;
     private $password;
+    private $role;
     private $creationDate;
 
     public function getIdUser() {
@@ -30,6 +31,15 @@ class User {
 
     public function setPassword($password) {
         $this->password = $password;
+        return $this;
+    }
+
+    public function getRole() {
+        return $this->role;
+    }
+
+    public function setRole($role) {
+        $this->role = $role;
         return $this;
     }
 

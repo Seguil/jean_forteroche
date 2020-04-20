@@ -13,11 +13,12 @@ class UserManager {
         //prend en param User $user objet de type user passé par référence (&) (cad alias)
         //return bool true si l'objet a été inséré, false si une erreur est survenue
         $pdo = $this->pdo;
-        $request = $pdo->prepare('INSERT INTO user (u_username, u_password, u_creation_date) VALUES (:u_username, :u_password, NOW())');
+        $request = $pdo->prepare('INSERT INTO user (u_username, u_password, u_role, u_creation_date) VALUES (:u_username, :u_password, :u_role,  NOW())');
     
         //Liaison des paramètres
         $request->bindValue(':u_username', $user->getUsername(), PDO::PARAM_STR);
         $request->bindValue(':u_password', password_hash($user->getPassword(), PASSWORD_DEFAULT), PDO::PARAM_STR);
+        $request->bindValue(':u_role', $user->getRole(), PDO::PARAM_STR);
 
         //Exécution de la requête
           $executeIsOk = $request->execute();
@@ -56,6 +57,7 @@ class UserManager {
                 $user->setIdUser($row['u_id']);
                 $user->setUsername($row['u_username']);
                 $user->setPassword($row['u_password']);
+                $user->setRole($row['u_role']);
                 $user->setCreationDate($row['u_creation_date']);
     
                 return $user;
@@ -93,6 +95,7 @@ class UserManager {
         $request->bindValue(':u_username', $user->getUsername(), PDO::PARAM_STR);
         $request->bindValue(':u_mdp', password_hash($user->getMdp(), PASSWORD_DEFAULT), PDO::PARAM_STR);
         $request->bindValue(':u_id', $user->getIdUser(), PDO::PARAM_INT);
+        $request->bindValue(':u_role', $user->getRole(), PDO::PARAM_STR);
         $request->bindValue(':u_date_creation', $user->getCreationdate(), PDO::PARAM_STR);
 
         //Exécution de la requête
