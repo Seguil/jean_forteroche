@@ -24,7 +24,7 @@
 
     <div class="pagination">
         <?php
-            if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
+            if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales-1)) { ?>
                 <a href="?page=<?php echo $pageCourante + 1; ?>">Chapitres précédents</a>
             <?php };?>
     </div>

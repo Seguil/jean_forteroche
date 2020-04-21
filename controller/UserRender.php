@@ -24,7 +24,7 @@ class UserRender {
         $billetsTotal = $billetManager->pagination();
 
         //Eléments pour la pagination
-        $billetsParPage = 6;
+        $billetsParPage = 3;
         $pagesTotales = ceil($billetsTotal/$billetsParPage);
         if(isset($page) AND !empty($page) AND $page>0 AND $page<=$pagesTotales) {
             $page = intval($page);

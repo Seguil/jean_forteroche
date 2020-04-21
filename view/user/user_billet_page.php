@@ -16,12 +16,6 @@
         <ul>
             <?php foreach($billets as $bil):?>
                 <div class="billet">
-                    <!-- <a  href="#"
-                        data-href="<?php echo HOST;?>select-billet.html/id/<?php echo $bil->getId();?>"
-                        class="selectBillet">
-                        <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
-                        <h3><?php echo $bil->getTitle();?></h3>
-                    </a> -->
 
                     <a href="<?php echo HOST;?>user-billet-page.html/id/<?php echo $bil->getId(); ?>">
                         <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
@@ -34,9 +28,10 @@
 
     <div class="pagination">
         <?php
-            if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
-                <a href="<? HOST ?>?page=<?php echo $pageCourante + 1; ?>">Chapitres précédents</a>
-            <?php };?>
+            if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales-1)) { ?>
+                <a href="?page=<?php echo $pageCourante + 1; ?>">Chapitres précédents</a>
+            <?php };
+        ?>
     </div>
 
 

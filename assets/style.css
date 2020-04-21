@@ -111,9 +111,22 @@ aside nav ul .billet h3 {
     width: auto;
 }
 
+#container_pagination {
+    display: flex;
+    margin: 2vh 8vw;
+}
+
 .pagination {
     display: flex;
-    margin-left: 4vw;
+    width: 40vw;
+    /* justify-content: center; */
+}
+
+.pagination:first-child {
+    justify-content: flex-start;
+}
+.pagination:last-child {
+    justify-content: flex-end;
 }
 
 
