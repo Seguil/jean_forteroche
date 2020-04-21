@@ -6,7 +6,9 @@ body {
     margin: 0;
     display: flex;
 	flex-direction: column;
-	min-height: 100vh;
+    min-height: 100vh;
+    max-width: 80vw;
+    width: auto;
 }
 
 main {
@@ -45,13 +47,38 @@ header img {
 /* ---------------main -----------------*/
 
 /* aside */
+.home_link {
+    margin: 8vh 0 2vh 0;
+    font-size: 1.8em;
+    text-align: center;
+}
+/* aside .pagination .following {
+    text-align: start;
+}
+
+aside .pagination.previous {
+    text-align: end;
+} */
+
+#aside_pagination {
+    display: flex;
+    justify-content: space-between;
+    margin: 2vh 0;
+}
+
+#aside_pagination .pagination {
+    display: flex;
+    width: 5vw;
+}
+
+
 nav,
 aside {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     margin-top: 0;
-    width: 20vw;
+    /* width: 20vw; */
 }
 
 aside nav ul {
@@ -68,6 +95,10 @@ aside nav ul .billet h2 {
     margin-bottom: 0;
 }
 
+/* aside nav ul .billet h2:first-child {
+    margin-top: 0;
+} */
+
 aside nav ul .billet h3 {
     margin-top: 0;
 }
@@ -81,7 +112,10 @@ aside nav ul .billet h3 {
     text-align: center;
 }
 
-
+/* aside billet_page */
+/* aside .pagination {
+    text-align: center;
+} */
 
 /* container */
 /* homepage - liste des chapitres*/
@@ -116,16 +150,17 @@ aside nav ul .billet h3 {
     margin: 2vh 8vw;
 }
 
-.pagination {
+#container_pagination .pagination {
     display: flex;
     width: 40vw;
     /* justify-content: center; */
 }
 
-.pagination:first-child {
+#container_pagination .pagination:first-child {
     justify-content: flex-start;
 }
-.pagination:last-child {
+
+#container_pagination .pagination:last-child {
     justify-content: flex-end;
 }
 
@@ -133,6 +168,10 @@ aside nav ul .billet h3 {
 /* article */
 article {
     margin: 2vh;
+}
+
+#chapter_choiced {
+    padding-left: 4vw;
 }
 
 a {

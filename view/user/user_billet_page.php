@@ -1,16 +1,6 @@
 <aside>
-    <a href="<?php echo HOST;?>user-home-page.html">Page d'accueil</a>
-<!-- <div class="nav_chapters">
-    <h2 class="number">3</h2>
-    <h3 class="title">aze</h3>
-</div> -->
+    <a href="<?php echo HOST;?>user-home-page.html" title="Page d'accueil" class="home_link"><i class="fas fa-home"></i></a>
 
-    <div class="pagination">
-        <?php
-            if($pageCourante == $pagesTotales || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
-                <a href="?page=<?php echo $pageCourante - 1; ?>">Chapitres suivants</a>
-            <?php };?>
-    </div>
 
     <nav>
         <ul>
@@ -26,24 +16,40 @@
         </ul>
     </nav>
 
-    <div class="pagination">
-        <?php
-            if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales-1)) { ?>
-                <a href="?page=<?php echo $pageCourante + 1; ?>">Chapitres précédents</a>
-            <?php };
-        ?>
+
+    <div id="aside_pagination">
+        <div class="pagination">
+            <?php
+                if($pageCourante == $pagesTotales || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
+                    <a href="?page=<?php echo $pageCourante - 1; ?>" class="following_chapters">Chapitres suivants</a>
+                <?php };
+            ?>
+        </div>
+
+        <div class="pagination">
+            <?php
+                if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales-1)) { ?>
+                    <a href="?page=<?php echo $pageCourante + 1; ?>" class="previous_chapters">Chapitres précédents</a>
+                <?php };
+            ?>
+        </div>
     </div>
 
 
-<?php
-    for($i=1; $i<=$pagesTotales;$i++) {
-        if($i==$pageCourante) {
-            echo $i.' ';
-        } else {
-            echo '<a href="?page='.$i.'">'.$i. '</a>';
-        }
-    };
-?>
+    <!-- <div class="pagination following">
+        <?php
+            if($pageCourante == $pagesTotales || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
+                <a href="?page=<?php echo $pageCourante - 1; ?>" class="following_chapters">Chapitres suivants</a>
+            <?php };?>
+    </div>
+
+    <div class="pagination previous">
+        <?php
+            if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales-1)) { ?>
+                <a href="?page=<?php echo $pageCourante + 1; ?>" class="previous_chapters">Chapitres précédents</a>
+            <?php };
+        ?>
+    </div> -->
 
 </aside>
 

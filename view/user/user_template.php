@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jean Forteroche</title>
-    <link rel="stylesheet" href="<?php echo ASSETS;?>style.css"/>
+    <link rel="stylesheet" href="<?php echo ASSETS;?>style2.css"/>
     <link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/968601638e.js" crossorigin="anonymous"></script>
 
@@ -52,7 +52,7 @@
                     </form>
 
             <!-- Connexion form -->
-            <div id="form_inscription">
+            <!-- <div id="form_inscription">
                 <h2>Inscription</h2>
                 <form action="<?php echo HOST ;?>inscription-user.html" method="post">
                     <label for="username">Pseudo
@@ -66,7 +66,7 @@
                     </label>
                     <input type="submit" value="S'inscrire"/>
                 </form>
-            </div>
+            </div> -->
         </div>
 
     </footer>
