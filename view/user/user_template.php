@@ -42,8 +42,7 @@
                 <div id="connect_button">
                     <button>Espace administrateur</button>
                 </div>               
-                <div id="form_connection">
-                    <form action="<?php echo HOST ;?>connection-admin.html" method="post">
+                    <form id="form_connection" action="<?php echo HOST ;?>connection-admin.html" method="post">
                         <label for="username_connect">Pseudo</label>
                             <input type="text" name="username_connect" required/>
                         <label for="password">Mot de passe</label>
@@ -51,7 +50,6 @@
                         <input type="submit" value="Se connecter"/>
                         <button id="annulation_connect">Annuler</button>
                     </form>
-                </div>
 
             <!-- Connexion form -->
             <div id="form_inscription">

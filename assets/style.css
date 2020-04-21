@@ -1,11 +1,32 @@
+/* ---------------Global style -----------------*/
+
+
 body {
     font-family: Calibri, Arial, Helvetica, sans-serif;
     margin: 0;
+    display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
+
+main {
+    display: flex;
+    justify-content: space-around;
+    width: 99vw;
+    flex: auto;
+}
+
 
 i {
     color: rgb(233, 108, 5);
 }
+
+/* ------------------tooltip-------------------- */
+.tooltip {
+    display: inline;
+    position: relative;
+}
+
 
 /* ---------------header -----------------*/
 header {
@@ -16,13 +37,14 @@ header {
     width: 90vw;
 }
 
-/* ---------------main -----------------*/
-main {
-    display: flex;
-    justify-content: space-around;
-    width: 99vw;
+header img {
+    width: 17vw;
+    border-radius: 30px;
 }
 
+/* ---------------main -----------------*/
+
+/* aside */
 nav,
 aside {
     display: flex;
@@ -50,7 +72,33 @@ aside nav ul .billet h3 {
     margin-top: 0;
 }
 
+#bibliography {
+    padding: 0 2vw 0 2vw;
+    text-align: justify;
+}
 
+#bibliography h2 {
+    text-align: center;
+}
+
+
+
+/* container */
+/* homepage - liste des chapitres*/
+#container nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.billet {
+    width: 20vw;
+    margin: 2vw 2vh;
+    text-align: center;
+}
 
 #container {
     display: flex;
@@ -66,9 +114,10 @@ aside nav ul .billet h3 {
 .pagination {
     display: flex;
     margin-left: 4vw;
-
 }
 
+
+/* article */
 article {
     margin: 2vh;
 }
@@ -114,41 +163,13 @@ p {
     margin-top: 0;
     margin-bottom: 0;
 }
-/* ---------------homepage - aside -----------------*/
-header img {
-    width: 17vw;
-    border-radius: 30px;
-}
 
-#bibliography {
-    padding: 0 2vw 0 2vw;
-    text-align: justify;
-}
 
-#bibliography h2 {
-    text-align: center;
-}
 
-/* ---------------homepage - liste des chapitres -----------------*/
-#container nav ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: auto;
-    padding: 0;
-    margin: 0;
-}
-
-.billet {
-    width: 20vw;
-    margin: 2vw 2vh;
-    text-align: center;
-}
 /* ---------------userhomepage - commentaires -----------------*/
 #comments,
 .admin_comments,
 .admin_billets {
-    /* background-color: rgba(0, 143, 200, 0.4); */
     margin: 2vh;
 }
 
@@ -178,7 +199,6 @@ header img {
 /* ---------------footer -----------------*/
 footer {
     display: flex;
-    justify-content: space-around;
     width: 100vw;
     height: 9vh;
     background-color: rgba(95, 95, 95, 0.4);
@@ -191,27 +211,49 @@ footer {
     align-items: center;
 }
 
+#mentions_legales {
+    width: 33vw;
+    justify-content: flex-end;
+}
+
+#forms {
+    width: 66vw;
+    justify-content: center;
+}
+
+
 /* ---------------footer - forms -----------------*/
+#form_connection {
+    display: none;
+}
 
 form {
     display: flex;
-    flex-direction: column;
-    width: 20vw;
+    width: 50vw;
 }
 
-form input[type=submit] {
-    width: 10vw;
+form input[type=submit],
+#annulation_connect {
+    width: 8vw;
 }
+
+#form_connection label,
+#form_connection input[type=submit],
+#form_connection button {
+    margin-left: 1vw;
+}
+
+#form_connection label {
+    margin-right: 0.5vw;
+}
+
 
 #form_inscription {
     display: none;
 }
 
-/* ------------------tooltip-------------------- */
-.tooltip {
-    display: inline;
-    position: relative;
-}
+
+
 
 
 /* ------------------Comments user-------------------- */
@@ -376,11 +418,3 @@ form.response {
     display: none;
 }
 
-/* ------------ form ---------------- */
-/* input:valid {
-    border: 1px solid green;
-} */
-
-#form_connection {
-    display: none;
-}
