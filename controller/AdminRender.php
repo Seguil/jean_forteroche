@@ -17,7 +17,7 @@ class AdminRender {
         if(isset($_GET['page'])) {
             $page = $_GET['page'];
         }
-
+        
         $billetManager = new BilletManager();
         $billetsTotal = $billetManager->pagination();
 
