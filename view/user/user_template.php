@@ -80,7 +80,7 @@
 <script src="<?php echo JS;?>ajax.js"></script>
 <script src="<?php echo JS;?>button.js"></script>
 <script src="<?php echo JS;?>main.js"></script>
-<script src="<?php echo JS;?>globallistener.js"></script>
+<script src="<?php echo JS;?>userGlobalListener.js"></script>
 
 
 </body>
