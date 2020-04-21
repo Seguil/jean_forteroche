@@ -35,13 +35,14 @@
     <footer>
         <div id="mentions_legales">Mentions légales</div>
         
-        <div id="forms">
+        <!-- <div id="forms"> -->
             <!-- Connexion form -->
             
                 <!-- <a href="<?php echo HOST;?>admin_home_page.html">Espace administrateur</a> -->
                 <div id="connect_button">
                     <button>Espace administrateur</button>
-                </div>               
+                </div>
+                <div id="form">             
                     <form id="form_connection" action="<?php echo HOST ;?>connection-admin.html" method="post">
                         <label for="username_connect">Pseudo</label>
                             <input type="text" name="username_connect" required/>
@@ -50,6 +51,7 @@
                         <input type="submit" value="Se connecter"/>
                         <button id="annulation_connect">Annuler</button>
                     </form>
+                </div>
 
             <!-- Connexion form -->
             <!-- <div id="form_inscription">
@@ -67,7 +69,7 @@
                     <input type="submit" value="S'inscrire"/>
                 </form>
             </div> -->
-        </div>
+        <!-- </div> -->
 
     </footer>
 

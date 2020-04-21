@@ -2,12 +2,12 @@
 
 <!-- Liste des chapitres -->
 <aside>
-    <div class="pagination">
+    <!-- <div class="pagination">
         <?php
             if($pageCourante == $pagesTotales || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
                 <a href="?page=<?php echo $pageCourante - 1; ?>">Chapitres suivants</a>
             <?php };?>
-    </div>
+    </div> -->
 
     <nav>
         <ul>
@@ -22,12 +22,31 @@
         </ul>
     </nav>
 
-    <div class="pagination">
+    <div id="aside_pagination">
+        <div class="pagination">
+            <?php
+                if($pageCourante == $pagesTotales || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
+                    <a href="?page=<?php echo $pageCourante - 1; ?>" class="following_chapters">Chapitres suivants</a>
+                <?php };
+            ?>
+        </div>
+
+        <div class="pagination">
+            <?php
+                if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales-1)) { ?>
+                    <a href="?page=<?php echo $pageCourante + 1; ?>" class="previous_chapters">Chapitres précédents</a>
+                <?php };
+            ?>
+        </div>
+    </div>
+
+
+    <!-- <div class="pagination">
         <?php
             if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales-1)) { ?>
                 <a href="?page=<?php echo $pageCourante + 1; ?>">Chapitres précédents</a>
             <?php };?>
-    </div>
+    </div> -->
 
 </aside>
 

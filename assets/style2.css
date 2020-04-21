@@ -30,9 +30,9 @@ main {
 }
 
 footer {
-    /* width: 100vw; */
     height: 9vh;
     background-color: rgba(95, 95, 95, 0.4);
+    justify-content: space-between;
 }
 
 
@@ -114,26 +114,192 @@ aside,
 }
 
 aside {
-    padding: 2vh 0;
-    max-width: 20vw;
+    padding: 2vh 1vw;
+    width: 20vw;
 }
 
 #container {
     width: 80vw;
-    padding: 2vh 8vw;
+    padding: 2vh 4vw 2vh 8vw;
 }
 
 
 
 
 /* --------------- aside -----------------*/
-#bibliography {
-    padding: 0 1vw;
-}
-
 .home_link {
     font-size: 1.8em;
     text-align: center;
 }
 
+aside nav ul {
+    padding: 0;
+    text-align: center;
+}
 
+aside nav ul h2 {
+    margin-bottom: 0;
+}
+
+aside nav ul h3 {
+    margin-top: 0;
+}
+
+
+#aside_pagination,
+#aside_pagination .pagination {
+    display: flex;
+}
+
+#aside_pagination {
+    justify-content: space-between;
+    margin: 2vh 0;
+}
+
+#aside_pagination .pagination {
+    width: 5vw;
+}
+
+
+
+/* --------------- container user-home-page -----------------*/
+#container_pagination,
+#container_pagination .pagination,
+#container nav ul {
+    display: flex;
+}
+
+#container_pagination {
+    justify-content: space-between;
+    margin: 2vh 0;
+}
+
+#container nav ul {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: auto;
+    padding: 0;
+    margin: 0;
+}
+
+#container nav ul .billet {
+    width: 20vw;
+    margin: 2vw 2vh;
+    text-align: center;
+}
+
+
+
+/* --------------- container user/admin-billet-page -----------------*/
+/*article*/
+#display_date {
+    text-align: right;
+    font-style: italic;
+}
+
+/*Comments*/
+#comments,
+#read_comments .comment,
+.comment .header_comment {
+    display: flex;
+}
+
+#comments,
+.comment .header_comment {
+    justify-content: space-between;
+}
+
+#read_comments,
+#add_comment {
+    width: 30vw;
+}
+
+#read_comments .comment {
+    flex-direction: column;
+}
+
+.comment {
+    border-bottom: 1px grey solid;
+    margin-bottom: 1vh;
+}
+
+.comment .header_comment {
+    vertical-align: middle;
+}
+
+.pseudo_comment {
+    font-weight: bolder;
+}
+
+.comment_date {
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+/*addComments*/
+#add_comment form {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+}
+
+#add_comment form input[type=submit] {
+    margin-top: -5vh;
+    width: 5vw;
+    margin-left: auto;
+}
+
+
+
+
+
+/* --------------- footer -----------------*/
+#mentions_legales,
+#connect_button, 
+#form_connection,
+#disconnect {
+    margin: 2vh;
+    display: flex;
+    align-items: center;
+}
+
+#mentions_legales {
+    width: 30vw;
+    justify-content: flex-end;
+}
+
+#connect_button, 
+#disconnect, 
+#form {
+    width: 60vw;
+    justify-content: center;
+}
+
+#form {
+    display: none;
+}
+
+
+#form_connection {
+    /* display: flex; */
+    width: 50vw;
+}
+
+#form_connection input[type=submit],
+#annulation_connect {
+    width: 8vw;
+}
+
+#form_connection label,
+#form_connection input[type=submit],
+#form_connection button {
+    margin-left: 1vw;
+}
+
+#form_connection label {
+    margin-right: 0.5vw;
+}
+
+#form_inscription {
+    display: none;
+}

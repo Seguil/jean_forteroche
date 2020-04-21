@@ -1,12 +1,12 @@
 <aside>
-    <a href="<?php echo HOST;?>admin-home-page.html">Page d'accueil</a>
+    <a href="<?php echo HOST;?>admin-home-page.html" title="Page d'accueil" class="home_link"><i class="fas fa-home"></i></a>
 
-    <div class="pagination">
+    <!-- <div class="pagination">
         <?php
             if($pageCourante == $pagesTotales || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
                 <a href="<?= HOST;?>admin-home-page.html/id/<?=$billet->getId();?>/page/<?php echo $pageCourante - 1; ?>">Chapitres suivants</a>
             <?php };?>
-    </div>
+    </div> -->
 
     <nav>
         <ul>
@@ -21,12 +21,31 @@
         </ul>
     </nav>
 
-    <div class="pagination">
+    <div id="aside_pagination">
+        <div class="pagination">
+            <?php
+                if($pageCourante == $pagesTotales || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
+                    <a href="?page=<?php echo $pageCourante - 1; ?>" class="following_chapters">Chapitres suivants</a>
+                <?php };
+            ?>
+        </div>
+
+        <div class="pagination">
+            <?php
+                if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales-1)) { ?>
+                    <a href="?page=<?php echo $pageCourante + 1; ?>" class="previous_chapters">Chapitres précédents</a>
+                <?php };
+            ?>
+        </div>
+    </div>
+
+
+    <!-- <div class="pagination">
         <?php
             if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales-1)) { ?>
                 <a href="?page=<?php echo $pageCourante + 1; ?>">Chapitres précédents</a>
             <?php };?>
-    </div>
+    </div> -->
 
 </aside>
 
@@ -49,13 +68,12 @@
                     <div class="comment">
                         <div class="header_comment">
                             <div class="pseudo_comment"><?php echo $com->getPseudo();?></div>
-                            <form class="form_report_comment" action="<?php echo HOST;?>user-report-comment.html" method="post">
-                                <input name="idComment" type="hidden" value="<?php echo $com->getIdComment();?>"/>
-                                <input name="idBillet" type="hidden" value="<?php echo $com->getIdBillet();?>"/>
-                                <input name="report" type="hidden" value="on"/>
-                                <!-- <input type="submit" value="Signaler" /> -->
-                                <button type="submit" title="Signaler"><i class="fas fa-flag"></i></button>
-                            </form>
+                            <a  href="#"
+                                data-href="<?php echo HOST;?>user-report-comment.html/id/<?php echo $com->getIdComment();?>/report/on"
+                                class="buttonReportComment"
+                                title="Signaler">
+                                <i class="fas fa-flag"></i>
+                            </a>
                         </div>
                         <div class="comment_date"><?php echo $com->getCommentDate()->format('d/m/Y');?></div>
                         <div class="comment_content"><?php echo $com->getComment();?></div>

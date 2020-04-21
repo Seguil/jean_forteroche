@@ -98,9 +98,9 @@
         <div id="add_comment">
             <h4>Ajouter un commentaire</h4>
             <form action="<?php echo HOST;?>create-comment.html" method="post">
-                <label for="pseudo">Pseudo :</label>
+                <label for="pseudo">Pseudo</label>
                     <input type="text" name="pseudo" id="pseudo" required pattern="^[A-Za-z-]+$" minlength="3" maxlength="20"/>
-                <label for="message">Message :</label>
+                <label for="message">Message</label>
                     <input type="text" name="message" id="message" required maxlength="250" rows="5"/>
                 <input name="billet" type="hidden" value="<?php echo $billet->getId();?>"/><br/>
                 <input name="commentDate" type="hidden"/><br/>

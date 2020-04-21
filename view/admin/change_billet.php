@@ -1,5 +1,5 @@
 <aside>
-    <a href="<?php echo HOST;?>admin-home-page.html">Page d'accueil</a>
+    <a href="<?php echo HOST;?>admin-home-page.html" title="Page d'accueil" class="home_link"><i class="fas fa-home"></i></a>
 </aside>
 
 <div id="container">
