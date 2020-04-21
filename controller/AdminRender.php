@@ -5,10 +5,18 @@ class AdminRender {
     public function __construct() {
         $currentView = new View();
         if($_SESSION['role'] != 'admin') return $currentView->redirect('user-home-page.html');
+        if(isset($_GET['page'])) {
+            $page = $_GET['page'];
+        }
+
+
     }
 
     public function showAdminHomePage($params) {
         //extract($params);
+        if(isset($_GET['page'])) {
+            $page = $_GET['page'];
+        }
 
         $billetManager = new BilletManager();
         $billetsTotal = $billetManager->pagination();
@@ -40,6 +48,10 @@ class AdminRender {
 
     public function adminReadBilletComments($params) {
         extract($params);
+
+        if(isset($_GET['page'])) {
+            $page = $_GET['page'];
+        }
 
         $billetManager = new BilletManager();
         $billetsTotal = $billetManager->pagination();

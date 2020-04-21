@@ -14,6 +14,11 @@ class UserRender {
     
     public function showHomePage($params) {
         //extract($params);
+
+        if(isset($_GET['page'])) {
+            $page = $_GET['page'];
+        }
+
         $billetManager = new BilletManager();
         
         $billetsTotal = $billetManager->pagination();
@@ -39,6 +44,10 @@ class UserRender {
 
     public function readBilletComments($params) {
         extract($params);
+
+        if(isset($_GET['page'])) {
+            $page = $_GET['page'];
+        }
 
         $billetManager = new BilletManager();
         $billetsTotal = $billetManager->pagination();
