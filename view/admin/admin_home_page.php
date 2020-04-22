@@ -67,9 +67,9 @@
                         <input type="text" name="content" class="mytextarea" />                
                     <!-- Enregistrer en tant que brouillon -->
                     <div class="tdbutton submitform">
-                        <button type="submit" name="status" value="non published"><i class="fas fa-save"></i></button>
+                        <button type="submit" name="status" value="non published" title="Enregistrer"><i class="fas fa-save"></i></button>
                         <!-- Publier -->
-                        <button type="submit" name="status" value="published"><i class="fas fa-file-export"></i></button>
+                        <button type="submit" name="status" value="published" title="Publier"><i class="fas fa-share-alt"></i></button>
                     </div>
                 </form>
             </div>

@@ -1,183 +1,42 @@
-/* ---------------Global style -----------------*/
+/* ---------------Global style page-----------------*/
+body,
+header,
+main,
+footer {
+    display: flex;
 
+}
 
 body {
     font-family: Calibri, Arial, Helvetica, sans-serif;
     margin: 0;
-    display: flex;
 	flex-direction: column;
     min-height: 100vh;
-    max-width: 80vw;
+    max-width: 100vw;
     width: auto;
+}
+
+header {
+    justify-content: flex-start;
+    align-items: start;
+    padding: 1.5vh 2vw 1.5vh 2vw;
 }
 
 main {
-    display: flex;
     justify-content: space-around;
-    width: 99vw;
     flex: auto;
 }
 
-
-i {
-    color: rgb(233, 108, 5);
-}
-
-/* ------------------tooltip-------------------- */
-.tooltip {
-    display: inline;
-    position: relative;
-}
-
-
-/* ---------------header -----------------*/
-header {
-    display: flex;
+footer {
+    height: 9vh;
+    background-color: rgba(37, 95, 137, 0.8);
     justify-content: space-between;
-    margin-top: 1.5vh;
-    margin-left: 2vw;
-    width: 90vw;
-}
-
-header img {
-    width: 17vw;
-    border-radius: 30px;
-}
-
-/* ---------------main -----------------*/
-
-/* aside */
-.home_link {
-    margin: 8vh 0 2vh 0;
-    font-size: 1.8em;
-    text-align: center;
-}
-/* aside .pagination .following {
-    text-align: start;
-}
-
-aside .pagination.previous {
-    text-align: end;
-} */
-
-#aside_pagination {
-    display: flex;
-    justify-content: space-between;
-    margin: 2vh 0;
-}
-
-#aside_pagination .pagination {
-    display: flex;
-    width: 5vw;
 }
 
 
-nav,
-aside {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 0;
-    /* width: 20vw; */
-}
-
-aside nav ul {
-    padding-left: 0;
-    margin: auto;
-}
-
-aside nav ul .billet {
-    margin: 0;
-    width: 15vw;
-}
-
-aside nav ul .billet h2 {
-    margin-bottom: 0;
-}
-
-/* aside nav ul .billet h2:first-child {
-    margin-top: 0;
-} */
-
-aside nav ul .billet h3 {
-    margin-top: 0;
-}
-
-#bibliography {
-    padding: 0 2vw 0 2vw;
-    text-align: justify;
-}
-
-#bibliography h2 {
-    text-align: center;
-}
-
-/* aside billet_page */
-/* aside .pagination {
-    text-align: center;
-} */
-
-/* container */
-/* homepage - liste des chapitres*/
-#container nav ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: auto;
-    padding: 0;
-    margin: 0;
-}
-
-.billet {
-    width: 20vw;
-    margin: 2vw 2vh;
-    text-align: center;
-}
-
-#container {
-    display: flex;
-    flex-direction: column;
-    width: 80vw;
-}
-
-#container nav {
-    flex-grow: 2;
-    width: auto;
-}
-
-#container_pagination {
-    display: flex;
-    margin: 2vh 8vw;
-}
-
-#container_pagination .pagination {
-    display: flex;
-    width: 40vw;
-    /* justify-content: center; */
-}
-
-#container_pagination .pagination:first-child {
-    justify-content: flex-start;
-}
-
-#container_pagination .pagination:last-child {
-    justify-content: flex-end;
-}
 
 
-/* article */
-article {
-    margin: 2vh;
-}
-
-#chapter_choiced {
-    padding-left: 4vw;
-}
-
-a {
-    text-decoration: none;
-    color: rgb(85, 78, 73);
-}
+/* --------------- Titles - p - a - i -----------------*/
 
 h1, h2 {
     font-family: 'Sacramento', cursive, Calibri, Arial, Helvetica, sans-serif;
@@ -186,10 +45,6 @@ h1, h2 {
 
 h1 {
     font-size: 4em;
-    display: flex;
-    flex-grow: 2;
-    justify-content: center;
-    margin-top: 6vh;
 }
 
 h2 {
@@ -206,148 +61,189 @@ h4 {
     font-size: 1.5em;
     color: rgb(73, 57, 46);
     font-weight: bolder;
-    margin-top: 0;
+    /* margin-top: 0; */
 }
 
 p {
     font-size: 1.4em;
     color: rgb(85, 78, 73);
+    text-align: justify;
     margin-top: 0;
     margin-bottom: 0;
 }
 
-
-
-/* ---------------userhomepage - commentaires -----------------*/
-#comments,
-.admin_comments,
-.admin_billets {
-    margin: 2vh;
+a {
+    text-decoration: none;
+    color: rgb(85, 78, 73);
 }
 
-.comment {
+i {
+    color: rgb(233, 108, 5);
+}
+
+.pagination a,
+#user_profil
+ {
+    color: #255f89;
+    font-style: italic;
+}
+
+
+
+
+
+
+/* --------------- header -----------------*/
+header img {
+    width: 17vw;
+    border-radius: 30px;
+    flex: 1;
+}
+
+header h1 {
+    flex: 2;
+    text-align: center;
+    vertical-align: center;
+}
+
+#user_profil {
+    font-size: 1.4em;
+}
+
+
+
+
+
+
+/* --------------- Global style main -----------------*/
+aside,
+#container {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+}
+
+aside {
+    padding: 2vh 1vw;
+    width: 20vw;
+}
+
+#container {
+    width: 80vw;
+    padding: 2vh 4vw 2vh 8vw;
+}
+
+
+
+
+/* --------------- aside -----------------*/
+.home_link {
+    font-size: 1.8em;
+    text-align: center;
+}
+
+#bibliography h2 {
+    text-align: center;
+}
+
+
+aside nav ul {
+    padding: 0;
+    text-align: center;
+}
+
+aside nav ul h2 {
+    margin-bottom: 0;
+}
+
+aside nav ul h3 {
+    margin-top: 0;
+}
+
+
+#aside_pagination,
+#aside_pagination .pagination {
+    display: flex;
+}
+
+#aside_pagination {
     justify-content: space-between;
-    margin: 2vh;
+    margin: 2vh 0;
 }
 
-.comment button {
-    width: 10vw;
+#aside_pagination .pagination {
+    width: 5vw;
 }
 
-/* ---------------userhomepage - commentaires -----------------*/
-#admin_buttons {
-    margin: 2vh;
+#aside_pagination .pagination a {
+    color: #255f89;
+    font-style: italic;
 }
 
 
-/* ---------------adminhomepage -----------------*/
-#writing_billet form {
+/* --------------- container user-home-page -----------------*/
+#container_pagination,
+#container_pagination .pagination,
+#container nav ul {
+    display: flex;
+}
+
+#container_pagination {
+    justify-content: space-between;
+    margin: 2vh 0;
+}
+
+#container nav ul {
+    justify-content: flex-start;
+    flex-wrap: wrap;
     width: auto;
+    padding: 0;
+    margin: 0;
+}
+
+#container nav ul .billet {
+    width: 20vw;
+    margin: 2vw 2vh;
+    text-align: center;
 }
 
 
-/* ---------------footer -----------------*/
-footer {
+
+/* --------------- container user/admin-billet-page -----------------*/
+/*article*/
+#display_date {
+    text-align: right;
+    font-style: italic;
+}
+
+/*Comments*/
+#comments,
+#read_comments .comment,
+.comment .header_comment {
     display: flex;
-    width: 100vw;
-    height: 9vh;
-    background-color: rgba(95, 95, 95, 0.4);
 }
 
-#mentions_legales,
-#forms {
-    margin: 2vh;
-    display: flex;
-    align-items: center;
-}
-
-#mentions_legales {
-    width: 33vw;
-    justify-content: flex-end;
-}
-
-#forms {
-    width: 66vw;
-    justify-content: center;
-}
-
-
-/* ---------------footer - forms -----------------*/
-#form_connection {
-    display: none;
-}
-
-form {
-    display: flex;
-    width: 50vw;
-}
-
-form input[type=submit],
-#annulation_connect {
-    width: 8vw;
-}
-
-#form_connection label,
-#form_connection input[type=submit],
-#form_connection button {
-    margin-left: 1vw;
-}
-
-#form_connection label {
-    margin-right: 0.5vw;
-}
-
-
-#form_inscription {
-    display: none;
-}
-
-
-
-
-
-/* ------------------Comments user-------------------- */
-#comments {
-    display: flex;
-    justify-content: space-around;
+#comments,
+.comment .header_comment {
+    justify-content: space-between;
 }
 
 #read_comments,
 #add_comment {
-    width: 40vw;
-    padding: 2vh 2vw;
+    width: 30vw;
 }
 
 #read_comments .comment {
-    display: flex;
     flex-direction: column;
 }
 
 .comment {
     border-bottom: 1px grey solid;
+    margin-bottom: 1vh;
 }
 
 .comment .header_comment {
-    display: flex;
-    justify-content: space-between;
     vertical-align: middle;
-}
-
-.form_report_comment {
-    width: auto;
-}
-
-i.fas.fa-flag {
-    color: rgb(233, 108, 5);
-}
-
-.form_report_comment button {
-    background-color: rgba(255, 255, 255, 0);
-    border: 0;
-    padding: 0.5vh 2vw 0vh 0vw;
-    width: auto;
 }
 
 .pseudo_comment {
@@ -359,36 +255,57 @@ i.fas.fa-flag {
     font-style: italic;
 }
 
-#add_comment form input[type=submit],
-#report_comments form input[type=submit],
-#last_comments form input[type=submit] {
+/*addComments*/
+#add_comment form {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+}
+
+#add_comment form input[type=submit] {
     margin-top: -5vh;
-}
-
-.answer {
-    text-align: right;
-    margin-right: 5vw;
+    width: 5vw;
     margin-left: auto;
-    font-style: italic;
-}
-
-form.response {
-    display: none;
 }
 
 
-/* ------------------Comments admin-------------------- */
+
+
+/* --------------- container admin-home-page -----------------*/
+#writing_billet form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+}
+
+
+.submitform button,
+.submitform button i {
+    height: 4vh;
+    font-size: 1.2em;
+}
+
+.submitform button {
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+    padding: 0.5vh 2vw 0vh 0vw;
+}
+
+.list_billets,
+.list_comments,
+.one_billet,
+.one_comment {
+    display: flex;
+}
 
 .list_billets,
 .list_comments {
-    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
 .one_billet,
 .one_comment {
-    display: flex;
     flex-direction: column;
     align-content: space-around;
     border-radius: 10px;
@@ -410,18 +327,15 @@ form.response {
 }
 
 .one_billet h2,
-.one_billet h3 {
+.one_billet h3,
+.one_comment h5 {
     margin: 0;
     padding-bottom: 1vh;
     text-align: center;
 }
 
-
 .one_comment h5 {
     font-size: 1.2em;
-    margin: 0;
-    padding-bottom: 1vh;
-    text-align: center;
 }
 
 .one_comment .pseudo_date {
@@ -432,13 +346,7 @@ form.response {
 }
 
 .one_comment .pseudo_comment {
-    font-weight: bolder;
     font-size: 1.1em;
-}
-
-.one_comment .date_comment {
-    font-style: italic;
-    font-size: 0.8em;
 }
 
 .one_comment .content_comment {
@@ -453,20 +361,69 @@ form.response {
     padding-bottom: 2vh;
 }
 
-.submitform button,
-.submitform button i {
-    height: 4vh;
-    font-size: 1.2em;
-}
-
-.submitform button {
-    background-color: rgba(255, 255, 255, 0);
-    border: 0;
-    padding: 0.5vh 2vw 0vh 0vw;
-}
-
-
 .one_comment .response_comment {
     display: none;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/* --------------- footer -----------------*/
+#mentions_legales,
+#connect_button, 
+#form_connection,
+#disconnect {
+    margin: 2vh;
+    display: flex;
+    align-items: center;
+}
+
+#mentions_legales {
+    width: 30vw;
+    justify-content: flex-end;
+    color: white;
+}
+
+#connect_button, 
+#disconnect, 
+#form {
+    width: 60vw;
+    justify-content: center;
+}
+
+#form {
+    display: none;
+}
+
+
+#form_connection {
+    width: 50vw;
+}
+
+#form_connection input[type=submit],
+#annulation_connect {
+    width: 8vw;
+}
+
+#form_connection label,
+#form_connection input[type=submit],
+#form_connection button {
+    margin-left: 1vw;
+}
+
+#form_connection label {
+    margin-right: 0.5vw;
+    color: white;
+}
+
+#form_inscription {
+    display: none;
+}

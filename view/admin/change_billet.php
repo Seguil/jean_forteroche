@@ -17,7 +17,7 @@
                 <div class="tdbutton submitform">
                     <button type="submit" name="status" value="non published"><i class="fas fa-save"></i></button>
                     <!-- Publier -->
-                    <button type="submit" name="status" value="published"><i class="fas fa-file-export"></i></button>
+                    <button type="submit" name="status" value="published"><i class="fas fa-share-alt"></i></button>
                 </div>
             </form>
         </div>

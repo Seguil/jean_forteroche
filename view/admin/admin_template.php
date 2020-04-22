@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jean Forteroche</title>
-    <link rel="stylesheet" href="<?php echo ASSETS;?>style2.css"/>
+    <link rel="stylesheet" href="<?php echo ASSETS;?>style.css"/>
+    <link rel="stylesheet" href="<?php echo ASSETS;?>style_media.css"/>
     <link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/968601638e.js" crossorigin="anonymous"></script>
 
