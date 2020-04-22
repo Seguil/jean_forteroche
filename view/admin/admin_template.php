@@ -24,7 +24,7 @@
 
         <h1>Billet simple pour l' Alaska</h1>
 
-        <div>
+        <div id="user_profil">
             <i class="fas fa-user-circle"></i>
             <?php echo $_SESSION['username']; ?>
         </div>

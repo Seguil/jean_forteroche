@@ -18,20 +18,18 @@ body {
 
 header {
     justify-content: flex-start;
-    align-items: center;
+    align-items: start;
     padding: 1.5vh 2vw 1.5vh 2vw;
-    background-color: green;
 }
 
 main {
     justify-content: space-around;
     flex: auto;
-    background-color: lightblue;
 }
 
 footer {
     height: 9vh;
-    background-color: rgba(95, 95, 95, 0.4);
+    background-color: rgba(37, 95, 137, 0.8);
     justify-content: space-between;
 }
 
@@ -70,8 +68,8 @@ p {
     font-size: 1.4em;
     color: rgb(85, 78, 73);
     text-align: justify;
-    /* margin-top: 0;
-    margin-bottom: 0; */
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 a {
@@ -81,6 +79,13 @@ a {
 
 i {
     color: rgb(233, 108, 5);
+}
+
+.pagination a,
+#user_profil
+ {
+    color: #255f89;
+    font-style: italic;
 }
 
 
@@ -100,6 +105,11 @@ header h1 {
     text-align: center;
     vertical-align: center;
 }
+
+#user_profil {
+    font-size: 1.4em;
+}
+
 
 
 
@@ -132,6 +142,11 @@ aside {
     text-align: center;
 }
 
+#bibliography h2 {
+    text-align: center;
+}
+
+
 aside nav ul {
     padding: 0;
     text-align: center;
@@ -160,6 +175,10 @@ aside nav ul h3 {
     width: 5vw;
 }
 
+#aside_pagination .pagination a {
+    color: #255f89;
+    font-style: italic;
+}
 
 
 /* --------------- container user-home-page -----------------*/
@@ -252,6 +271,110 @@ aside nav ul h3 {
 
 
 
+/* --------------- container admin-home-page -----------------*/
+#writing_billet form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+}
+
+
+.submitform button,
+.submitform button i {
+    height: 4vh;
+    font-size: 1.2em;
+}
+
+.submitform button {
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+    padding: 0.5vh 2vw 0vh 0vw;
+}
+
+.list_billets,
+.list_comments,
+.one_billet,
+.one_comment {
+    display: flex;
+}
+
+.list_billets,
+.list_comments {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.one_billet,
+.one_comment {
+    flex-direction: column;
+    align-content: space-around;
+    border-radius: 10px;
+    width: 20vw;
+    margin: auto;
+    padding: 1vh 1vw;
+}
+
+.one_comment.report {
+    background-color: #f7d9d9;
+}
+
+.one_comment.last {
+    background-color: #e3f7d9;
+}
+
+.one_billet.non_published {
+    background-color: #bbbbbb;
+}
+
+.one_billet h2,
+.one_billet h3,
+.one_comment h5 {
+    margin: 0;
+    padding-bottom: 1vh;
+    text-align: center;
+}
+
+.one_comment h5 {
+    font-size: 1.2em;
+}
+
+.one_comment .pseudo_date {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1vh;
+    align-items: center;
+}
+
+.one_comment .pseudo_comment {
+    font-size: 1.1em;
+}
+
+.one_comment .content_comment {
+    font-size: 1em;
+    padding-bottom: 1vh;
+}
+
+.tdbutton {
+    text-align: center;
+    word-spacing: 3em;
+    padding-top: 1vh;
+    padding-bottom: 2vh;
+}
+
+.one_comment .response_comment {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* --------------- footer -----------------*/
 #mentions_legales,
@@ -266,6 +389,7 @@ aside nav ul h3 {
 #mentions_legales {
     width: 30vw;
     justify-content: flex-end;
+    color: white;
 }
 
 #connect_button, 
@@ -281,7 +405,6 @@ aside nav ul h3 {
 
 
 #form_connection {
-    /* display: flex; */
     width: 50vw;
 }
 
@@ -298,6 +421,7 @@ aside nav ul h3 {
 
 #form_connection label {
     margin-right: 0.5vw;
+    color: white;
 }
 
 #form_inscription {

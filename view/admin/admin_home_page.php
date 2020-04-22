@@ -136,7 +136,7 @@
                         <h5>Chapitre n° <?php echo $repCom->getIdBillet();?></h5>
                         <div class="pseudo_date">
                             <p class="pseudo_comment"><?php echo $repCom->getPseudo();?></p>
-                            <p class="date_comment"><?php echo $repCom->getCommentDate()->format('d/m/Y');?></p>
+                            <p class="comment_date"><?php echo $repCom->getCommentDate()->format('d/m/Y');?></p>
                         </div>
                         <p class="content_comment"><?php echo $repCom->getComment();?></p>
                         <div class="tdbutton">
@@ -183,7 +183,7 @@
                         
                         <div class="pseudo_date">
                             <p class="pseudo_comment"><?php echo $nrd->getPseudo();?></p>
-                            <p class="date_comment"><?php echo $nrd->getCommentDate()->format('d/m/Y');?></p>
+                            <p class="comment_date"><?php echo $nrd->getCommentDate()->format('d/m/Y');?></p>
                         </div>
                         
                         <p class="content_comment"><?php echo $nrd->getComment();?></p>
