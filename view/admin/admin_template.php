@@ -64,6 +64,7 @@
     <script src="<?php echo JS;?>button.js"></script>
     <script src="<?php echo JS;?>main.js"></script>
     <script src="<?php echo JS;?>adminGlobalListener.js"></script>
+    <script src="<?php echo JS;?>globalListener.js"></script>
 
 
 

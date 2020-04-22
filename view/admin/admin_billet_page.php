@@ -1,4 +1,8 @@
-<aside>
+<div id="responsive_menu_icon">
+    <a href="#"><i class="fas fa-bars"></i></a>
+</div>
+
+<aside id="nav_aside">
     <a href="<?php echo HOST;?>admin-home-page.html" title="Page d'accueil" class="home_link"><i class="fas fa-home"></i></a>
 
     <!-- <div class="pagination">

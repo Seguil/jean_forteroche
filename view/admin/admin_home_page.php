@@ -1,7 +1,8 @@
-<!-- $main adminhomePage-->
+<div id="responsive_menu_icon">
+    <a href="#"><i class="fas fa-bars"></i></a>
+</div>
 
-<!-- Liste des chapitres -->
-<aside>
+<aside id="nav_aside">
     <!-- <div class="pagination">
         <?php
             if($pageCourante == $pagesTotales || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>

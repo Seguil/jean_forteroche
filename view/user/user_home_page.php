@@ -1,13 +1,11 @@
 <!-- $main homePage-->
-<aside>
-    <div id="bibliography">
-        <h2>Jean Forteroche</h2>
-        <p>Né en 1962 dans les Hautes Alpes, ce passioné de grands espaces a décidé de partir à la conquête de l'Alaska. <br/>
-        Entre découverte de communautés aborigènes, prise de conscience de l'éphémère nature et rétrospective de sa propre vie,
-        Jean Forteroche a décidé de publier le récit de ses expériences.<br/>
-        C'est sous la forme de ce roman initiatique en ligne qu'il a souhaité toucher ses lecteurs.<br/>
-        Bon voyage dans l'inconnu de l'Alaska...</p>
-    </div>
+<aside id="bibliography">
+    <h2>Jean Forteroche</h2>
+    <p>Né en 1962 dans les Hautes Alpes, ce passioné de grands espaces a décidé de partir à la conquête de l'Alaska. <br/>
+    Entre découverte de communautés aborigènes, prise de conscience de l'éphémère nature et rétrospective de sa propre vie,
+    Jean Forteroche a décidé de publier le récit de ses expériences.<br/>
+    C'est sous la forme de ce roman initiatique en ligne qu'il a souhaité toucher ses lecteurs.<br/>
+    Bon voyage dans l'inconnu de l'Alaska...</p>
 </aside>
 
 <!-- Liste des chapitres -->

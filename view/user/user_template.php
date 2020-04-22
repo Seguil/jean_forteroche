@@ -19,11 +19,10 @@
 
     <!-- Header -->
     <header>
-        <div id="photoJF">
-            <img src="<?php echo ASSETS?>img/portrait.jpg" alt="Portrait de Jean Forteroche";/>
-        </div>
-
-        <h1>Billet simple pour l' Alaska</h1>
+            <div id="photoJF">
+                <img src="<?php echo ASSETS?>img/portrait.jpg" alt="Portrait de Jean Forteroche";/>
+            </div>
+            <h1>Billet simple pour l' Alaska</h1>
     </header>
 
 
@@ -82,6 +81,7 @@
 <script src="<?php echo JS;?>button.js"></script>
 <script src="<?php echo JS;?>main.js"></script>
 <script src="<?php echo JS;?>userGlobalListener.js"></script>
+<script src="<?php echo JS;?>globalListener.js"></script>
 
 
 </body>
