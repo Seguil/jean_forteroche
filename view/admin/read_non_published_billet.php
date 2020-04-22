@@ -4,14 +4,14 @@
 
 <div id="container">
     <article>
-        <h4>Chapitres non publiés</h4>
+        <h4>Chapitre non publié</h4>
 
         <!-- Récupère le chapitre choisi -->
         <h2>Chapitre n°<?php echo $billet->getNumber();?></h2>
         <h3><?php echo $billet->getTitle();?></h3>
         <p><?php echo $billet->getContent();?></p>
 
-        <div class="tdbutton">
+        <div class="tdbutton billet_only">
             <a  href="<?php echo HOST;?>change-billet.html/id/<?php echo $billet->getId();?>"
                 class="buttonChangeBillet"
                 title="Modifier">

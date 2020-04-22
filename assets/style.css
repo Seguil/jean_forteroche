@@ -201,7 +201,7 @@ aside nav ul h3 {
 }
 
 #container nav ul {
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-wrap: wrap;
     width: auto;
     padding: 0;
@@ -271,7 +271,8 @@ aside nav ul h3 {
 
 #add_comment form input[type=submit] {
     margin-top: -5vh;
-    width: 5vw;
+    width: 10vw;
+    min-width: max-content;
     margin-left: auto;
 }
 
@@ -362,11 +363,18 @@ aside nav ul h3 {
 }
 
 .tdbutton {
+    display: flex;
+    justify-content: space-around;
     text-align: center;
-    word-spacing: 3em;
     padding-top: 1vh;
     padding-bottom: 2vh;
 }
+
+.tdbutton.billet_only {
+    width: 30vw;
+    margin: auto
+}
+
 
 .one_comment .response_comment {
     display: none;
@@ -412,7 +420,8 @@ aside nav ul h3 {
 
 #form_connection input[type=submit],
 #annulation_connect {
-    width: 8vw;
+    width: 10vw;
+    min-width: max-content;
 }
 
 #form_connection label,
