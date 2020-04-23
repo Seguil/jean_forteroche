@@ -56,14 +56,16 @@ var_dump($comManager);
         extract($params);
 // var_dump($params); exit;
         // $myComment = $commentManager->read($id); // récupréer l'objet comment
-        $myComment = new Comment();
+        $commentManager = new CommentManager();
+        $myComment = $commentManager->read($id); // récupréer l'objet comment
 
         // $myComment  ->setAnswer($_POST['answer'])
         //             ->setReport($_POST['report'])
         //             ->setReport($_POST['idComment'])
         //             ->setStatus($_POST['status']);
-        $myComment->setStatus(htmlspecialchars($_POST['status']));
+        // $myComment->setStatus(htmlspecialchars($_POST['status']));
         $myComment->setReport($report);
+        $myComment->setReport($status);
         $myComment->setAnswer($answer);
         $myComment->setIdComment($id);
         $commentManager = new CommentManager();

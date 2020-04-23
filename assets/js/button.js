@@ -11,5 +11,17 @@ class Button {
             parentList.removeChild(parentOneComment);
         });
     }
+
+    postForm(url, parentdiv, datasForm) {
+        const requestPost = new Ajax();
+        let parentOneComment = parentdiv.parentNode;
+        let parentList = parentOneComment.parentNode;
+
+        requestPost.ajaxPost(url, datasForm, (response) => { //Je lance la requête ajax qui a pour fonction response pour afficher la requête La fonction display est ainsi créée:
+            let jsonDatas = JSON.parse(response);
+            console.log(jsonDatas); //La réponse de la requête doit arriver en JSON
+            parentList.removeChild(parentOneComment);
+        });
+    }
 }
 

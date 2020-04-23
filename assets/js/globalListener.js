@@ -10,3 +10,4 @@ document.getElementById('responsive_menu_icon').addEventListener('click', functi
         asideElement.style.display = "none";
     };
 });
+

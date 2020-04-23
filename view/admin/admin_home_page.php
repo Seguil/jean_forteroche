@@ -208,6 +208,7 @@
                                     <input name="idComment" type="hidden" value="<?php echo $nrd->getIdComment();?>"/><br />
                                     <input name="report" type="hidden" value="off"/><br />
                                     <input type="submit" value="Répondre"/>
+                                    <button id="annulation_response">Annuler</button>
                                 </form>
                             </a>
 
@@ -217,6 +218,8 @@
                                 title="Supprimer">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
+
+
 
                         </div>
                     </div>
