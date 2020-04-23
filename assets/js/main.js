@@ -11,6 +11,8 @@ const ignoredBillet = new Button();
 //Passer les commentaires de statut non lu à lu
 const statusComment = new Button();
 
+//Répondre à un commentaire
+const postAnswer = new Button();
 
 
 

@@ -39,27 +39,71 @@ for(let i = 0; i < statusButtons.length; i++) {
 
 //Répondre à un commentaire
 const answerButtons = document.querySelectorAll('.buttonAnswerComment');
+console.log('answerButtons ok');
+
 for(let i = 0; i < answerButtons.length; i++) {
+    console.log(answerButtons.length);
+
     answerButtons[i].addEventListener('click', (e) => {
-        // e.preventDefault();
-        let answerForm = answerButtons[i].getElementsByTagName('form');
+        e.preventDefault();
+        let answerForm = document.querySelectorAll('.response_comment');
+        console.log(answerForm);
+
         for (let i=0;i<answerForm.length;i+=1){
+            console.log(answerForm[i]);
+
             answerForm[i].style.display = 'flex';
+            console.log('flex ok');
+
             answerForm[i].addEventListener('submit', (e) => {
+                console.log('submit ok');
                 e.preventDefault();
+
                 let url = answerForm[i].getAttribute('action');
+                console.log(url);
+                
                 let parentdiv = answerForm[i].parentNode;
-                let pseudoForm = answerForm[i].getElementsByName('pseudo').value;
-                let ansForm = answerForm[i].getElementsByName('answer').value;
-                let statusForm = answerForm[i].getElementsByName('status').value;
-                let idCommentForm = answerForm[i].getElementsByName('idComment').value;
-                let reportForm = answerForm[i].getElementsByName('report').value;
-                let datasForm = [pseudoForm, ansForm, statusForm, idCommentForm, reportForm]
+                console.log(parentdiv);
+
+                let pseudoForm = answerForm[i].elements.pseudo.value;
+                console.log(pseudoForm);
+
+                let ansForm = answerForm[i].elements.answer.value;
+                let statusForm = answerForm[i].elements.status.value;
+                let idCommentForm = answerForm[i].elements.idComment.value;
+                let reportForm = answerForm[i].elements.report.value;
+                let datasForm = {pseudo:pseudoForm, answer:ansForm, status:statusForm, idComment:idCommentForm, report:reportForm};
+                
                 postAnswer.postForm(url, parentdiv, datasForm);
-            });
+            });      
         }
-    });
+
+    }); 
+
+
 }
+
+// const answerForm = document.querySelectorAll('.response_comment');
+// console.log(answerForm);
+
+// for(let i = 0; i < answerForm.length; i++) {
+//     console.log(answerForm.length);
+//     let submitButton = answerForm[i].querySelectorAll('.submitForm');
+//     for(let i = 0; i < submitButton.length; i++) {
+//         submitButton[i].addEventListener('click', (e) => {
+//         e.preventDefault();
+//         let url = answerForm[i].getAttribute('action');
+//         let parentdiv = answerForm[i].parentNode;
+//         let pseudoForm = answerForm[i].getElementsByName('pseudo').value;
+//         let ansForm = answerForm[i].getElementsByName('answer').value;
+//         let statusForm = answerForm[i].getElementsByName('status').value;
+//         let idCommentForm = answerForm[i].getElementsByName('idComment').value;
+//         let reportForm = answerForm[i].getElementsByName('report').value;
+//         let datasForm = [pseudoForm, ansForm, statusForm, idCommentForm, reportForm]
+//         postAnswer.postForm(url, parentdiv, datasForm);
+       
+//     });
+// } };
 
 
 

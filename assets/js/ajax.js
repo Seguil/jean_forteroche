@@ -20,7 +20,7 @@ class Ajax {
     ajaxPost(url, jsonBody, callback) {
         const req = new XMLHttpRequest();
         req.open("POST", url);
-        request.setRequestHeader("Content-Type", "application/json");
+        req.setRequestHeader("Content-Type", "application/json");
         req.addEventListener("load", () => {
             if (req.status >= 200 && req.status < 400) {
                 callback(req.responseText);
@@ -32,6 +32,7 @@ class Ajax {
             console.error("Erreur réseau avec l'URL " + url);
         });
         req.send(JSON.stringify(jsonBody));
+        console.log(jsonBody);
     };
 
     

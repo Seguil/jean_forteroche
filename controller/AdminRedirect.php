@@ -54,12 +54,13 @@ var_dump($comManager);
     
     public function answerComment($params) {
         extract($params);
-// var_dump($params); exit;
+var_dump($params);
         // $myComment = $commentManager->read($id); // récupréer l'objet comment
         $commentManager = new CommentManager();
         $myComment = $commentManager->read($id); // récupréer l'objet comment
 
-        // $myComment  ->setAnswer($_POST['answer'])
+        $myComment->setAnswer(json_decode('answer'));
+        var_dump($myComment); exit;
         //             ->setReport($_POST['report'])
         //             ->setReport($_POST['idComment'])
         //             ->setStatus($_POST['status']);
@@ -68,7 +69,6 @@ var_dump($comManager);
         $myComment->setReport($status);
         $myComment->setAnswer($answer);
         $myComment->setIdComment($id);
-        $commentManager = new CommentManager();
 
         $commentManager->save($myComment);
 
