@@ -8,10 +8,6 @@ class UserManager {
     }
 
     public function create(User &$user) {
-        //insère un objet user dans la base de donnée
-        //met à jour l'objet passé en argument en lui spécifaint un id
-        //prend en param User $user objet de type user passé par référence (&) (cad alias)
-        //return bool true si l'objet a été inséré, false si une erreur est survenue
         $pdo = $this->pdo;
         $request = $pdo->prepare('INSERT INTO user (u_username, u_password, u_role, u_creation_date) VALUES (:u_username, :u_password, :u_role,  NOW())');
     
@@ -32,9 +28,6 @@ class UserManager {
     }
 
     public function read(User $user) {
-        //récupère un objet user à partir de son pseudo
-        //param pseudo str
-        //return bool false si erreur et objet user si correspondance
 
         $pdo = $this->pdo;
 
@@ -47,8 +40,6 @@ class UserManager {
         $executeIsOk = $request->execute();
 
         if($executeIsOk) {
-            // $user = $this->pdoStatement->fetchObject('user');
-            //je vais chercher le mdp de la bdd
             $row = $request->fetch(PDO::FETCH_ASSOC);
     
             //je vérifie les mots de passe
@@ -82,9 +73,6 @@ class UserManager {
 
 
     public function update($user) {
-        //met à jour un objet stocké en bdd
-        //parma User $user
-        //return bool true succès ou false échec
         
         //Préparation de la requête
         $pdo = $this->pdo;
@@ -99,18 +87,10 @@ class UserManager {
         $request->bindValue(':u_date_creation', $user->getCreationdate(), PDO::PARAM_STR);
 
         //Exécution de la requête
-        /**$executeIsOk =*/$request->execute();
-        // if($executeIsOk) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
+        $request->execute();
     }
 
     public function delete($user) {
-        //supprime un objet stocké en bdd
-        //param User $user
-        //return bool true succès false echec
 
         //Préparation de la requête
         $pdo = $this->pdo;
@@ -121,12 +101,8 @@ class UserManager {
         $request->bindValue(':u_id', $user->getIdUser(), PDO::PARAM_INT);
 
         //Ecécution de la requête
-        /*$executeIsOk = */$request->execute();
-        // if($executeIsOk) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
+        $request->execute();
+     
     }
 
     public function save($user) {

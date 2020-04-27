@@ -8,10 +8,6 @@ class BilletManager {
     }
 
     public function create(Billet &$billet) {
-        //insère un objet user dans la base de donnée
-        //met à jour l'objet passé en argument en lui spécifaint un id
-        //prend en param User $user objet de type user passé par référence (&) (cad alias)
-        //return bool true si l'objet a été inséré, false si une erreur est survenue
         $pdo = $this->pdo;
         $request = $pdo->prepare('INSERT INTO billet (b_number, b_title, b_content, b_publication_date, b_status) VALUES (:b_number, :b_title, :b_content, NOW(), :b_status)');
     
@@ -33,9 +29,6 @@ class BilletManager {
     }
 
     public function read($number) {
-        //récupère un objet user à partir de son pseudo
-        //param pseudo str
-        //return bool false si erreur et objet user si correspondance
 
         $pdo = $this->pdo;
 
@@ -71,24 +64,6 @@ class BilletManager {
 
     }
 
-    // public function readAll() {
-    //     $pdo = $this->pdo;
-
-    //     $request = $pdo->query('SELECT * FROM billet ORDER BY number DESC');
-
-    //     $request->execute();
-        
-    //     while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
-    //         $billet = new Billet();
-    //         $billet->setId($row['b_id']);
-    //         $billet->setNumber($row['number']);
-    //         $billet->setTitle($row['title']);
-    //         $billet->setContent($row['content']);
-    //         $billet->setPublicationDate($row['publication_date']);
-    //         $billets[] = $billet;
-    //     };
-    //         return $billets;
-    // }
 
 
     public function readAll($depart, $billetsParPage) {
@@ -156,9 +131,6 @@ class BilletManager {
 
 
     public function update($billet) {
-        //met à jour un objet stocké en bdd
-        //parma User $user
-        //return bool true succès ou false échec
         
         //Préparation de la requête
         $pdo = $this->pdo;
@@ -183,18 +155,10 @@ class BilletManager {
 
 
         //Exécution de la requête
-        /**$executeIsOk =*/$request->execute();
-        // if($executeIsOk) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
+        $request->execute();
     }
 
     public function delete($billet) {
-        //supprime un objet stocké en bdd
-        //param User $user
-        //return bool true succès false echec
 
         //Préparation de la requête
         $pdo = $this->pdo;
@@ -205,12 +169,7 @@ class BilletManager {
         $request->bindValue(':b_id', $billet, PDO::PARAM_INT);
 
         //Ecécution de la requête
-        /*$executeIsOk = */$request->execute();
-        // if($executeIsOk) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
+        $request->execute();
     }
 
     public function save($billet) {

@@ -13,7 +13,6 @@ class AdminRender {
     }
 
     public function showAdminHomePage($params) {
-        //extract($params);
         if(isset($_GET['page'])) {
             $page = $_GET['page'];
         }

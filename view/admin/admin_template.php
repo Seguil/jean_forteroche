@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/968601638e.js" crossorigin="anonymous"></script>
 
+    <link rel="shortcut icon" href="<?php echo ASSETS;?>img/logo.png"/>
+
 
     <!-- CDN TinyMCE -->
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>

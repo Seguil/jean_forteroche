@@ -12,7 +12,6 @@ class UserRedirect {
         $title = $myBillet->getTitle();
         $content = $myBillet->getContent();
         $publicationDate = $myBillet->getPublicationDate();
-        // echo json_encode(["number" => $number, "title"=>$title, "content"=>$content, "publication_date"=>$publicationDate]);
         echo json_encode(["number"=>$number, "title"=>$title, "content"=>$content, "publication_date"=>$publicationDate]);
     }
 
@@ -62,8 +61,6 @@ class UserRedirect {
 
 
         echo json_encode(["report"=>$report]);
-        // $currentView = new View();
-        // $currentView->redirect('user-billet-page.html/id/' . htmlspecialchars($_POST['idBillet']));
     }
 
 }
