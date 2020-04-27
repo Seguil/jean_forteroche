@@ -2,6 +2,10 @@
 // Gestion des commentaires
 //
 
+// Signaler un commentaire
+const reportComment = new Button();;
+
+
 // Suppression des commentaires
 const deleteComment = new Button();
 
@@ -11,8 +15,6 @@ const ignoredBillet = new Button();
 //Passer les commentaires de statut non lu à lu
 const statusComment = new Button();
 
-//Répondre à un commentaire
-const postAnswer = new Button();
 
 
 

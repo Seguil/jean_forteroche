@@ -61,9 +61,9 @@ class UserRedirect {
         $commentManager->save($myComment);
 
 
-        // retrun Json si ajax
-        $currentView = new View();
-        $currentView->redirect('user-billet-page.html/id/' . htmlspecialchars($_POST['idBillet']));
+        echo json_encode(["report"=>$report]);
+        // $currentView = new View();
+        // $currentView->redirect('user-billet-page.html/id/' . htmlspecialchars($_POST['idBillet']));
     }
 
 }

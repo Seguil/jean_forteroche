@@ -23,7 +23,7 @@ class UserRender {
 
         //Eléments pour la pagination
         $billetsParPage = 6;
-        $pagesTotales = ceil($billetsTotal/$billetsParPage);
+        $pagesTotales = ceil($billetsTotal/$billetsParPage); //6/6=1
         if(isset($page) AND !empty($page) AND $page>0 AND $page<=$pagesTotales) {
             $page = intval($page);
             $pageCourante = $page;

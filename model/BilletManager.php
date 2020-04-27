@@ -63,7 +63,7 @@ class BilletManager {
         $pdo = $this->pdo;
 
         // $billetsParPage = 5;
-        $billetsTotalReq = $pdo->query('SELECT b_id FROM billet');
+        $billetsTotalReq = $pdo->query('SELECT b_id FROM billet WHERE b_status = "published"');
         $billetsTotal = $billetsTotalReq->rowCount();
 
         

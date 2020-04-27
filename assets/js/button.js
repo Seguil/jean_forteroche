@@ -23,5 +23,15 @@ class Button {
             parentList.removeChild(parentOneComment);
         });
     }
+
+    reportElement(url, parentdiv) {
+        const requestReport = new Ajax () //Je crée une requête des stations qui est une nouvelle requête Ajax. Elle prendra comme paramètres l'url et la réponse
+        
+        requestReport.ajaxGet(url, (response) => { //Je lance la requête ajax qui a pour fonction response pour afficher la requête La fonction display est ainsi créée:
+            let jsonDatas = JSON.parse(response);
+            console.log(jsonDatas); //La réponse de la requête doit arriver en JSON
+            parentdiv.style.backgroundColor = "blue";
+        });
+    }
 }
 

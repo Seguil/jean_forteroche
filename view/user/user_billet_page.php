@@ -25,7 +25,7 @@
     <div id="aside_pagination">
         <div class="pagination">
             <?php
-                if($pageCourante == $pagesTotales || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
+                if($pageCourante>1) { ?>
                     <a href="?page=<?php echo $pageCourante - 1; ?>" class="following_chapters">Chapitres suivants</a>
                 <?php };
             ?>
@@ -33,7 +33,7 @@
 
         <div class="pagination">
             <?php
-                if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales-1)) { ?>
+                if($pageCourante<$pagesTotales) { ?>
                     <a href="?page=<?php echo $pageCourante + 1; ?>" class="previous_chapters">Chapitres précédents</a>
                 <?php };
             ?>

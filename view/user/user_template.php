@@ -53,7 +53,6 @@
 
 
 <!-- Fichiers js -->
-<script src="<?php echo JS;?>reportAjax.js"></script>
 <script src="<?php echo JS;?>ajax.js"></script>
 <script src="<?php echo JS;?>button.js"></script>
 <script src="<?php echo JS;?>main.js"></script>
