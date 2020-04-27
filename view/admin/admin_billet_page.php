@@ -5,18 +5,11 @@
 <aside id="nav_aside">
     <a href="<?php echo HOST;?>admin-home-page.html" title="Page d'accueil" class="home_link"><i class="fas fa-home"></i></a>
 
-    <!-- <div class="pagination">
-        <?php
-            if($pageCourante == $pagesTotales || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
-                <a href="<?= HOST;?>admin-home-page.html/id/<?=$billet->getId();?>/page/<?php echo $pageCourante - 1; ?>">Chapitres suivants</a>
-            <?php };?>
-    </div> -->
-
     <nav>
         <ul>
             <?php foreach($billets as $bil):?>
                 <div class="billet">
-                    <a href="<?php echo HOST;?>admin-billet-page.html/id/<?php echo $bil->getId(); ?>">
+                    <a href="<?php echo HOST;?>admin-billet-page.html/number/<?php echo $bil->getNumber(); ?>">
                         <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
                         <h3><?php echo $bil->getTitle();?></h3>
                     </a>
@@ -42,26 +35,12 @@
             ?>
         </div>
     </div>
-
-
-    <!-- <div class="pagination">
-        <?php
-            if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales-1)) { ?>
-                <a href="?page=<?php echo $pageCourante + 1; ?>">Chapitres précédents</a>
-            <?php };?>
-    </div> -->
-
 </aside>
+
+
 
 <div id="container">
 <article id="chapter_choiced">
-        <!-- Récupère le chapitre choisi -->
-
-        <!-- <h2 id="display_number"></h2>
-        <h3 id="display_title"></h3>
-        <p id="display_content"></p>
-        <p id="display_date"></p> -->
-
         <h2 id="display_number">Chapitre n°<?php echo $billet->getNumber();?></h2>
         <h3 id="display_title"><?php echo htmlspecialchars_decode($billet->getTitle());?></h3>
         <p id="display_content"><?php echo htmlspecialchars_decode($billet->getContent());?></p>
@@ -87,7 +66,6 @@
                         </div>
                         <div class="comment_date"><?php echo $com->getCommentDate()->format('d/m/Y');?></div>
                         <div class="comment_content"><?php echo $com->getComment();?></div>
-                        <div class="answer"><?php echo $com->getAnswer();?></div>
                     </div>
                 <?php endforeach; 
             }?>
@@ -102,7 +80,7 @@
                     <input type="text" name="pseudo" id="pseudo" required/>
                 <label for="message">Message :</label>
                     <input type="text" name="message" id="message" required maxlength="250" rows="5"/>
-                <input name="billet" type="hidden" value="<?php echo $billet->getId();?>"/><br/>
+                <input name="billet" type="hidden" value="<?php echo $billet->getNumber();?>"/><br/>
                 <input name="commentDate" type="hidden"/><br/>
                 <input name="status" type="hidden" value="non lu"/><br />
                 <input name="report" type="hidden" value="off"/><br />

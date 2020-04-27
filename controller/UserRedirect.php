@@ -34,28 +34,19 @@ class UserRedirect {
 
     public function createComment($params) {
         extract($params);
-
-
-        // if (!empty($pseudo)
-        //     && strlen($pseudo)<= 20
-        //     && preg_match("^[A-Za-z-]+$",$pseudo)
-        //     && !empty($comment)
-        //     && strlen($comment)<= 255) {
-
             $myComment = new Comment();
             $myComment  ->setPseudo(htmlspecialchars($_POST['pseudo']))
                         ->setComment(htmlspecialchars($_POST['message']))
-                        ->setIdBillet(htmlspecialchars($_POST['billet']))
-                        ->setStatus(htmlspecialchars($_POST['status']))
-                        ->setReport(htmlspecialchars($_POST['report']))
-                        ->setCommentDate(htmlspecialchars($_POST['commentDate']));
+                        ->setIdBillet($_POST['billet'])
+                        ->setStatus($_POST['status'])
+                        ->setReport($_POST['report'])
+                        ->setCommentDate($_POST['commentDate']);
 
             $commentManager = new CommentManager();
             $commentManager->create($myComment);
-        // };
 
         $currentView = new View();
-        $currentView->redirect('user-billet-page.html/id/' . htmlspecialchars($_POST['billet']));
+        $currentView->redirect('user-billet-page.html/number/' . $_POST['billet']);
     }
 
     public function reportComment($params) {

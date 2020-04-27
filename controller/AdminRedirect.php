@@ -32,85 +32,40 @@ class AdminRedirect {
         $commentManager->flag($myComment);
 
         $currentView = new View();
-        $currentView->redirect('admin-billet-page.html/id/' . $_POST['idBillet']);
+        $currentView->redirect('admin-billet-page.html/number/' . $_POST['idBillet']);
     }
 
     
     public function deleteReportComment($params) {
         extract($params);
-        var_dump($id);
-        // $myComment = new Comment();
-        // $myComment->setIdComment($id);
         $comManager = new CommentManager();
-        // $commentManager->delete($id);
         $comManager->delete($id);
-var_dump($comManager);
         // echo json_encode($comManager);
         $currentView = new View();
         $currentView->redirect('admin-home-page.html');
     }
 
-
-    
-    public function answerComment($params) {
-        extract($params);
-var_dump($params);
-        // $myComment = $commentManager->read($id); // récupréer l'objet comment
-        $commentManager = new CommentManager();
-        $myComment = $commentManager->read($id); // récupréer l'objet comment
-var_dump(json_decode($params));exit;
-        $myComment->setAnswer(json_decode('answer'));
-        var_dump($myComment); exit;
-        //             ->setReport($_POST['report'])
-        //             ->setReport($_POST['idComment'])
-        //             ->setStatus($_POST['status']);
-        // $myComment->setStatus(htmlspecialchars($_POST['status']));
-        $myComment->setReport($report);
-        $myComment->setReport($status);
-        $myComment->setAnswer($answer);
-        $myComment->setIdComment($id);
-
-        $commentManager->save($myComment);
-
-            
-        // $commentManager = new CommentManager();
-        // $commentManager->save($myComment);
-
-echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id, "answer"=>$answer]);
-
-
-        // $currentView = new View();
-        // $currentView->redirect('admin-home-page.html');
-    }
-
-
     public function updateReportComment($params) {
         extract($params);
         $commentManager = new CommentManager();
-        $myComment = $commentManager->read($id); // récupréer l'objet comment
+        $myComment = $commentManager->read($id);
         $myComment->setStatus($status);
         $myComment->setReport($report);
         $myComment->setIdComment($id);
 
         $commentManager->save($myComment);
-        // retrun Json si ajax
         echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id]);
-        // $currentView = new View();
-        // $currentView->redirect('admin-home-page.html');
     }
 
     public function updateStatusComment($params) {
         extract($params);
         $commentManager = new CommentManager();
-        $myComment = $commentManager->read($id); // récupréer l'objet comment
+        $myComment = $commentManager->read($id);
         $myComment->setStatus($status);
         $myComment->setIdComment($id);
 
         $commentManager->save($myComment);
-        // retrun Json si ajax
         echo json_encode(["status"=>$status, "idComment"=>$id]);
-        // $currentView = new View();
-        // $currentView->redirect('admin-home-page.html');
     }
 
 
@@ -119,8 +74,6 @@ echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id, "answe
         $commentManager = new CommentManager();
         $myComment = $commentManager->delete($id);
         echo json_encode($id);
-        // $currentView = new View();
-        // $currentView->redirect('admin-home-page.html');
     }
 
 
@@ -129,8 +82,6 @@ echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id, "answe
         $billetManager = new BilletManager();
         $myBillet = $billetManager->delete($id);
         echo json_encode($id);
-        // $currentView = new View();
-        // $currentView->redirect('admin-home-page.html');
     }
 
 
@@ -138,15 +89,11 @@ echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id, "answe
     public function updateBillet($params) {
         extract($params);
         $billetManager = new BilletManager();
-        $myBillet = $billetManager->read($id); // récupréer l'objet comment
+        $myBillet = $billetManager->read($number);
         $myBillet->setStatus($status);
-        $myBillet->setId($id);
 
         $billetManager->save($myBillet);
-        // retrun Json si ajax
-        echo json_encode(["status"=>$status, "id"=>$id]);
-        // $currentView = new View();
-        // $currentView->redirect('admin-home-page.html');
+        echo json_encode(["status"=>$status]);
     }
 
 
@@ -160,12 +107,10 @@ echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id, "answe
                 ->setStatus(htmlspecialchars($_POST['status']));
 
         $billetManager = new BilletManager();
-        $billetManager->update($myBillet); // récupréer l'objet comment
+        $billetManager->update($myBillet);
 
-        // retrun Json si ajax
-        // echo json_encode(["status"=>$status, "id"=>$id]);
         $currentView = new View();
-        $currentView->redirect('change-billet.html/id/'.htmlspecialchars($_POST['id']));
+        $currentView->redirect('change-billet.html/number/'. $_POST['number']);
     }
 
 
@@ -195,7 +140,6 @@ echo json_encode(["status"=>$status, "report"=>$report, "idComment"=>$id, "answe
 
 
     public function deconnexionUser($params) {
-        //extract($params);
         unset($_SESSION['u_id']);
 
         session_destroy();

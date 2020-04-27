@@ -42,7 +42,6 @@ class AdminRender {
 
         $currentView = new View('admin_home_page');
         $currentView->renderAdmin(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante, 'billets' => $billets, 'nonPublishedBillets' => $nonPublishedBillets, 'reportComment' => $reportComment, 'nonReadComment' => $nonReadComment));
-        // $currentView->render(array('billets' => $billets, 'billet' => $billet));
     }
 
 
@@ -69,18 +68,14 @@ class AdminRender {
 
         //
         $billets = $billetManager->readAll($depart, $billetsParPage);
-        $billet = $billetManager->read($id);
+        $billet = $billetManager->read($number);
 
         $commentManager = new CommentManager();
-        $comments = $commentManager->readAll($id);
+        $comments = $commentManager->readAll($number);
         
-        // $commentManager = new CommentManager();
-        // $comment = $commentManager->read($id);
-
         $currentView = new View('admin_billet_page');
         $currentView->renderAdmin(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante, 'billets' =>$billets, 'billet' => $billet, 'comments' => $comments));
 
-        // $currentView->render(array('billets' => $billets, 'billet' => $billet, 'comments' => $comments));
     }
 
 
@@ -88,7 +83,7 @@ class AdminRender {
         extract($params);
 
         $billetManager = new BilletManager();
-        $billet = $billetManager->read($id);
+        $billet = $billetManager->read($number);
         
         $currentView = new View('read_non_published_billet');
         $currentView->renderAdmin(array('billet' => $billet));
@@ -99,7 +94,7 @@ class AdminRender {
         extract($params);
 
         $billetManager = new BilletManager();
-        $billet = $billetManager->read($id);
+        $billet = $billetManager->read($number);
         
         $currentView = new View('change_billet');
         $currentView->renderAdmin(array('billet' => $billet));

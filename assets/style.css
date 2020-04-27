@@ -201,7 +201,7 @@ aside nav ul h3 {
 }
 
 #container nav ul {
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     width: auto;
     padding: 0;

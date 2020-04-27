@@ -32,17 +32,17 @@ class BilletManager {
         }
     }
 
-    public function read($id) {
+    public function read($number) {
         //récupère un objet user à partir de son pseudo
         //param pseudo str
         //return bool false si erreur et objet user si correspondance
 
         $pdo = $this->pdo;
 
-        $request = $pdo->prepare('SELECT * FROM billet WHERE b_id = :b_id');
+        $request = $pdo->prepare('SELECT * FROM billet WHERE b_number = :b_number');
     
         //Liaison des paramètres
-        $request->bindValue(':b_id', $id, PDO::PARAM_INT);
+        $request->bindValue(':b_number', $number, PDO::PARAM_INT);
 
         //exécution de la requête
         $request->execute();

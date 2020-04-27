@@ -1,14 +1,12 @@
 <?php
 
 class UserRender {
-    //pour montrer la page homepage, je suis la méthode showhomepage
     public function __construct() {
         $currentView = new View();
         if(isset($_SESSION['u_id'])) {
             unset($_SESSION['u_id']);
             session_destroy();
-        }
-    ;
+        };
     }
 
     
@@ -51,7 +49,6 @@ class UserRender {
 
         $billetManager = new BilletManager();
         $billetsTotal = $billetManager->pagination();
-        // $billetsTotal = json_encode($billetsTotal);
 
         //Eléments pour la pagination
         $billetsParPage = 3;
@@ -66,20 +63,16 @@ class UserRender {
 
         //
         $billets = $billetManager->readAll($depart, $billetsParPage);
-        $billet = $billetManager->read($id);
+        $billet = $billetManager->read($number);
 
         $commentManager = new CommentManager();
-        $comments = $commentManager->readAll($id);
+        $comments = $commentManager->readAll($number);
         
         // $commentManager = new CommentManager();
         // $comment = $commentManager->read($id);
 
         $currentView = new View('user_billet_page');
         $currentView->render(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante,'billets' =>$billets, 'billet' => $billet, 'comments' => $comments));
-        // $currentView->render(array('billet' => $billet, 'comments' => $comments));
-
-        // $currentView->render(array('billets' => $billets, 'billet' => $billet, 'comments' => $comments));
-
     }
 
 }

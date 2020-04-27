@@ -12,9 +12,9 @@
             <?php foreach($billets as $bil):?>
                 <div class="billet">
 
-                    <a href="<?php echo HOST;?>user-billet-page.html/id/<?php echo $bil->getId(); ?>">
+                    <a href="<?php echo HOST;?>user-billet-page.html/number/<?php echo $bil->getNumber(); ?>">
                         <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
-                        <h3><?php echo $bil->getTitle();?></h3>
+                        <h3><?php echo htmlspecialchars_decode($bil->getTitle());?></h3>
                     </a>
                 </div>
             <?php endforeach; ?>
@@ -39,37 +39,15 @@
             ?>
         </div>
     </div>
-
-
-    <!-- <div class="pagination following">
-        <?php
-            if($pageCourante == $pagesTotales || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
-                <a href="?page=<?php echo $pageCourante - 1; ?>" class="following_chapters">Chapitres suivants</a>
-            <?php };?>
-    </div>
-
-    <div class="pagination previous">
-        <?php
-            if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales-1)) { ?>
-                <a href="?page=<?php echo $pageCourante + 1; ?>" class="previous_chapters">Chapitres précédents</a>
-            <?php };
-        ?>
-    </div> -->
-
 </aside>
+
+
 
 <div id="container">
     <article id="chapter_choiced">
-        <!-- Récupère le chapitre choisi -->
-
-        <!-- <h2 id="display_number"></h2>
-        <h3 id="display_title"></h3>
-        <p id="display_content"></p>
-        <p id="display_date"></p> -->
-
         <h2 id="display_number">Chapitre n°<?php echo $billet->getNumber();?></h2>
-        <h3 id="display_title"><?php echo $billet->getTitle();?></h3>
-        <p id="display_content"><?php echo $billet->getContent();?></p>
+        <h3 id="display_title"><?php echo htmlspecialchars_decode($billet->getTitle());?></h3>
+        <p id="display_content"><?php echo htmlspecialchars_decode($billet->getContent());?></p>
         <p id="display_date">Publié le <?php echo $billet->getPublicationDate()->format('d/m/Y');?></p>
     </article>
 
@@ -82,7 +60,7 @@
                 foreach($comments as $com):?>
                     <div class="comment">
                         <div class="header_comment">
-                            <div class="pseudo_comment"><?php echo $com->getPseudo();?></div>
+                            <div class="pseudo_comment"><?php echo htmlspecialchars_decode($com->getPseudo());?></div>
                             <a  href="#"
                                 data-href="<?php echo HOST;?>user-report-comment.html/id/<?php echo $com->getIdComment();?>/report/on"
                                 class="buttonReportComment"
@@ -91,8 +69,7 @@
                             </a>
                         </div>
                         <div class="comment_date"><?php echo $com->getCommentDate()->format('d/m/Y');?></div>
-                        <div class="comment_content"><?php echo $com->getComment();?></div>
-                        <div class="answer"><?php echo $com->getAnswer();?></div>
+                        <div class="comment_content"><?php echo htmlspecialchars_decode($com->getComment());?></div>
                     </div>
                 <?php endforeach; 
             }?>
@@ -107,7 +84,7 @@
                     <input type="text" name="pseudo" id="pseudo" required pattern="^[A-Za-z-]+$" minlength="3" maxlength="20"/>
                 <label for="message">Message</label>
                     <input type="text" name="message" id="message" required maxlength="250" rows="5"/>
-                <input name="billet" type="hidden" value="<?php echo $billet->getId();?>"/><br/>
+                <input name="billet" type="hidden" value="<?php echo $billet->getNumber();?>"/><br/>
                 <input name="commentDate" type="hidden"/><br/>
                 <input name="status" type="hidden" value="non lu"/><br />
                 <input name="report" type="hidden" value="off"/><br />

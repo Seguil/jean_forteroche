@@ -12,14 +12,14 @@
         <p><?php echo htmlspecialchars_decode($billet->getContent());?></p>
 
         <div class="tdbutton billet_only">
-            <a  href="<?php echo HOST;?>change-billet.html/id/<?php echo $billet->getId();?>"
+            <a  href="<?php echo HOST;?>change-billet.html/number/<?php echo $billet->getNumber();?>"
                 class="buttonChangeBillet"
                 title="Modifier">
                 <i class="fas fa-edit"></i>
             </a>
 
             <a  href="#"
-                data-href="<?php echo HOST;?>update-billet.html/id/<?php echo $billet->getId();?>/status/published"
+                data-href="<?php echo HOST;?>update-billet.html/number/<?php echo $billet->getNumber();?>/status/published"
                 class="buttonPublishedBillet"
                 title="Publier">
                 <i class="fas fa-share-alt"></i>

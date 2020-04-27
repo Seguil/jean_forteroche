@@ -22,7 +22,7 @@
 
         <div class="pagination">
             <?php
-                if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales-1)) { ?>
+                if(($pageCourante === 1 && $pageCourante != $pagesTotales) || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
                     <a href="?page=<?php echo $pageCourante + 1; ?>" class="previous_chapters">Chapitres précédents</a>
                 <?php };
             ?>
@@ -35,24 +35,12 @@
         <ul>
             <?php foreach($billets as $bil):?>
                 <div class="billet">
-                    <a href="<?php echo HOST;?>user-billet-page.html/id/<?php echo $bil->getId(); ?>">
+                    <a href="<?php echo HOST;?>user-billet-page.html/number/<?php echo $bil->getNumber(); ?>">
                         <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
-                        <h3><?php echo $bil->getTitle();?></h3>
+                        <h3><?php echo htmlspecialchars_decode($bil->getTitle());?></h3>
                     </a>
                 </div>
             <?php endforeach; ?>
-            <!-- /* On va effectuer une boucle autant de fois que l'on a de pages */ -->
         </ul>
     </nav>
-    
-
-<!-- <?php
-    for($i=1; $i<=$pagesTotales;$i++) {
-        if($i==$pageCourante) {
-            echo $i.' ';
-        } else {
-            echo '<a href="?page='.$i.'">'.$i. '</a>';
-        }
-    }
-?> -->
 </div>

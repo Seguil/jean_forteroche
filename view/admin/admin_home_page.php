@@ -3,18 +3,11 @@
 </div>
 
 <aside id="nav_aside">
-    <!-- <div class="pagination">
-        <?php
-            if($pageCourante == $pagesTotales || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
-                <a href="?page=<?php echo $pageCourante - 1; ?>">Chapitres suivants</a>
-            <?php };?>
-    </div> -->
-
     <nav>
         <ul>
             <?php foreach($billets as $bil):?>
                 <div class="billet">
-                    <a href="<?php echo HOST;?>admin-billet-page.html/id/<?php echo $bil->getId(); ?>">
+                    <a href="<?php echo HOST;?>admin-billet-page.html/number/<?php echo $bil->getNumber(); ?>">
                         <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
                         <h3><?php echo htmlspecialchars_decode($bil->getTitle());?></h3>
                     </a>
@@ -40,15 +33,6 @@
             ?>
         </div>
     </div>
-
-
-    <!-- <div class="pagination">
-        <?php
-            if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales-1)) { ?>
-                <a href="?page=<?php echo $pageCourante + 1; ?>">Chapitres précédents</a>
-            <?php };?>
-    </div> -->
-
 </aside>
 
 
@@ -66,8 +50,8 @@
                         <input type="text" name="title" id="title" />
                     <label for="content">Contenu</label>
                         <input type="text" name="content" class="mytextarea" />                
-                    <!-- Enregistrer en tant que brouillon -->
                     <div class="tdbutton submitform billet_only">
+                        <!-- Enregistrer en tant que brouillon -->
                         <button type="submit" name="status" value="non published" title="Enregistrer"><i class="fas fa-save"></i></button>
                         <!-- Publier -->
                         <button type="submit" name="status" value="published" title="Publier"><i class="fas fa-share-alt"></i></button>
@@ -89,20 +73,20 @@
                         <h2>Chapitre n° <?php echo $npb->getNumber();?></h2>
                         <h3><?php echo htmlspecialchars_decode($npb->getTitle());?></h2>
                         <div class="tdbutton">
-                            <a  href="<?php echo HOST;?>read-non-published-billet.html/id/<?php echo $npb->getId();?>"
+                            <a  href="<?php echo HOST;?>read-non-published-billet.html/number/<?php echo $npb->getNumber();?>"
                                 class="buttonReadBillet"
                                 title="Lire">
                                 <i class="fas fa-book-open"></i>
                             </a>
 
-                            <a  href="<?php echo HOST;?>change-billet.html/id/<?php echo $npb->getId();?>"
+                            <a  href="<?php echo HOST;?>change-billet.html/number/<?php echo $npb->getNumber();?>"
                                 class="buttonChangeBillet"
                                 title="Modifier">
                                 <i class="fas fa-edit"></i>
                             </a>
 
                             <a  href="#"
-                                data-href="<?php echo HOST;?>update-billet.html/id/<?php echo $npb->getId();?>/status/published"
+                                data-href="<?php echo HOST;?>update-billet.html/number/<?php echo $npb->getNumber();?>/status/published"
                                 class="buttonPublishedBillet"
                                 title="Publier">
                                 <i class="fas fa-share-alt"></i>
@@ -141,13 +125,6 @@
                         </div>
                         <p class="content_comment"><?php echo $repCom->getComment();?></p>
                         <div class="tdbutton">
-                            <a  href="#"
-                                data-href="<?php echo HOST;?>answer-comment.html/id/<?php echo $repCom->getIdComment();?>/status/lu/report/off"
-                                class="buttonAnswerComment"
-                                title="Répondre">
-                                <i class="fas fa-edit"></i>
-                            </a>
-
                             <a  href="#"
                                 data-href="<?php echo HOST;?>update-report-comment.html/id/<?php echo $repCom->getIdComment();?>/status/lu/report/off"
                                 class="buttonIgnoredReport"
@@ -195,22 +172,7 @@
                                 class="buttonStatusComment"
                                 title="Marquer comme lu">
                                 <i class="fas fa-envelope-open"></i>
-                            </a>
-
-                            <a  href="#"
-                                class="buttonAnswerComment"
-                                title="Répondre">
-                                <i class="fas fa-edit"></i></a>
-                                <form class="response_comment" action="<?php echo HOST;?>answer-comment.html/id/<?php echo $nrd->getIdComment();?>" method="post">                                        
-                                    <input type="hidden" name="pseudo" id="pseudo" value="Jean Forteroche" required/>
-                                    <input type="text" name="answer" placeholder="Réponse" required maxlength="250" rows="5"/>
-                                    <input name="status" type="hidden" value="lu"/><br />
-                                    <input name="idComment" type="hidden" value="<?php echo $nrd->getIdComment();?>"/><br />
-                                    <input name="report" type="hidden" value="off"/><br />
-                                    <input class="submitForm" type="submit" value="Répondre"/>
-                                    <button id="annulation_response">Annuler</button>
-                                </form>
-                            
+                            </a>                            
 
                             <a  href="#"
                                 data-href="<?php echo HOST;?>delete-comment.html/id/<?php echo $nrd->getIdComment();?>"

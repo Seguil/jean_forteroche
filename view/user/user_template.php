@@ -35,48 +35,25 @@
     <footer>
         <div id="mentions_legales">Mentions légales</div>
         
-        <!-- <div id="forms"> -->
-            <!-- Connexion form -->
-            
-                <!-- <a href="<?php echo HOST;?>admin_home_page.html">Espace administrateur</a> -->
-                <div id="connect_button">
-                    <button>Espace administrateur</button>
-                </div>
-                <div id="form">             
-                    <form id="form_connection" action="<?php echo HOST ;?>connection-admin.html" method="post">
-                        <label for="username_connect">Pseudo</label>
-                            <input type="text" name="username_connect" required/>
-                        <label for="password">Mot de passe</label>
-                            <input type="password" name="password_connect" required/>
-                        <input type="submit" value="Se connecter"/>
-                        <button id="annulation_connect">Annuler</button>
-                    </form>
-                </div>
-
-            <!-- Connexion form -->
-            <!-- <div id="form_inscription">
-                <h2>Inscription</h2>
-                <form action="<?php echo HOST ;?>inscription-user.html" method="post">
-                    <label for="username">Pseudo
-                        <input type="text" name="username" value="pseudo" required/>
-                    </label>
-                    <label for="password">Mot de passe
-                        <input type="password" name="password" required/>
-                    </label>
-                    <label for="password_confirm">Confirmez le mot de passe
-                        <input type="password" name="password_confirm" required/>
-                    </label>
-                    <input type="submit" value="S'inscrire"/>
-                </form>
-            </div> -->
-        <!-- </div> -->
-
+        <div id="connect_button">
+            <button>Espace administrateur</button>
+        </div>
+        <div id="form">             
+            <form id="form_connection" action="<?php echo HOST ;?>connection-admin.html" method="post">
+                <label for="username_connect">Pseudo</label>
+                    <input type="text" name="username_connect" required/>
+                <label for="password">Mot de passe</label>
+                    <input type="password" name="password_connect" required/>
+                <input type="submit" value="Se connecter"/>
+                <button id="annulation_connect">Annuler</button>
+            </form>
+        </div>
     </footer>
 
-<!-- Fichiers js -->
 
+
+<!-- Fichiers js -->
 <script src="<?php echo JS;?>reportAjax.js"></script>
-<!-- <script src="<?php echo JS;?>chapter_choiced.js"></script> -->
 <script src="<?php echo JS;?>ajax.js"></script>
 <script src="<?php echo JS;?>button.js"></script>
 <script src="<?php echo JS;?>main.js"></script>
