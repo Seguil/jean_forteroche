@@ -58,10 +58,12 @@ class Routeur {
             $params[$elements[$i]] = $elements[$i+1];
             $i++;
 
-        if($_POST) {
-            foreach($_POST as $key => $val) {
-                $params[$key] = $val;
+            if($_POST) {
+                foreach($_POST as $key => $val) {
+                    $params[$key] = $val;
+                }
             }
+
         }
         return $params;
     }

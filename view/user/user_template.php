@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jean Forteroche</title>
+    <link rel="shortcut icon" href="<?php echo ASSETS;?>img/logo.png"/>
+
     <link rel="stylesheet" href="<?php echo ASSETS;?>style.css"/>
     <link rel="stylesheet" href="<?php echo ASSETS;?>style_media.css"/>
     <link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/968601638e.js" crossorigin="anonymous"></script>
+
+    <!--Référencement-->
+    <meta name="author" content="GUILLEMIN Séverine"/>
+    <meta name="keywords" content="Jean Forteroche, Billet simple pour l'Alaska, blog"/>
+    <meta name="description" content="Jean Forteroche écrit pour vous, sous forme de blog, son nouveau roman: Billet simple pour l'Alaska"/>
+    <meta name="google-site-verification" content="" />
+
+    <!--Facebook-->
+    <meta property="og:title" content="Billet simple pour l'Alaska"/>
+    <meta property="og:description" content="Jean Forteroche écrit pour vous, sous forme de blog, son nouveau roman: Billet simple pour l'Alaska"/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content="http://Jean-Forteroche.guillemin.fr"/>
+
+    <!--Twitter-->
+    <meta name = "twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@Billet simple pour l'Alaska"/>
+    <meta name="twitter:title" content="Billet simple pour l'Alaska"/>
+    <meta name="twitter:image:src" content=""/>
+    <meta name="twitter:description" content="Jean Forteroche écrit pour vous, sous forme de blog, son nouveau roman: Billet simple pour l'Alaska"/>
 
 
     <!-- CDN TinyMCE -->
