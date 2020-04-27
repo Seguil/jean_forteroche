@@ -8,8 +8,8 @@
 
         <!-- Récupère le chapitre choisi -->
         <h2>Chapitre n°<?php echo $billet->getNumber();?></h2>
-        <h3><?php echo $billet->getTitle();?></h3>
-        <p><?php echo $billet->getContent();?></p>
+        <h3><?php echo htmlspecialchars_decode($billet->getTitle());?></h3>
+        <p><?php echo htmlspecialchars_decode($billet->getContent());?></p>
 
         <div class="tdbutton billet_only">
             <a  href="<?php echo HOST;?>change-billet.html/id/<?php echo $billet->getId();?>"

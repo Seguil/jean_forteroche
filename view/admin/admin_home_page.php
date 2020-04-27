@@ -16,7 +16,7 @@
                 <div class="billet">
                     <a href="<?php echo HOST;?>admin-billet-page.html/id/<?php echo $bil->getId(); ?>">
                         <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
-                        <h3><?php echo $bil->getTitle();?></h3>
+                        <h3><?php echo htmlspecialchars_decode($bil->getTitle());?></h3>
                     </a>
                 </div>
             <?php endforeach; ?>
@@ -34,7 +34,7 @@
 
         <div class="pagination">
             <?php
-                if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales-1)) { ?>
+                if($pageCourante === 1 || ($pageCourante>1 && $pageCourante<$pagesTotales)) { ?>
                     <a href="?page=<?php echo $pageCourante + 1; ?>" class="previous_chapters">Chapitres précédents</a>
                 <?php };
             ?>
@@ -87,7 +87,7 @@
                     ?>
                     <div class="one_billet non_published">
                         <h2>Chapitre n° <?php echo $npb->getNumber();?></h2>
-                        <h3><?php echo $npb->getTitle();?></h2>
+                        <h3><?php echo htmlspecialchars_decode($npb->getTitle());?></h2>
                         <div class="tdbutton">
                             <a  href="<?php echo HOST;?>read-non-published-billet.html/id/<?php echo $npb->getId();?>"
                                 class="buttonReadBillet"

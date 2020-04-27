@@ -58,7 +58,7 @@ var_dump($params);
         // $myComment = $commentManager->read($id); // récupréer l'objet comment
         $commentManager = new CommentManager();
         $myComment = $commentManager->read($id); // récupréer l'objet comment
-
+var_dump(json_decode($params));exit;
         $myComment->setAnswer(json_decode('answer'));
         var_dump($myComment); exit;
         //             ->setReport($_POST['report'])

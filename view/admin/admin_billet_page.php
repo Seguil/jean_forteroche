@@ -63,8 +63,8 @@
         <p id="display_date"></p> -->
 
         <h2 id="display_number">Chapitre n°<?php echo $billet->getNumber();?></h2>
-        <h3 id="display_title"><?php echo $billet->getTitle();?></h3>
-        <p id="display_content"><?php echo $billet->getContent();?></p>
+        <h3 id="display_title"><?php echo htmlspecialchars_decode($billet->getTitle());?></h3>
+        <p id="display_content"><?php echo htmlspecialchars_decode($billet->getContent());?></p>
         <p id="display_date">Publié le <?php echo $billet->getPublicationDate()->format('d/m/Y');?></p>
     </article>
 

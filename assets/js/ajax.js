@@ -24,6 +24,7 @@ class Ajax {
         req.addEventListener("load", () => {
             if (req.status >= 200 && req.status < 400) {
                 callback(req.responseText);
+                console.log('hello');
             } else {
                 console.error(req.status + " " + req.statusText + " " + url);
             }
