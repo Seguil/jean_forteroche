@@ -13,6 +13,7 @@ class AdminRender {
     }
 
     public function showAdminHomePage($params) {
+        //extract($params);
         if(isset($_GET['page'])) {
             $page = $_GET['page'];
         }
@@ -31,6 +32,7 @@ class AdminRender {
         }
         $depart = ($pageCourante-1)*$billetsParPage;
     
+        //
         $billets = $billetManager->readAll($depart, $billetsParPage);
         $nonPublishedBillets = $billetManager->readNonPublished();
 

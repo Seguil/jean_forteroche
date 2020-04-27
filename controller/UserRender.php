@@ -11,6 +11,7 @@ class UserRender {
 
     
     public function showHomePage($params) {
+        //extract($params);
 
         if(isset($_GET['page'])) {
             $page = $_GET['page'];
@@ -22,7 +23,7 @@ class UserRender {
 
         //Eléments pour la pagination
         $billetsParPage = 6;
-        $pagesTotales = ceil($billetsTotal/$billetsParPage);
+        $pagesTotales = ceil($billetsTotal/$billetsParPage); //6/6=1
         if(isset($page) AND !empty($page) AND $page>0 AND $page<=$pagesTotales) {
             $page = intval($page);
             $pageCourante = $page;
@@ -31,6 +32,7 @@ class UserRender {
         }
         $depart = ($pageCourante-1)*$billetsParPage;
 
+        //
         $billets = $billetManager->readAll($depart, $billetsParPage);
 
         $currentView = new View('user_home_page');
@@ -59,12 +61,16 @@ class UserRender {
         }
         $depart = ($pageCourante-1)*$billetsParPage;
 
+        //
         $billets = $billetManager->readAll($depart, $billetsParPage);
         $billet = $billetManager->read($number);
 
         $commentManager = new CommentManager();
         $comments = $commentManager->readAll($number);
         
+        // $commentManager = new CommentManager();
+        // $comment = $commentManager->read($id);
+
         $currentView = new View('user_billet_page');
         $currentView->render(array('pagesTotales' => $pagesTotales, 'pageCourante' => $pageCourante,'billets' =>$billets, 'billet' => $billet, 'comments' => $comments));
     }

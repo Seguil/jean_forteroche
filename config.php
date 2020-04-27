@@ -2,11 +2,11 @@
 
 class MyAutoload {
     
-    public static function start() {
+    public static function start() { //je la place en static car je ne l'utiliserai qu'une seule fois dans l'appli
         
         /**gestion des erreurs */
-        ini_set('display_erros', 'on');
-        error_reporting(E_ALL);
+        ini_set('display_erros', 'on'); //Affiche les erreurs d'analyse
+        error_reporting(E_ALL); //Reporte toutes les erreurs PHP
 
         //lancer la session
         session_start();           
@@ -18,8 +18,8 @@ class MyAutoload {
         $host = $_SERVER['HTTP_HOST'];
         $root = $_SERVER['DOCUMENT_ROOT'];
 
-        define('ROOT', $root.'/jean_forteroche/');
-        define('HOST', 'http://'.$host.'/jean_forteroche/');
+        define('ROOT', $root.'/jean_forteroche/'); //chemin par dossier
+        define('HOST', 'http://'.$host.'/jean_forteroche/'); //chemin d'url
 
         /**je définis où est mon controller... */
         define('CONTROLLER', ROOT.'controller/');

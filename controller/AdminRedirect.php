@@ -11,6 +11,7 @@ class AdminRedirect {
                 ->setContent(htmlspecialchars($_POST['content']))
                 ->setStatus(htmlspecialchars($_POST['status']));
 
+
         $billetManager = new BilletManager();
         $billetManager->create($myBillet);
 
@@ -44,7 +45,6 @@ class AdminRedirect {
         $currentView->redirect('admin-home-page.html');
     }
 
-    
     public function updateReportComment($params) {
         extract($params);
         $commentManager = new CommentManager();
