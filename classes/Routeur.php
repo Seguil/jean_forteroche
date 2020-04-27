@@ -68,12 +68,10 @@ class Routeur {
             $i++; //je continue à lire s'il y a d'autres éléments
         }
 
-            if($_POST) {
-                foreach($_POST as $key => $val) {
-                    $params[$key] = $val;
-                }
+        if($_POST) {
+            foreach($_POST as $key => $val) {
+                $params[$key] = $val;
             }
-
         }
         return $params;
     }
