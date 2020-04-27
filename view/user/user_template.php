@@ -9,6 +9,27 @@
     <link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/968601638e.js" crossorigin="anonymous"></script>
 
+    <link rel="shortcut icon" href="<?php echo ASSETS;?>img/logo.png"/>
+
+    <!--Référencement-->
+    <meta name="author" content="GUILLEMIN Séverine"/>
+    <meta name="keywords" content="Jean Forteroche, Un billet simple pour l'Alaska, blog, livre en ligne"/>
+    <meta name="description" content="Jean Forteroche publie pour vous son dernier roman en live: Billet simple pour l'Alaska"/>
+    <meta name="google-site-verification" content="" />
+
+    <!--Facebook-->
+    <meta property="og:title" content="Jean Forteroche - Billet simple pour l'Alaska"/>
+    <meta property="og:description" content="Jean Forteroche publie pour vous son dernier roman en live: Billet simple pour l'Alaska"/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content="http://jean-forteroche.guillemin.fr"/>
+
+    <!--Twitter-->
+    <meta name = "twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@JeanForteroche"/>
+    <meta name="twitter:title" content="Jean Forteroche - Billet simple pour l'Alaska"/>
+    <meta name="twitter:image:src" content=""/>
+    <meta name="twitter:description" content="Jean Forteroche publie pour vous son dernier roman en live: Billet simple pour l'Alaska"/>
+
 
     <!-- CDN TinyMCE -->
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
