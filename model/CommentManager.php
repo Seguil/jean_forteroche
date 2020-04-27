@@ -14,18 +14,16 @@ class CommentManager {
             VALUES (:c_id_billet, :c_pseudo, :c_comment, NOW(), :c_status, :c_report)
         ');
     
-        //Liaison des paramètres
         $request->bindValue(':c_id_billet', $comment->getIdBillet(), PDO::PARAM_INT);
         $request->bindValue(':c_pseudo', $comment->getPseudo(), PDO::PARAM_STR);
         $request->bindValue(':c_comment', $comment->getComment(), PDO::PARAM_STR);
         $request->bindValue(':c_status', $comment->getStatus(), PDO::PARAM_STR);
         $request->bindValue(':c_report', $comment->getReport(), PDO::PARAM_STR);
 
-        //Exécution de la requête
           $executeIsOk = $request->execute();
         if ($executeIsOk) {
-            $idComment = $pdo->lastInsertId();//retourne l'identifiant de la dernière ligne insérée
-            $comment = $this->read($comment);//je récupère l'objet comment auquel est affecté l'identifiant
+            $idComment = $pdo->lastInsertId();
+            $comment = $this->read($comment);
             return true;
         } else {
             return false;
@@ -37,9 +35,7 @@ class CommentManager {
         $pdo = $this->pdo;
         $request = $pdo->prepare('SELECT * FROM comment WHERE c_id = :c_id');
     
-        //Liaison des paramètres
         $request->bindValue(':c_id', $id, PDO::PARAM_INT);
-        //exécution de la requête
         $request->execute();
         $row = $request->fetch(PDO::FETCH_ASSOC);
 
@@ -53,7 +49,6 @@ class CommentManager {
         $comment->setReport($row['c_report']);
         $comment->setAnswer($row['c_answer']);
         return $comment;
-
     }
 
 
@@ -70,7 +65,6 @@ class CommentManager {
         
         $request->bindValue(':c_id_billet', $idBillet, PDO::PARAM_INT);
 
-        //exécution de la requête
         $request->execute();
         while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
             $comment = $this->hydrate($row);
@@ -80,6 +74,7 @@ class CommentManager {
             return $comments;
         }
     }
+
 
     public function hydrate($row) {
         $comment = new Comment();
@@ -104,7 +99,6 @@ class CommentManager {
             ORDER BY c_comment_date DESC
         ');
         
-        //exécution de la requête
         $request->execute();
         while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
             $comment = new Comment();
@@ -134,7 +128,6 @@ class CommentManager {
             ORDER BY c_comment_date DESC
         ');
         
-        //exécution de la requête
         $request->execute();
         while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
             $comment = new Comment();
@@ -154,9 +147,7 @@ class CommentManager {
     }
 
 
-
     public function update($comment) { 
-        //Préparation de la requête
         $pdo = $this->pdo;
         $request = $pdo->prepare('
             UPDATE comment
@@ -165,15 +156,12 @@ class CommentManager {
             LIMIT 1
         ');
 
-        //Liaison des paramètres
         $request->bindValue(':c_id', $comment->getIdComment(), PDO::PARAM_INT);
         $request->bindValue(':c_comment', $comment->getComment(), PDO::PARAM_STR);
         $request->bindValue(':c_status', $comment->getStatus(), PDO::PARAM_STR);
         $request->bindValue(':c_report', $comment->getReport(), PDO::PARAM_STR);
         $request->bindValue(':c_answer', $comment->getAnswer(), PDO::PARAM_STR);
 
-
-        //Exécution de la requête
         $request->execute();
     }
 
@@ -186,7 +174,6 @@ class CommentManager {
             WHERE c_id=:c_id
         ');
 
-        //Liaison des paramètres
         $request->bindValue(':c_id', $comment->getIdComment(), PDO::PARAM_INT);
         $request->bindValue(':c_report', $comment->getReport(), PDO::PARAM_STR);
         
@@ -203,14 +190,12 @@ class CommentManager {
             LIMIT 1
         ');
 
-        //Liaison des paramètres
         $request->bindValue(':c_id', $comment->getIdComment(), PDO::PARAM_INT);
         $request->bindValue(':c_answer', $comment->getAnswer(), PDO::PARAM_STR);
         $request->bindValue(':c_status', $comment->getStatus(), PDO::PARAM_STR);
         $request->bindValue(':c_report', $comment->getReport(), PDO::PARAM_STR);
         $request->execute();
     }
-
 
 
     public function nonRead($comment) {
@@ -223,7 +208,6 @@ class CommentManager {
             LIMIT 1
         ');
 
-        //Liaison des paramètres
         $request->bindValue(':c_id', $comment->getIdComment(), PDO::PARAM_INT);
         $request->bindValue(':c_id_billet', $comment->getIdBillet(), PDO::PARAM_INT);
         $request->bindValue(':c_status', $comment->getStatus(), PDO::PARAM_STR);
@@ -236,17 +220,15 @@ class CommentManager {
         $pdo = $this->pdo;
         $request = $pdo->prepare('DELETE FROM comment WHERE c_id=:c_id LIMIT 1');
 
-        //Liaison des paramètres
         $request->bindValue(':c_id', $comment, PDO::PARAM_INT);
 
-        //Ecécution de la requête
         $result=$request->execute();
 
     }
 
 
     public function save($comment) {
-        if(is_null($comment->getIdComment())) {//si je récupère l'ID de l'user et que celui-ci est null (= n'existe pas)
+        if(is_null($comment->getIdComment())) {
             return $this->create($comment);
         } else {
             return $this->update($comment);

@@ -1,13 +1,13 @@
 class Button {
 
     deleteElement(url, parentdiv) {
-        const requestDelete = new Ajax () //Je crée une requête des stations qui est une nouvelle requête Ajax. Elle prendra comme paramètres l'url et la réponse
+        const requestDelete = new Ajax () 
         let parentOneComment = parentdiv.parentNode;
         let parentList = parentOneComment.parentNode;
         
-        requestDelete.ajaxDelete(url, (response) => { //Je lance la requête ajax qui a pour fonction response pour afficher la requête La fonction display est ainsi créée:
+        requestDelete.ajaxDelete(url, (response) => { 
             let jsonDatas = JSON.parse(response);
-            console.log(jsonDatas); //La réponse de la requête doit arriver en JSON
+            console.log(jsonDatas); 
             parentList.removeChild(parentOneComment);
         });
     }
@@ -17,19 +17,19 @@ class Button {
         let parentOneComment = parentdiv.parentNode;
         let parentList = parentOneComment.parentNode;
 
-        requestPost.ajaxPost(url, datasForm, (response) => { //Je lance la requête ajax qui a pour fonction response pour afficher la requête La fonction display est ainsi créée:
+        requestPost.ajaxPost(url, datasForm, (response) => { 
             let jsonDatas = JSON.parse(response);
-            console.log(jsonDatas); //La réponse de la requête doit arriver en JSON
+            console.log(jsonDatas);
             parentList.removeChild(parentOneComment);
         });
     }
 
     reportElement(url, parentdiv) {
-        const requestReport = new Ajax () //Je crée une requête des stations qui est une nouvelle requête Ajax. Elle prendra comme paramètres l'url et la réponse
+        const requestReport = new Ajax () 
         
-        requestReport.ajaxGet(url, (response) => { //Je lance la requête ajax qui a pour fonction response pour afficher la requête La fonction display est ainsi créée:
+        requestReport.ajaxGet(url, (response) => { 
             let jsonDatas = JSON.parse(response);
-            console.log(jsonDatas); //La réponse de la requête doit arriver en JSON
+            console.log(jsonDatas); 
             parentdiv.style.backgroundColor = "blue";
         });
     }

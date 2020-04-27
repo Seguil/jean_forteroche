@@ -1,6 +1,5 @@
 /* <1200px*/
 @media all and (max-width: 1440px) {
-    /*voir si les modif ne devraient pas être en <1400px*/
     h1,
     h2 {
        margin: 2vh 0;
