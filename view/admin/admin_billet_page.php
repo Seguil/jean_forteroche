@@ -40,11 +40,18 @@
 
 
 <div id="container">
-<article id="chapter_choiced">
+    <article id="chapter_choiced">
         <h2 id="display_number">Chapitre n°<?php echo $billet->getNumber();?></h2>
         <h3 id="display_title"><?php echo htmlspecialchars_decode($billet->getTitle());?></h3>
         <p id="display_content"><?php echo htmlspecialchars_decode($billet->getContent());?></p>
         <p id="display_date">Publié le <?php echo $billet->getPublicationDate()->format('d/m/Y');?></p>
+        <a href="#"
+            data-href="<?php echo HOST;?>delete-billet.html/id/<?php echo $billet->getId();?>"
+            class="buttonDeleteBillet"
+            title="Supprimer">
+            <i class="fas fa-trash-alt"></i>
+        </a>
+
     </article>
 
     <div id="comments">
