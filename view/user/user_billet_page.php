@@ -10,13 +10,13 @@
     <nav>
         <ul>
             <?php foreach($billets as $bil):?>
-                <div class="billet">
+                <li class="billet">
 
                     <a href="<?php echo HOST;?>user-billet-page.html/number/<?php echo $bil->getNumber(); ?>">
                         <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
                         <h3><?php echo htmlspecialchars_decode($bil->getTitle());?></h3>
                     </a>
-                </div>
+                </li>
             <?php endforeach; ?>
         </ul>
     </nav>
@@ -83,7 +83,7 @@
                 <label for="pseudo">Pseudo</label>
                     <input type="text" name="pseudo" id="pseudo" required pattern="^[A-Za-z-]+$" minlength="3" maxlength="20"/>
                 <label for="message">Message</label>
-                    <input type="text" name="message" id="message" required maxlength="250" rows="5"/>
+                    <input type="text" name="message" id="message" required maxlength="250"/>
                 <input name="billet" type="hidden" value="<?php echo $billet->getNumber();?>"/><br/>
                 <input name="commentDate" type="hidden"/><br/>
                 <input name="status" type="hidden" value="non lu"/><br />

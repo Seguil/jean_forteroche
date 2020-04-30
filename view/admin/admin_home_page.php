@@ -6,32 +6,31 @@
     <nav>
         <ul>
             <?php foreach($billets as $bil):?>
-                <div class="billet">
+                <li class="billet">
                     <a href="<?php echo HOST;?>admin-billet-page.html/number/<?php echo $bil->getNumber(); ?>">
                         <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
                         <h3><?php echo htmlspecialchars_decode($bil->getTitle());?></h3>
                     </a>
-                </div>
+                </li>
             <?php endforeach; ?>
         </ul>
     </nav>
 
     <div id="aside_pagination">
         <div class="pagination">
-                <?php
-                    if($pageCourante>1) { ?>
-                        <a href="?page=<?php echo $pageCourante - 1; ?>" class="following_chapters">Chapitres suivants</a>
-                    <?php };
-                ?>
-            </div>
+            <?php
+                if($pageCourante>1) { ?>
+                    <a href="?page=<?php echo $pageCourante - 1; ?>" class="following_chapters">Chapitres suivants</a>
+                <?php };
+            ?>
+        </div>
 
-            <div class="pagination">
-                <?php
-                    if($pageCourante<$pagesTotales) { ?>
-                        <a href="?page=<?php echo $pageCourante + 1; ?>" class="previous_chapters">Chapitres précédents</a>
-                    <?php };
-                ?>
-            </div>
+        <div class="pagination">
+            <?php
+                if($pageCourante<$pagesTotales) { ?>
+                    <a href="?page=<?php echo $pageCourante + 1; ?>" class="previous_chapters">Chapitres précédents</a>
+                <?php };
+            ?>
         </div>
     </div>
 </aside>
@@ -50,7 +49,7 @@
                     <label for="title">Titre</label>
                         <input type="text" name="title" id="title" />
                     <label for="content">Contenu</label>
-                        <input type="text" name="content" class="mytextarea" />                
+                        <input type="text" name="content" class="mytextarea" id="content" />                
                     <div class="tdbutton submitform billet_only">
                         <!-- Enregistrer en tant que brouillon -->
                         <button type="submit" name="status" value="non published" title="Enregistrer"><i class="fas fa-save"></i></button>

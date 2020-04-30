@@ -4,6 +4,8 @@
 
 <div id="container">
     <article>
+        <h4>Modifier un chapitre</h4>
+
         <div id="writing_billet">
             <form action="<?php echo HOST;?>update-change-billet.html" method="post">
                 <input type="hidden" name="id" value="<?php echo $billet->getId();?>"/>
@@ -12,7 +14,7 @@
                 <label for="title">Titre</label>
                     <input type="text" name="title" id="title" value="<?php echo $billet->getTitle();?>"/>
                 <label for="content">Contenu</label>
-                    <input type="text" name="content" class="mytextarea" value="<?php echo $billet->getContent();?>"/>
+                    <input type="text" name="content" id="content" class="mytextarea" value="<?php echo $billet->getContent();?>"/>
                 <!-- Enregistrer en tant que brouillon -->
                 <div class="tdbutton submitform">
                     <button type="submit" name="status" value="non published"><i class="fas fa-save"></i></button>

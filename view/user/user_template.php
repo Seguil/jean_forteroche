@@ -41,7 +41,7 @@
     <!-- Header -->
     <header>
             <div id="photoJF">
-                <img src="<?php echo ASSETS?>img/portrait.jpg" alt="Portrait de Jean Forteroche";/>
+                <img src="<?php echo ASSETS?>img/portrait.jpg" alt="Portrait de Jean Forteroche"/>
             </div>
             <h1>Billet simple pour l' Alaska</h1>
     </header>
@@ -62,9 +62,9 @@
         <div id="form">             
             <form id="form_connection" action="<?php echo HOST ;?>connection-admin.html" method="post">
                 <label for="username_connect">Pseudo</label>
-                    <input type="text" name="username_connect" required/>
+                    <input id="username_connect" type="text" name="username_connect" required/>
                 <label for="password">Mot de passe</label>
-                    <input type="password" name="password_connect" required/>
+                    <input id="password" type="password" name="password_connect" required/>
                 <input type="submit" value="Se connecter"/>
                 <button id="annulation_connect">Annuler</button>
             </form>

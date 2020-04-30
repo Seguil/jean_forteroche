@@ -34,12 +34,12 @@
     <nav>
         <ul>
             <?php foreach($billets as $bil):?>
-                <div class="billet">
+                <li class="billet">
                     <a href="<?php echo HOST;?>user-billet-page.html/number/<?php echo $bil->getNumber(); ?>">
                         <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
                         <h3><?php echo htmlspecialchars_decode($bil->getTitle());?></h3>
                     </a>
-                </div>
+                </li>
             <?php endforeach; ?>
         </ul>
     </nav>

@@ -8,32 +8,31 @@
     <nav>
         <ul>
             <?php foreach($billets as $bil):?>
-                <div class="billet">
+                <li class="billet">
                     <a href="<?php echo HOST;?>admin-billet-page.html/number/<?php echo $bil->getNumber(); ?>">
                         <h2>Chapitre n°<?php echo $bil->getNumber();?></h2>
                         <h3><?php echo $bil->getTitle();?></h3>
                     </a>
-                </div>
+                </li>
             <?php endforeach; ?>
         </ul>
     </nav>
 
     <div id="aside_pagination">
         <div class="pagination">
-                <?php
-                    if($pageCourante>1) { ?>
-                        <a href="?page=<?php echo $pageCourante - 1; ?>" class="following_chapters">Chapitres suivants</a>
-                    <?php };
-                ?>
-            </div>
+            <?php
+                if($pageCourante>1) { ?>
+                    <a href="?page=<?php echo $pageCourante - 1; ?>" class="following_chapters">Chapitres suivants</a>
+                <?php };
+            ?>
+        </div>
 
-            <div class="pagination">
-                <?php
-                    if($pageCourante<$pagesTotales) { ?>
-                        <a href="?page=<?php echo $pageCourante + 1; ?>" class="previous_chapters">Chapitres précédents</a>
-                    <?php };
-                ?>
-            </div>
+        <div class="pagination">
+            <?php
+                if($pageCourante<$pagesTotales) { ?>
+                    <a href="?page=<?php echo $pageCourante + 1; ?>" class="previous_chapters">Chapitres précédents</a>
+                <?php };
+            ?>
         </div>
     </div>
 </aside>
@@ -80,7 +79,7 @@
                 <label for="pseudo">Pseudo :</label>
                     <input type="text" name="pseudo" id="pseudo" required/>
                 <label for="message">Message :</label>
-                    <input type="text" name="message" id="message" required maxlength="250" rows="5"/>
+                    <input type="text" name="message" id="message" required maxlength="250"/>
                 <input name="billet" type="hidden" value="<?php echo $billet->getNumber();?>"/><br/>
                 <input name="commentDate" type="hidden"/><br/>
                 <input name="status" type="hidden" value="non lu"/><br />

@@ -22,7 +22,7 @@
     <!-- Header -->
     <header>
         <div id="photoJF">
-            <img src="<?php echo ASSETS?>img/portrait.jpg" alt="Portrait de Jean Forteroche";/>
+            <img src="<?php echo ASSETS?>img/portrait.jpg" alt="Portrait de Jean Forteroche"/>
         </div>
 
         <h1>Billet simple pour l' Alaska</h1>
